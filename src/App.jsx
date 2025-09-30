@@ -1,6 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Layout
 import Layout from "./layout/Layout";
+
+// Страницы
 import MainPage from "./pages/Main/MainPage";
 import CategoriesPage from "./pages/Categories/CategoriesPage";
 import CategoryPage from "./pages/Category/CategoryPage";
@@ -9,15 +13,11 @@ import DiscountsPage from "./pages/Discounts/DiscountsPage";
 import ProductPage from "./pages/Product/ProductPage";
 import CartPage from "./pages/Cart/CartPage";
 import SuccessPage from "./pages/CheckoutSuccess/SuccessPage";
-import No from "./pages/NotFound/No";
-
-import './App.css'
+import NotFoundPage from "./pages/NotFound/NotFoundPage";
 
 function App() {
-  
-
   return (
-     <BrowserRouter>
+    <BrowserRouter>
       <Layout>
         <Routes>
           <Route path="/" element={<MainPage />} />
@@ -28,10 +28,11 @@ function App() {
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/success" element={<SuccessPage />} />
-          <Route path="*" element={<No />} />
- </Routes>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </Layout>
     </BrowserRouter>
   );
 }
-export default App
+
+export default App;
