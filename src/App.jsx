@@ -13,7 +13,7 @@ import DiscountsPage from "./pages/Discounts/DiscountsPage";
 import ProductPage from "./pages/Product/ProductPage";
 import CartPage from "./pages/Cart/CartPage";
 import SuccessPage from "./pages/CheckoutSuccess/SuccessPage";
-import NotFoundPage from "./pages/NotFound/NotFoundPage";
+import NotFoundPage from "./pages/No/NotFoundPage";
 
 function App() {
   return (

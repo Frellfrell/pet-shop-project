@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-import logo from "../../assets/icons/logo.svg"; 
+import logo from "../../assets/logo.svg"; 
 import cartVector from "../../assets/Vector.svg"; // пустая корзина
 import cartItem from "../../assets/item.svg"; // корзина с
 
