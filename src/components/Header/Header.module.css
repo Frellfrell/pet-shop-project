@@ -1,0 +1,64 @@
+.header {
+  width: 100%;
+  height: 128px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+}
+
+.nav {
+  display: flex;
+  gap: 40px; /* расстояние между ссылками */
+  justify-content: center;
+  flex: 1;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: #555555;
+}
+
+.cartContainer {
+  position: relative; /* важно для overlay */
+}
+
+.cartLink {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cartVector {
+  width: 48px;
+  height: 48px;
+}
+
+.cartItem {
+  position: absolute;
+  top: 0;  /* левый верхний угол корзины */
+  left: 0;
+  width: 26px;  
+  height: 26px;
+}
+
