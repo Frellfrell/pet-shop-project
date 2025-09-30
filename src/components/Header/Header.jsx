@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo.svg"; 
 import cartVector from "../../assets/Vector.svg"; // пустая корзина
-import cartItem from "../../assets/item.svg"; // корзина с
+import cartItem from "../../assets/item.svg";// корзина с
+
 
 const Header = () => {
   const cartItemCount = 3; // к Redux
@@ -16,7 +17,6 @@ const Header = () => {
           <img src={logo} alt="Logo" className={styles.logo} />
         </Link>
       </div>
-
       {/* Навигация */}
       <nav className={styles.nav}>
         <Link to="/" className={styles.navLink}>Main Page</Link>
