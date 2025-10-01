@@ -1,7 +1,8 @@
 import React from "react";
+import PromoBanner from "../../components/PromoBanner/PromoBanner";
 
 const MainPage = () => {
-  return <div>Main Page</div>;
+  return <div><PromoBanner /></div>;
 };
 
 export default MainPage;
