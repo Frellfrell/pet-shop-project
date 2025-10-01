@@ -1,72 +1,31 @@
 .categoriesSection {
-  width: 100%;
-  max-width: 1360px; /* учитывая паддинги 40px слева и справа */
-  padding: 0 40px;
-  box-sizing: border-box;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.title {
-  font-size: 32px;
-  font-weight: 700;
-}
-
-.allBtn {
-  text-decoration: none;
-  color: #0d50ff; /* primary color */
-  position: relative;
-}
-
-.allBtn::before {
-  content: "";
-  position: absolute;
-  left: -100%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: calc(100% + 16px);
-  height: 1px;
-  background-color: rgba(221, 221, 221, 1); /* gray divider */
+  justify-content: space-between;
 }
 
 .cardsContainer {
   display: grid;
-  grid-template-columns: repeat(4, 316px);
-  grid-gap: 16px;
-  height: 392px;
-}
-
-.cardLink {
-  text-decoration: none;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px; /* можно заменить на spacing.md из style.js, если нужно */
 }
 
 .card {
-  width: 316px;
-  height: 392px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  border: 1px solid rgba(221, 221, 221, 1);
-  border-radius: 5px;
+  text-align: center;
   overflow: hidden;
 }
 
-.card img {
+.cardImage {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .cardTitle {
-  margin-top: 16px;
-  font-size: 18px;
-  font-weight: 500;
-  color: rgba(40, 40, 40, 1);
-  text-align: center;
+  margin-top: 8px; 
 }
