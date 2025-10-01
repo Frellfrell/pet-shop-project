@@ -12,8 +12,9 @@
 }
 
 .leftColumn {
-  font-size: 24px;
+  font-size: 64px;
   font-weight: bold;
+  
 }
 
 .cardsGrid {
@@ -23,15 +24,24 @@
 }
 
 .card {
-  background-color: #ffffff;
+  background-color: #F1F3F4;
   padding: 20px;
   border-radius: 8px;
 }
+.card h3 {
+  color: #8B8B8B;
 
+}
+.card p {
+  font-size: 40px;
+  color: #282828;
+font-weight: 600;
+}
 .socialIcons img {
-  width: 32px;
-  height: 32px;
+  width: 43px;
+  height: 43px;
   margin-right: 8px;
+  padding: 20px 0;
 }
 
 .mapContainer {

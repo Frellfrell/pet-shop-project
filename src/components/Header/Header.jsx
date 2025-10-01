@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo.svg"; 
 import cartVector from "../../assets/Vector.svg"; // пустая корзина
-import cartItem from "../../assets/item.svg";// корзина с
+
 
 
 const Header = () => {
-  const cartItemCount = 3; // к Redux
+  {/*const cartItemCount = 3; */} // к Redux
 
   return (
     <header className={styles.header}>
@@ -29,9 +29,9 @@ const Header = () => {
       <div className={styles.cartContainer}>
         <Link to="/cart" className={styles.cartLink}>
           <img src={cartVector} alt="Vector" className={styles.cartVector} />
-          {cartItemCount > 0 && (
+          {/*cartItemCount > 0 && (
             <img src={cartItem} alt="Cart Item" className={styles.cartItem} />
-          )}
+          )*/}
         </Link>
       </div>
     </header>
