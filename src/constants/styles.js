@@ -1,0 +1,43 @@
+export const colors = {
+   primary: "rgba(13,80,255,1)",       // основной цвет кнопок
+  secondary: "rgba(40,40,40,1)",      // черный текст
+  background: "rgba(255,255,255,1)",  // белый
+  grayDivider: "rgba(221,221,221,1)", // бордер карточек
+  txtGrey: "rgba(139,139,139,1)",     // мелкий серый текст
+};
+export const typography = {
+  TBlack: {
+    fontWeight: 700,
+    color: colors.secondary,
+  },
+  TGrey: {
+    fontWeight: 400,
+    color: colors.txtGrey,
+  },
+};
+
+
+export const radii = {
+  small: "5px",
+  medium: "8px",
+  large: "12px",
+};
+
+export const spacing = {
+  xs: "4px",
+  sm: "8px",
+  md: "16px",
+  lg: "24px",
+  xl: "40px",
+};
+
+export const button = {
+  width: "218px",
+  height: "58px",
+  borderRadius: radii.small,
+  backgroundColor: colors.primary,
+  color: colors.background,
+};
+export const borders = {
+  grayDivider: `1px solid ${colors.grayDivider}`,
+};
