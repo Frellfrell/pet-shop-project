@@ -1,1 +1,33 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
 
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  background: transparent;
+   
+}
+
+
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .imageBox {
+    order: 2;
+    width: 100%;
+    height: auto;
+  }
+
+  .formBox {
+    order: 1;
+    width: 100%;
+  }
+}
