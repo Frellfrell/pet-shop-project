@@ -11,9 +11,9 @@ const DiscountOffer = () => {
   const onChange = (e) => setForm((s) => ({ ...s, [e.target.name]: e.target.value }));
 
   const validate = () => {
-    if (!form.name.trim()) return "Введите имя";
-    if (!form.phone.trim()) return "Введите телефон";
-    if (!form.email.trim()) return "Введите email";
+    if (!form.name.trim()) return "Name is required";
+    if (!form.phone.trim()) return "Phone number is required";
+    if (!form.email.trim()) return "Email is required";
     return null;
   };
 
@@ -36,15 +36,15 @@ const DiscountOffer = () => {
 
       if (!resp.ok) {
         const text = await resp.text().catch(() => "");
-        throw new Error(`Ошибка ${resp.status}: ${text}`);
+        throw new Error(`Error ${resp.status}: ${text}`);
       }
 
       alert("Заявка отправлена! Спасибо 🎉");
       setForm({ name: "", phone: "", email: "" });
     } catch (error) {
       setLoading(false);
-      console.error("Ошибка при отправке формы:", error);
-      alert("Ошибка при отправке. Попробуйте позже.");
+      console.error("Error при отправке формы:", error);
+      alert("Error при отправке. Попробуйте позже.");
     }
   };
 
@@ -52,14 +52,16 @@ const DiscountOffer = () => {
     <section
       className={styles.discountSection}
       style={{
-        marginTop: "100px",
+        marginTop: "150px",
+        marginLeft: spacing.xl,
+        marginRight: spacing.xl,
         marginBottom: "80px",
         backgroundColor: colors.primary,
-        padding: spacing.xl,
+        
         borderRadius: radii.large,
-        maxWidth: "1360px",
+        
         maxHeight: "486px",
-        margin: "auto",
+       
       }}
     >
       <h2
@@ -70,71 +72,87 @@ const DiscountOffer = () => {
           lineHeight: "70px",
           margin: "0",
           textAlign: "center",
+          paddingTop: "32px",
           marginBottom: spacing.lg,
         }}
       >
         5% off on the first order
       </h2>
 
-      <div className={styles.content} style={{ gap: spacing.md}}>
-        {/* Image box (лево) */}
+      {/* Контейнер с картинкой и формой */}
+      <div
+        className={styles.content}
+        style={{
+          
+          gap: "32px",
+          
+          height: "360px",
+         
+        }}
+      >
+        {/* Левая картинка */}
         <div
           className={styles.imageBox}
           style={{
-            flex: 1,
-            maxWidth: "783px",
-            maxHeight: "360px",
+           
             display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-end",
+           
           }}
         >
           <img
             src={discountImg}
             alt="Discount"
-            style={{ maxHeight: "360px", width: "100%", objectFit: "contain", marginBottom: "-150px" }}
+            style={{
+              maxHeight: "360px",
+              width: "100%",
+              objectFit: "contain",
+            }}
           />
         </div>
 
-        {/* Form box (право) */}
+        {/* Правая форма */}
         <form
           className={styles.formBox}
           onSubmit={onSubmit}
           style={{
             flex: 1,
-            minHeight: "516px",
-            borderRadius: radii.large,
-            backgroundColor: colors.primary,
-            padding: spacing.lg,
+            maxWidth: "40%",
+            maxHeight: "296px",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "end",
-            gap: spacing.md,
-            paddingBottom: "32px",
+            justifyContent: "flex-end",
+            gap: "32px",
+            marginBottom: "32px",
+            padding: spacing.md,
+            borderRadius: radii.large,
+            backgroundColor: colors.primary,
           }}
         >
           <input
-          type="text"
+            type="text"
             name="name"
             value={form.name}
             onChange={onChange}
             placeholder="Name"
-            className={styles.input}
             style={{
               color: colors.background,
+               backgroundColor: colors.primary,
               border: `1px solid ${colors.background}`,
               borderRadius: radii.small,
               padding: spacing.sm,
               fontSize: "26px",
             }}
           />
-
           <input
-          type="text"
+            type="text"
             name="phone"
             value={form.phone}
             onChange={onChange}
             placeholder="Phone number"
-            className={styles.input}
             style={{
+                 backgroundColor: colors.primary,
               color: colors.background,
               border: `1px solid ${colors.background}`,
               borderRadius: radii.small,
@@ -142,14 +160,14 @@ const DiscountOffer = () => {
               fontSize: "26px",
             }}
           />
-          <div style={{ height: 58 }}> 
           <input
+            type="text"
             name="email"
             value={form.email}
             onChange={onChange}
             placeholder="Email"
-            className={styles.input}
             style={{
+                 backgroundColor: colors.primary,
               color: colors.background,
               border: `1px solid ${colors.background}`,
               borderRadius: radii.small,
@@ -157,7 +175,6 @@ const DiscountOffer = () => {
               fontSize: "26px",
             }}
           />
-            </div>
           <button
             type="submit"
             disabled={loading}
@@ -169,10 +186,10 @@ const DiscountOffer = () => {
               padding: `${spacing.sm} ${spacing.lg}`,
               borderRadius: radii.small,
               cursor: "pointer",
-              fontWeight: 600,
+              fontWeight: "600",
             }}
           >
-            {loading  ? "Отправка..." : "Get a discount"}
+            {loading ? "Отправка..." : "Get a discount"}
           </button>
         </form>
       </div>
