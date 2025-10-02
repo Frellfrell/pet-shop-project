@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "./Sales.module.css";
 import { Link } from "react-router-dom";
 import { colors, spacing, radii, typography, borders } from "../../constants/styles";
-import { BASE_URL } from "../../constants";
+import { BASE_URL } from "../../constants/index";
 
 const Sales = () => {
   const [sales, setSales] = useState([]);
@@ -11,12 +11,12 @@ const Sales = () => {
   useEffect(() => {
     const fetchSales = async () => {
       try {
-        const resp = await axios.get(`${BASE_URL}/products`); // или /sales если есть endpoint
+        const resp = await axios.get(`${BASE_URL}/products`); 
         // Берем первые 4 товара со скидкой
         const firstFour = resp.data.filter(item => item.discount > 0).slice(0, 4);
         setSales(firstFour);
       } catch (error) {
-        console.error("Ошибка при загрузке товаров со скидкой:", error);
+        console.error("Error при загрузке товаров со скидкой:", error);
       }
     };
 

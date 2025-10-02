@@ -2,6 +2,7 @@ import React from "react";
 import PromoBanner from "../../components/PromoBanner/PromoBanner";
 import CategoriesSection from "../../components/CategoriesSection/CategoriesSection";
 import DiscountOffer from "../../components/DiscountOffer/DiscountOffer";
+import Sales from "../../components/Sales/Sales";
 
 const MainPage = () => {
   return (
@@ -9,6 +10,7 @@ const MainPage = () => {
       <PromoBanner />
       <CategoriesSection />
       <DiscountOffer />
+      <Sales />
     </div>
   );
 };
