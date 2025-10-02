@@ -61,7 +61,7 @@ const Sales = () => {
             justifyContent: "space-between",
              alignItems: "center",
              
-               height: "392px" }}>
+               height: "422px" }}>
          {loading ? (
           <p style={{ ...typography.TGrey }}>Загрузка...</p>
         ) : error ? (
@@ -76,12 +76,14 @@ const Sales = () => {
            >
              <div className={styles.card}
              style={{
+              display: "flex",
+               width: "316px",
                   height: "422px",
                  border: borders.grayDivider,
                  borderRadius: radii.small,
                   flexDirection: "column",
                    alignItems: "center",
-                   justifyContent: "center",
+                  
                    gap: spacing.sm,
                    padding: spacing.sm,
                    backgroundColor: colors.background,
@@ -91,7 +93,9 @@ const Sales = () => {
                  alt={product.title} 
                  className={styles.cardImage}
                  />
-                 <div> 
+
+                 <div className={styles.cardBox}>
+
                {<p className={styles.cardTitle} style={typography.TBlack}>
                   {product.title}
                </p>}
@@ -100,7 +104,7 @@ const Sales = () => {
       className={styles.priceBox}
       style={{
         display: "flex",
-        
+        gap: spacing.md,
         justifyContent: "flex-start", // чтобы цена была слева
         width: "100%",
       }}
@@ -109,14 +113,14 @@ const Sales = () => {
         className={styles.price}
         style={{
           ...typography.TBlack,
-          fontSize: "20px",
+          fontSize: "44px",
           fontWeight: "bold",
           color: colors.secondary,
         }}
       >
         {product.price}$
       </span>
-      <span style={{ textDecoration: "line-through", color: colors.txtGrey }}>
+      <span style={{ textDecoration: "line-through",fontSize: "26px", marginTop: spacing.md, color: colors.txtGrey }}>
     {product.discont_price}$
   </span>
     </div>
