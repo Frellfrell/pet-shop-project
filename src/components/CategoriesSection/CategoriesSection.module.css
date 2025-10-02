@@ -13,7 +13,7 @@
 .cardsContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px; /* можно заменить на spacing.md из style.js, если нужно */
+  gap: 16px; 
 }
 
 .card {

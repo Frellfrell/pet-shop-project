@@ -6,15 +6,15 @@ import { colors, spacing, radii, typography, borders } from "../../constants/sty
 import { BASE_URL } from "../../constants/index";
 
 const Sales = () => {
-  const [sales, setSales] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchSales = async () => {
       try {
-        const resp = await axios.get(`${BASE_URL}/products`); 
+        const resp = await axios.get(`${BASE_URL}/sales`); 
         // Берем первые 4 товара со скидкой
-        const firstFour = resp.data.filter(item => item.discount > 0).slice(0, 4);
-        setSales(firstFour);
+        const firstFour = resp.data.filter(item => <item className="sales">{item.discount}</item> > 0).slice(0, 4);
+        setCategories(firstFour);
       } catch (error) {
         console.error("Error при загрузке товаров со скидкой:", error);
       }
@@ -24,74 +24,91 @@ const Sales = () => {
   }, []);
 
   return (
-    <section
-      className={styles.salesSection}
-      style={{
-        padding: `${spacing.xl} ${spacing.xl}`,
-        maxWidth: 1360,
-        margin: "auto",
-      }}
-    >
-      {/* Заголовок и Divider */}
-      <div style={{ display: "flex", alignItems: "center", marginBottom: spacing.lg }}>
-        <h2 style={{ ...typography.TBlack, fontSize: 32, margin: 0 }}>Sales</h2>
-        <div
-          style={{
-            flexGrow: 1,
-            height: "1px",
-            backgroundColor: colors.grayDivider,
-            marginLeft: spacing.md,
-          }}
-        />
-      </div>
-
-      {/* Карточки */}
-      <div
-        className={styles.cardsContainer}
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          gap: spacing.md,
-        }}
-      >
-        {sales.length > 0 ? (
-          sales.map(item => (
-            <Link
-              key={item.id}
-              to={`/product/${item.id}`}
-              style={{ textDecoration: "none", flex: "1 1 0" }}
-            >
-              <div
-                className={styles.card}
-                style={{
-                  border: borders.grayDivider,
-                  borderRadius: radii.small,
-                  padding: spacing.sm,
-                  display: "flex",
+     <section className={styles.SalesSection} 
+     style={{ padding: `${spacing.xl} ${spacing.xl}` }}>
+       {/* Заголовок и кнопка All Categories */}
+       <div className={styles.header} style={{ marginBottom: spacing.xl,  gap: spacing.md,  }}>
+         <h2 className={styles.title} style={{ ...typography.TBlack, fontSize: "64px" }}>Sale</h2>
+ 
+         <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+           <div
+             style={{
+               width: "832px",
+               height: "1px",
+               backgroundColor: colors.grayDivider,
+             }}
+           />
+         
+         {/* Divider */}
+         <div style={{  display: "flex", alignItems: "center" }}></div>
+           <div
+             style={{
+                
+               position: "absolute",
+               
+               width: "832px",
+               height: "1px",
+              
+             }}
+         />
+         <Link to="/sales" className={styles.allBtn}
+         style={{
+             
+             color: colors.txtGrey,
+             textDecoration: "none",
+             fontWeight: 500,
+             padding: spacing.sm,
+             borderRadius: radii.small,
+             border: `1px solid ${colors.txtGrey}`,
+             paddingBottom: spacing.xs,
+           }}
+           >
+             All Categories
+             </Link>
+       </div>
+         </div>
+       {/* Сетка карточек категорий */}
+       <div className={styles.cardsContainer} style={{
+            justifyContent: "space-between",
+             alignItems: "center",
+             
+               height: "392px" }}>
+         {categories.length > 0 ? (categories.slice(0, 4).map((category) => (
+           <Link
+             key={category.id}
+             to={`/category/${category.id}`}
+             className={styles.cardLink}
+             style={{ textDecoration: "none" }}
+           >
+             <div className={styles.card}
+             style={{
+                  height: "316px",
+                 border: borders.grayDivider,
+                 borderRadius: radii.small,
                   flexDirection: "column",
-                  alignItems: "center",
-                  gap: spacing.sm,
-                  backgroundColor: colors.background,
-                }}
-              >
-                <img
-                  src={`${BASE_URL}${item.image}`}
-                  alt={item.title}
-                  style={{ width: "100%", height: "200px", objectFit: "cover" }}
-                />
-                <p style={{ ...typography.TBlack, fontSize: 18, margin: 0 }}>{item.title}</p>
-                <p style={{ ...typography.TBlack, fontSize: 16, color: colors.primary }}>
-                  ${item.price.toFixed(2)}
-                </p>
-              </div>
-            </Link>
-          ))
-        ) : (
-          <p style={{ ...typography.TGrey }}>No sale products available.</p>
-        )}
-      </div>
-    </section>
-  );
-};
-
-export default Sales;
+                   alignItems: "center",
+                   justifyContent: "center",
+                   gap: spacing.sm,
+                   padding: spacing.sm,
+                   backgroundColor: colors.background,
+               }}
+               >
+               <img src={`${BASE_URL}${category.image}`} 
+                 alt={category.title} 
+                 className={styles.cardImage}
+                 />
+               {<p className={styles.cardTitle} style={typography.TBlack}>
+                  {category.title}
+               </p>}
+             </div>
+           </Link>
+         ))
+         ) : (
+           <p style={{ ...typography.TGrey, fontSize: "18px" }}>No categories available.</p>
+         )}
+       </div>
+     </section>
+   );
+ };
+ export default Sales;
+ 
