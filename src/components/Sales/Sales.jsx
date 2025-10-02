@@ -1,27 +1,19 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllProducts } from "../../store/actions/products";
 import styles from "./Sales.module.css";
 import { Link } from "react-router-dom";
 import { colors, spacing, radii, typography, borders } from "../../constants/styles";
 import { BASE_URL } from "../../constants/index";
 
 const Sales = () => {
-  const [categories, setCategories] = useState([]);
-
+  const dispatch = useDispatch();
+  const { items: products, loading, error } = useSelector((state) => state.products);
   useEffect(() => {
-    const fetchSales = async () => {
-      try {
-        const resp = await axios.get(`${BASE_URL}/sales`); 
-        // Берем первые 4 товара со скидкой
-        const firstFour = resp.data.filter(item => <item className="sales">{item.discount}</item> > 0).slice(0, 4);
-        setCategories(firstFour);
-      } catch (error) {
-        console.error("Error при загрузке товаров со скидкой:", error);
-      }
-    };
+    dispatch(fetchAllProducts()); // при монтировании подгружаем товары
+  }, [dispatch]);
 
-    fetchSales();
-  }, []);
+  const discountedProducts = products.slice(0, 4); // первые 4 товара
 
   return (
      <section className={styles.SalesSection} 
@@ -42,13 +34,10 @@ const Sales = () => {
          {/* Divider */}
          <div style={{  display: "flex", alignItems: "center" }}></div>
            <div
-             style={{
-                
+             style={{ 
                position: "absolute",
-               
                width: "832px",
                height: "1px",
-              
              }}
          />
          <Link to="/sales" className={styles.allBtn}
@@ -73,10 +62,15 @@ const Sales = () => {
              alignItems: "center",
              
                height: "392px" }}>
-         {categories.length > 0 ? (categories.slice(0, 4).map((category) => (
+         {loading ? (
+          <p style={{ ...typography.TGrey }}>Загрузка...</p>
+        ) : error ? (
+          <p style={{ ...typography.TGrey }}>Ошибка: {error}</p>
+        ) : discountedProducts.length > 0 ? (
+          discountedProducts.map((product) => (
            <Link
-             key={category.id}
-             to={`/category/${category.id}`}
+             key={product.id}
+             to={`/category/${product.id}`}
              className={styles.cardLink}
              style={{ textDecoration: "none" }}
            >
@@ -93,12 +87,12 @@ const Sales = () => {
                    backgroundColor: colors.background,
                }}
                >
-               <img src={`${BASE_URL}${category.image}`} 
-                 alt={category.title} 
+               <img src={`${BASE_URL}${product.image}`} 
+                 alt={product.title} 
                  className={styles.cardImage}
                  />
                {<p className={styles.cardTitle} style={typography.TBlack}>
-                  {category.title}
+                  {product.title}
                </p>}
              </div>
            </Link>
