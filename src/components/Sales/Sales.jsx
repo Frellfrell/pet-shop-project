@@ -76,7 +76,7 @@ const Sales = () => {
            >
              <div className={styles.card}
              style={{
-                  height: "316px",
+                  height: "422px",
                  border: borders.grayDivider,
                  borderRadius: radii.small,
                   flexDirection: "column",
@@ -94,6 +94,31 @@ const Sales = () => {
                {<p className={styles.cardTitle} style={typography.TBlack}>
                   {product.title}
                </p>}
+                {/* Блок с ценой */}
+    <div
+      className={styles.priceBox}
+      style={{
+        display: "flex",
+        
+        justifyContent: "flex-start", // чтобы цена была слева
+        width: "100%",
+      }}
+    >
+      <span
+        className={styles.price}
+        style={{
+          ...typography.TBlack,
+          fontSize: "20px",
+          fontWeight: "bold",
+          color: colors.secondary,
+        }}
+      >
+        {product.price}$
+      </span>
+      <span style={{ textDecoration: "line-through", color: colors.txtGrey }}>
+    {product.discont_price}$
+  </span>
+    </div>
              </div>
            </Link>
          ))
