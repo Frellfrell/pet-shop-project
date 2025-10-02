@@ -91,6 +91,7 @@ const Sales = () => {
                  alt={product.title} 
                  className={styles.cardImage}
                  />
+                 <div> 
                {<p className={styles.cardTitle} style={typography.TBlack}>
                   {product.title}
                </p>}
@@ -119,6 +120,7 @@ const Sales = () => {
     {product.discont_price}$
   </span>
     </div>
+                  </div>
              </div>
            </Link>
          ))
