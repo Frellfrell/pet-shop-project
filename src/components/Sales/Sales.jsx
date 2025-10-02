@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllProducts } from "../../store/actions/products";
+import { fetchAllProducts } from "../../redux/actions/products";
 import styles from "./Sales.module.css";
 import { Link } from "react-router-dom";
 import { colors, spacing, radii, typography, borders } from "../../constants/styles";
