@@ -8,7 +8,7 @@ const MainPage = () => {
   return (
     <div>
       <PromoBanner />
-      <CategoriesSection limit={4} />
+      <CategoriesSection hideAllCategories={false} limit={4} />
       <DiscountOffer />
       <Sales />
     </div>
