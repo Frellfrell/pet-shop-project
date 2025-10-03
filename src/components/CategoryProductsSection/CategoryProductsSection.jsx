@@ -23,7 +23,7 @@ const CategoryProductsSection = ({ products, isDiscountPage = false }) => {
 
       {/* Сетка карточек продуктов */}
       <div className={styles.cardsContainer}>
-        {filteredProducts.length > 0 ? (
+        {filteredProducts.length >= 8 ? (
           filteredProducts.map((product) => (
             <ProductCard
               key={product.id}
