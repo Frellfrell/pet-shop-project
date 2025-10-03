@@ -16,7 +16,7 @@ const CategoriesPage = () => {
   }, []);
 
   return (
-    <div style={{ padding: '0 24px' }}>
+    <div style={{ padding: '40px 0px' }}>
       <BreadCrumbs breadCrumbs={breadCrumbsData} />
        <CategoriesSection hideAllCategories={true} />
     </div>
