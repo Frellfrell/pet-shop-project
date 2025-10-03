@@ -99,7 +99,7 @@ const Sales = () => {
                  />
                 <DiscountCard
                   price={product.price}
-                  discount_price={product.discont_price}
+                  discont_price={product.discont_price}
                 />
                  <div className={styles.cardBox}>
 

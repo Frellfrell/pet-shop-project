@@ -4,11 +4,16 @@ import { colors } from "../../constants/styles";
 
 
 const DiscountCard = ({ price, discont_price }) => {
-  if (!discont_price) return null;
+  {/*if (!discont_price) return null;*/}
+console.log('DiscountCard props:', { price, discont_price });
+ const priceNum = Number(price);
+const discontPriceNum = Number(discont_price);
+const discont = Math.round(((priceNum - discontPriceNum) / priceNum) * 100);
+  
 
-  const discount = Math.round(((price - discont_price) / price) * 100);
+ 
 
-  if (discount <= 0) return null;
+  if (discont <= 0) return null;
 
   return (
         <div
@@ -25,7 +30,7 @@ const DiscountCard = ({ price, discont_price }) => {
             borderRadius: "8px",
           }}
         >
-          -{discount}%
+          -{discont}%
         </div> 
   );
 };
