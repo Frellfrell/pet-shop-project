@@ -27,7 +27,7 @@ const DiscountOffer = () => {
 
     try {
       setLoading(true);
-      const resp = await fetch(`${BASE_URL}/PostSaleSend`, {
+       const resp = await fetch(`${BASE_URL}/sale/send`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
