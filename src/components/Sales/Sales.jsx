@@ -78,6 +78,7 @@ const Sales = () => {
              <div className={styles.card}
              style={{
               display: "flex",
+              position: "relative",
                width: "316px",
                   height: "422px",
                  border: borders.grayDivider,
@@ -90,16 +91,16 @@ const Sales = () => {
                    backgroundColor: colors.background,
                }}
                >
-                 <DiscountCard
-                  price={product.price}
-                  discountPrice={product.discont_price}
-                />
                 
+
                <img src={`${BASE_URL}${product.image}`} 
                  alt={product.title} 
                  className={styles.cardImage}
                  />
-
+                <DiscountCard
+                  price={product.price}
+                  discount_price={product.discont_price}
+                />
                  <div className={styles.cardBox}>
 
                {<p className={styles.cardTitle} style={typography.TBlack}>
