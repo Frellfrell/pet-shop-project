@@ -18,7 +18,8 @@ const CategoriesPage = () => {
   return (
     <div style={{ padding: '40px 0px 106px' }}>
       <BreadCrumbs breadCrumbs={breadCrumbsData} />
-       <CategoriesSection hideAllCategories={true} limit={8} />
+
+       <CategoriesSection  hideAllCategories={true} limit={8} />
     </div>
   );
 };
