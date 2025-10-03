@@ -1,57 +1,59 @@
 import React from "react";
-import { Breadcrumbs, Typography, styled } from "@mui/material";
+import { Breadcrumbs, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 
 // Стили для кнопок хлебных крошек
-const BreadcrumbBtn = styled(Typography)(({ theme }) => ({
-  border: '1px solid rgba(221, 221, 221, 1)',
-  padding: '6px 12px',
-  borderRadius: '6px',
-  color: 'rgba(139, 139, 139, 1)',
-  fontWeight: 500,
-  fontSize: '14px',
-  textTransform: 'capitalize',
-  '&:hover': {
-    backgroundColor: 'rgba(221, 221, 221, 0.2)',
-  },
-}));
+const BreadcrumbBtn = ({ children, style }) => (
+  <Typography
+    style={{
+      border: "1px solid rgba(221, 221, 221, 1)",
+      padding: "6px",
+      borderRadius: "6px",
+      color: "rgba(139, 139, 139, 1)",
+      ...style,
+    }}
+  >
+    {children}
+  </Typography>
+);
 
-const BreadCrumbs = ({ breadCrumbs }) => {
+function BreadCrumbs({ breadCrumbs }) {
   return (
     <Breadcrumbs
       separator="-"
       aria-label="breadcrumb"
+      style={{
+        marginBottom: "24px",
+      }}
       sx={{
-        '& .MuiBreadcrumbs-separator': {
-          margin: '0 8px',
-          color: 'rgba(221, 221, 221, 1)',
+        "& .MuiBreadcrumbs-separator": {
+          margin: "0 10px",
+          transform: "scaleX(6)",
+          transformOrigin: "47%",
+          color: "rgba(221, 221, 221, 1)",
         },
       }}
     >
-      {breadCrumbs.map((crumb, index) =>
+      {breadCrumbs.map((breadCrumb, index) =>
         index !== breadCrumbs.length - 1 ? (
-          <RouterLink
-            key={crumb.name}
-            to={crumb.path}
-            style={{ textDecoration: 'none' }}
+          <Link
+            key={breadCrumb.path}
+            to={breadCrumb.path}
+            style={{ textDecoration: "none" }}
           >
-            <BreadcrumbBtn>{crumb.name}</BreadcrumbBtn>
-          </RouterLink>
+            <BreadcrumbBtn>{breadCrumb.name}</BreadcrumbBtn>
+          </Link>
         ) : (
           <BreadcrumbBtn
-            key={crumb.name}
-            sx={{
-              color: 'black',
-              borderColor: 'black',
-              cursor: 'default',
-            }}
+            key={breadCrumb.path}
+            style={{ color: "black", borderColor: "black" }}
           >
-            {crumb.name}
+            {breadCrumb.name}
           </BreadcrumbBtn>
         )
       )}
     </Breadcrumbs>
   );
-};
+}
 
 export default BreadCrumbs;

@@ -15,7 +15,7 @@ const selectCategories = createSelector(
 
 
 
-const CategoriesSection = () => {
+const CategoriesSection = ({ hideAllCategories = false }) => {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
   console.log("Categories from Redux:", categories);
@@ -29,19 +29,19 @@ const CategoriesSection = () => {
     <section className={styles.categoriesSection} 
     style={{ padding: `${spacing.xl} ${spacing.xl}` }}>
       {/* Заголовок и кнопка All Categories */}
-      <div className={styles.header} style={{ marginBottom: spacing.xl,  gap: spacing.md,  }}>
+      <div className={styles.header} style={{ marginBottom: spacing.xl,  gap: spacing.md  }}>
         <h2 className={styles.title} style={{ ...typography.TBlack, fontSize: "64px" }}>Categories</h2>
-
-        <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
-          <div
-            style={{
-              width: "832px",
+        {!hideAllCategories && (
+          <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+            <div
+              style={{
+                width: "832px",
               height: "1px",
               backgroundColor: colors.grayDivider,
             }}
           />
         
-        {/* Divider */}
+        {/* Divider 
         <div style={{  display: "flex", alignItems: "center" }}></div>
           <div
             style={{
@@ -52,7 +52,8 @@ const CategoriesSection = () => {
               height: "1px",
              
             }}
-        />
+        />*/}
+        
         <Link to="/categories" className={styles.allBtn}
         style={{
             
@@ -68,6 +69,7 @@ const CategoriesSection = () => {
             All Categories
             </Link>
       </div>
+        )}
         </div>
       {/* Сетка карточек категорий */}
       <div className={styles.cardsContainer} style={{
