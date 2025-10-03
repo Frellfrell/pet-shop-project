@@ -15,7 +15,7 @@ const selectCategories = createSelector(
 
 
 
-const CategoriesSection = ({ hideAllCategories = false, limit }) => {
+const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
   console.log("Categories from Redux:", categories);
@@ -43,10 +43,7 @@ const CategoriesSection = ({ hideAllCategories = false, limit }) => {
               backgroundColor: colors.grayDivider,
             }}
           />
-        
-        {/* Divider 
-       
-        />*/}
+
         
         <Link to="/categories" className={styles.allBtn}
         style={{
