@@ -33,6 +33,7 @@ const CategoriesSection = ({ hideAllCategories = false }) => {
         <h2 className={styles.title} style={{ ...typography.TBlack, fontSize: "64px" }}>Categories</h2>
         {!hideAllCategories && (
           <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+             {/* Divider  />*/}
             <div
               style={{
                 width: "832px",
@@ -42,16 +43,7 @@ const CategoriesSection = ({ hideAllCategories = false }) => {
           />
         
         {/* Divider 
-        <div style={{  display: "flex", alignItems: "center" }}></div>
-          <div
-            style={{
-               
-              position: "absolute",
-              
-              width: "832px",
-              height: "1px",
-             
-            }}
+       
         />*/}
         
         <Link to="/categories" className={styles.allBtn}
