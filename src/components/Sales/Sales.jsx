@@ -5,6 +5,7 @@ import styles from "./Sales.module.css";
 import { Link } from "react-router-dom";
 import { colors, spacing, radii, typography, borders } from "../../constants/styles";
 import { BASE_URL } from "../../constants/index";
+import DiscountCard from "../DiscountCard/DiscountCard";
 
 const Sales = () => {
   const dispatch = useDispatch();
@@ -89,6 +90,11 @@ const Sales = () => {
                    backgroundColor: colors.background,
                }}
                >
+                 <DiscountCard
+                  price={product.price}
+                  discountPrice={product.discont_price}
+                />
+                
                <img src={`${BASE_URL}${product.image}`} 
                  alt={product.title} 
                  className={styles.cardImage}

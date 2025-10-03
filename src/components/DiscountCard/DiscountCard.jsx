@@ -1,25 +1,27 @@
 import React from "react";
-import styles from "./ProductCard.module.css";
+import styles from "./DiscountCard.module.css";
 import { colors } from "../../constants/styles";
 
-const ProductCard = ({ title, image, price, discont_price }) => {
-  const discount = discont_price
-    ? Math.round(((price - discont_price) / price) * 100)
-    : null;
+const DiscountCard = ({ price, discont_price }) => {
+  if (!discont_price) return null;
+
+  const discount = Math.round(((price - discont_price) / price) * 100);
+
+  if (discount <= 0) return null;
 
   return (
     <div className={styles.card}>
       {/* бейдж скидки */}
       {discount > 0 && (
         <div
-          className={styles.discountBadge}
+          className={styles.DiscountCard}
           style={{
             position: "absolute",
             top: "8px",
             right: "8px",
             width: "68px",
             height: "34px",
-            backgroundColor: colors.sale, // берём из constants
+            backgroundColor: colors.primary, // берём из constants
             color: colors.background,
             fontWeight: "600",
             fontSize: "16px",
@@ -33,22 +35,9 @@ const ProductCard = ({ title, image, price, discont_price }) => {
         </div>
       )}
 
-      <img src={image} alt={title} className={styles.image} />
-      <h3 className={styles.title}>{title}</h3>
-
-      {/* цены */}
-      <div className={styles.prices}>
-        {discont_price ? (
-          <>
-            <span className={styles.oldPrice}>{price} $</span>
-            <span className={styles.newPrice}>{discont_price} $</span>
-          </>
-        ) : (
-          <span className={styles.price}>{price} $</span>
-        )}
-      </div>
+      
     </div>
   );
 };
 
-export default ProductCard;
+export default DiscountCard;
