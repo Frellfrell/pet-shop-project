@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./DiscountCard.module.css";
 import { colors } from "../../constants/styles";
 
+
 const DiscountCard = ({ price, discont_price }) => {
   if (!discont_price) return null;
 
