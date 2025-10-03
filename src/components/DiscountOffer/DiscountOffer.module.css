@@ -5,13 +5,18 @@
   gap: 32px;
 }
 
-.input {
+.input {       
   width: 100%;
   box-sizing: border-box;
   outline: none;
-  background: transparent;
+ 
    
 }
-
+.input::placeholder {
+  color: #ffffff;
+  opacity: 0.7;
+  background: transparent;
+  
+}
 
 

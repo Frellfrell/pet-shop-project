@@ -130,14 +130,15 @@ const DiscountOffer = () => {
             backgroundColor: colors.primary,
           }}
         >
-          <input
+          <input className={styles.input}
             type="text"
             name="name"
             value={form.name}
             onChange={onChange}
             placeholder="Name"
             style={{
-              color: colors.background,
+             
+                color: colors.background,
                backgroundColor: colors.primary,
               border: `1px solid ${colors.background}`,
               borderRadius: radii.small,
@@ -145,7 +146,7 @@ const DiscountOffer = () => {
               fontSize: "26px",
             }}
           />
-          <input
+          <input className={styles.input}
             type="text"
             name="phone"
             value={form.phone}
@@ -160,7 +161,7 @@ const DiscountOffer = () => {
               fontSize: "26px",
             }}
           />
-          <input
+          <input className={styles.input}
             type="text"
             name="email"
             value={form.email}
