@@ -10,6 +10,7 @@ const BreadcrumbBtn = ({ children, style }) => (
       padding: "6px",
       borderRadius: "6px",
       color: "rgba(139, 139, 139, 1)",
+      
       ...style,
     }}
   >
@@ -23,7 +24,7 @@ function BreadCrumbs({ breadCrumbs }) {
       separator="-"
       aria-label="breadcrumb"
       style={{
-        marginBottom: "24px",
+        marginLeft: "40px",
       }}
       sx={{
         "& .MuiBreadcrumbs-separator": {
