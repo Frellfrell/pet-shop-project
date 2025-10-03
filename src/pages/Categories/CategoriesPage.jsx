@@ -1,7 +1,7 @@
 import React, { useEffect} from "react";
 import CategoriesSection from "../../components/CategoriesSection/CategoriesSection";
-import BreadCrumbs from "../components/BreadCrumbs/BreadCrumbs";
-import useScrollToTop from "../components/hooks/useScrollToTop";
+import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
+import useScrollToTop from "../../components/hooks/useScrollToTop";
 
 const CategoriesPage = () => {
   useScrollToTop();

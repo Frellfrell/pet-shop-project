@@ -1,6 +1,6 @@
 import React from "react";
 import { Breadcrumbs, Typography } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Стили для кнопок хлебных крошек
 const BreadcrumbBtn = ({ children, style }) => (
