@@ -15,7 +15,7 @@ const selectCategories = createSelector(
 
 
 
-const CategoriesSection = ({ hideAllCategories = false }) => {
+const CategoriesSection = ({ hideAllCategories = false, limit }) => {
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
   console.log("Categories from Redux:", categories);
@@ -24,6 +24,8 @@ const CategoriesSection = ({ hideAllCategories = false }) => {
   useEffect(() => {
     dispatch(fetchAllCategories());
   }, [dispatch]);
+
+  const visibleCategories = limit ? categories.slice(0, limit) : categories;
 
   return (
     <section className={styles.categoriesSection} 
@@ -69,7 +71,8 @@ const CategoriesSection = ({ hideAllCategories = false }) => {
             alignItems: "center",
             
               height: "392px" }}>
-        {categories.length > 0 ? (categories.slice(0, 4).map((category) => (
+         {visibleCategories.length > 0 ? (
+          visibleCategories.map((category) => (
           <Link
             key={category.id}
             to={`/category/${category.id}`}
