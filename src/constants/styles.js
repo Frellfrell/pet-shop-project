@@ -29,6 +29,7 @@ export const spacing = {
   md: "16px",
   lg: "24px",
   xl: "40px",
+  xxl: "64px",
 };
 
 export const button = {

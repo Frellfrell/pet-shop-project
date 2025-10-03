@@ -18,7 +18,7 @@ const Sales = () => {
 
   return (
      <section className={styles.SalesSection} 
-     style={{ padding: `${spacing.xl} ${spacing.xl}` }}>
+     style={{ padding: `${spacing.xl} ${spacing.xl}`, marginBottom: `${spacing.xxl}` }}>
        {/* Заголовок и кнопка All Categories */}
        <div className={styles.header} style={{ marginBottom: spacing.xl,  gap: spacing.md,  }}>
          <h2 className={styles.title} style={{ ...typography.TBlack, fontSize: "64px" }}>Sale</h2>
