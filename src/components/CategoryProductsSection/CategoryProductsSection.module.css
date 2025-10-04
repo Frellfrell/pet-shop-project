@@ -1,0 +1,25 @@
+.productsSection {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 24px;
+}
+
+.filters {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 карточки в ряду */
+  gap: 16px;
+}
+
+.noProducts {
+  font-size: 18px;
+  color: #8b8b8b;
+  text-align: center;
+  width: 100%;
+}

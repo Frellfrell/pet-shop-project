@@ -78,7 +78,7 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
       }
 
       <Select value={sortOption} onChange={handleSortChange}>
-        {selectOptions.map(option => <MenuItem value={option}>{option}</MenuItem>)}
+        {selectOptions.map(option => (<MenuItem key={option} value={option}>{option}</MenuItem>))}
       </Select>
 
 
