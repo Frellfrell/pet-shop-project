@@ -5,7 +5,7 @@ import useScrollToTop from "../../components/hooks/useScrollToTop";
 import { BASE_URL } from "../../constants";
 import styles from "./ProductPage.module.css";
 import { useState, useEffect } from "react";
-import ProductCard from "../../components/ProductCard/ProductCard";
+
 
 const ProductPage = () => {
 useScrollToTop();
