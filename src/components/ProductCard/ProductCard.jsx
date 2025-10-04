@@ -4,9 +4,10 @@ import styles from "./ProductCard.module.css";
 import DiscountCard from "../DiscountCard/DiscountCard";
 import { BASE_URL } from "../../constants";
 
+
 const ProductCard = ({ id, title, price, discont_price, image }) => {
   return (
-    <Link to={`/products/${id}`} className={styles.cardLink}>
+    <Link to={`/product/${id}`} className={styles.cardLink}>
       <div className={styles.card}>
         {/* Изображение продукта */}
         <div className={styles.imageWrapper}>
@@ -20,7 +21,8 @@ const ProductCard = ({ id, title, price, discont_price, image }) => {
             <DiscountCard price={price} discount_price={discont_price} />
           )}
           {/* Hover кнопка Add to Cart */}
-          <button className={styles.addToCartBtn}>Add to Cart</button>
+          <button className={styles.addToCartBtn}
+          >Add to Cart</button>
         </div>
 
         {/* Информация о продукте */}

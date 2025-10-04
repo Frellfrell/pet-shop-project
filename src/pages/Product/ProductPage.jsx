@@ -1,31 +1,61 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
-import { BASE_URL } from "../../constants";
+import { BASE_URL, ENDPOINTS } from "../../constants";
 import styles from "./ProductPage.module.css";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { getProducts } from "../../service/api"; 
+import DiscountCard from "../../components/DiscountCard/DiscountCard";
+
 
 
 const ProductPage = () => {
-useScrollToTop();
-  const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
+const { id } = useParams();
+
+useScrollToTop();
+
+const [product, setProduct] = useState(null);
+const [category, setCategory] = useState(null);
+ const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!id) return;
+
     const fetchProduct = async () => {
+      setLoading(true);
+
       try {
-        const response = await fetch(`${BASE_URL}/products/${id}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch product data");
+        // Загружаем все продукты и ищем нужный
+        const allProducts = await getProducts();
+        const foundProduct = allProducts.find(
+          (p) => String(p.id) === String(id)
+        );
+
+        if (!foundProduct) {
+          setProduct(null);
+          setLoading(false);
+          return;
         }
-        const data = await response.json();
-        setProduct(data);
+
+        setProduct(foundProduct);
+
+        // Загружаем категорию продукта
+        const catId =
+          foundProduct.categoryId ??
+          foundProduct.category ??
+          foundProduct.category_id;
+
+        if (catId) {
+          const res = await fetch(`${BASE_URL}/categories/${catId}`);
+          if (res.ok) {
+            const catData = await res.json();
+            setCategory(catData);
+          }
+        }
       } catch (err) {
-        setError(err.message);
+        console.warn("Ошибка при загрузке продукта:", err);
       } finally {
         setLoading(false);
       }
@@ -37,43 +67,44 @@ useScrollToTop();
   const breadCrumbs = [
     { name: "Main Page", path: "/" },
     { name: "Categories", path: "/categories" },
-    { name: "Product", path: `/products/${id}` },
+    { name: category ? category.title : "Category", path: `/categories/${category?.id ?? ""}` },
+    { name: product ? product.title : "Product", path: `/product/${id}` },
   ];
 
-  if (loading) return <p>Loading product...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!product) return <p>No product found.</p>;
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!product) {
+    return (
+      <div style={{ padding: 40 }}>
+        <BreadCrumbs breadCrumbs={breadCrumbs} />
+        <p>Product not found.</p>
+      </div>
+    );
+  }
 
   return (
-    <div className={styles.productPage}>
+    <div style={{ padding: "40px" }}>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
 
       <div className={styles.productContainer}>
-        <div className={styles.imageWrapper}>
-          <img
-            src={`${BASE_URL}${product.image}`}
-            alt={product.title}
-            className={styles.image}
-          />
+        <div className={styles.imageContainer}>
+          <img src={`${BASE_URL}${product.image}`} alt={product.title} className={styles.productImage} />
+          {product.discont_price && (
+            <DiscountCard price={product.price} discount_price={product.discont_price} />
+          )}
         </div>
 
-        <div className={styles.details}>
+        <div className={styles.infoWrapper}>
           <h1 className={styles.title}>{product.title}</h1>
-
-          <div className={styles.prices}>
-            {product.discont_price ? (
-              <>
-                <span className={styles.discountPrice}>${product.discont_price}</span>
-                <span className={styles.oldPrice}>${product.price}</span>
-              </>
-            ) : (
-              <span className={styles.price}>${product.price}</span>
-            )}
+          <div className={styles.priceBox}>
+            <span className={styles.price}>{product.price}$</span>
+            {product.discont_price && <span className={styles.discountPrice}>{product.discont_price}$</span>}
           </div>
-
-          <button className={styles.addBtn}>Add to cart</button>
-
           <p className={styles.description}>{product.description}</p>
+        <div className={styles.additionalInfo}></div>
+        <Link to="/cart" className={styles.button}>Add to Cart</Link>
         </div>
       </div>
     </div>

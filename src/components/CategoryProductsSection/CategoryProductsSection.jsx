@@ -2,36 +2,29 @@
 import ProductCard from "../ProductCard/ProductCard";
 import FilterSet from "../Filter/FilterSet";
 import styles from "./CategoryProductsSection.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAllProducts } from "../../redux/actions/products";
+import { getProducts } from "../../services/api";
+
 
 const CategoryProductsSection = ({ categoryId, isDiscountPage = false }) => {
-  const dispatch = useDispatch();
-  const { items: products, loading, error } = useSelector((state) => state.products);
+  const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  
- useEffect(() => {
-    if (products.length === 0) {
-      dispatch(fetchAllProducts());
-    }
-  }, [dispatch, products.length]);
 
   useEffect(() => {
-    const categoryProducts = products.filter(
-      (product) => product.categoryId === Number(categoryId)
-    );
-    setFilteredProducts(categoryProducts);
-  }, [products, categoryId]);
+    if (!categoryId) return;
 
-  if (loading) return <p>Loading products...</p>;
-  if (error) return <p>Error loading products: {error}</p>;
-
-
+    // Получаем все продукты и фильтруем по categoryId
+    getProducts()
+      .then((data) => {
+        const categoryProducts = data.filter((p) => p.categoryId == categoryId);
+        setProducts(categoryProducts);
+        setFilteredProducts(categoryProducts);
+      })
+      .catch((error) => console.error("Ошибка при загрузке продуктов:", error));
+  }, [categoryId]);
 
 
   return (
     <section className={styles.productsSection}>
-      {/* Фильтры */}
       <div className={styles.filters}>
         <FilterSet
           products={products}
@@ -39,11 +32,9 @@ const CategoryProductsSection = ({ categoryId, isDiscountPage = false }) => {
           isDiscountPage={isDiscountPage}
         />
       </div>
-
-      {/* Сетка карточек продуктов */}
       <div className={styles.cardsContainer}>
         {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
+          filteredProducts.map(product => (
             <ProductCard
               key={product.id}
               id={product.id}

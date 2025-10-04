@@ -72,7 +72,7 @@ const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
           visibleCategories.map((category) => (
           <Link
             key={category.id}
-            to={`/category/${category.id}`}
+             to={`/categories/${category.id}`}
             className={styles.cardLink}
             style={{ textDecoration: "none" }}
           >

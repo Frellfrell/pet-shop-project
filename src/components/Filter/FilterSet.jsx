@@ -25,12 +25,11 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
   }
 
   useEffect(() => {
-    let filtered = [...products]
+    let filtered = [...products];
     filtered = filtered.filter(product => product.price >= minPrice && product.price <= (maxPrice || Infinity))
 
     if (showDiscounted) {
-      filtered = filtered.filter(product => product.discont_price !== null
-      )
+      filtered = filtered.filter(product => product.discount_price !== null);
     }
 
     switch (sortOption) {
@@ -47,15 +46,16 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
         break
 
     }
-    setFilteredProducts(filtered)
+    setFilteredProducts(filtered);
 
 
-  }, [minPrice, maxPrice, showDiscounted, sortOption, products])
+  }, [ minPrice, maxPrice, showDiscounted, sortOption, products, setFilteredProducts ]);
 
 
   return (
-    <>
-      <Typography>Price</Typography>
+    <div style={{ display: "flex", maxHeight: "36px", alignItems: "center", gap: "16px", flexWrap: "wrap", marginBottom: "16px" }}>
+<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <Typography sx={{ fontSize: "20px", lineHeight: "130%", color: "rgba(40, 40, 40, 1)" }}>Price</Typography>
       <TextField
         label="from"
         variant="outlined"
@@ -72,18 +72,21 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
         value={maxPrice}
         onChange={handleMaxPriceChange}
       />
-
-      {!isDiscountPage && <><Typography>Discounted Items</Typography>
+    </div>
+    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      {!isDiscountPage && <><Typography  fontSize={"20px"}>Discounted Items</Typography>
         <Checkbox checked={showDiscounted} onChange={handleDiscountedChange} /></>
       }
-
+    </div>
+    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <Typography fontSize={"20px"}>Sorted</Typography>
       <Select value={sortOption} onChange={handleSortChange}>
-        {selectOptions.map(option => (<MenuItem key={option} value={option}>{option}</MenuItem>))}
+        {selectOptions.map(option => (<MenuItem key={option}  value={option}>{option}</MenuItem>))}
       </Select>
-
-
-    </>
-  )
+     
+    </div>
+  </div>
+  );
 }
 
 export default FilterSet;
