@@ -18,7 +18,9 @@ useScrollToTop();
 
 const [product, setProduct] = useState(null);
 const [category, setCategory] = useState(null);
+const [relatedImages, setRelatedImages] = useState([]);
  const [loading, setLoading] = useState(true);
+ const [count, setCount] = useState(1);
 
   useEffect(() => {
     if (!id) return;
@@ -53,6 +55,10 @@ const [category, setCategory] = useState(null);
             const catData = await res.json();
             setCategory(catData);
           }
+          const related = allProducts
+            .filter((p) => p.category_id === catId && p.id !== foundProduct.id)
+            .slice(0, 3);
+          setRelatedImages(related);
         }
       } catch (err) {
         console.warn("Ошибка при загрузке продукта:", err);
@@ -84,27 +90,64 @@ const [category, setCategory] = useState(null);
     );
   }
 
+  const handleIncrease = () => setCount((prev) => prev + 1);
+  const handleDecrease = () => setCount((prev) => (prev > 1 ? prev - 1 : 1));
+
   return (
-    <div style={{ padding: "40px" }}>
+    <div className={styles.container}>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
 
-      <div className={styles.productContainer}>
-        <div className={styles.imageContainer}>
-          <img src={`${BASE_URL}${product.image}`} alt={product.title} className={styles.productImage} />
-          {product.discont_price && (
-            <DiscountCard price={product.price} discount_price={product.discont_price} />
-          )}
+      <div className={styles.productWrapper}>
+        {/* Левая часть */}
+        <div className={styles.leftColumn}>
+          <div className={styles.relatedImages}>
+            {relatedImages.map((img) => (
+         <img
+                key={img.id}
+                src={`${BASE_URL}${img.image}`}
+                alt={img.title}
+                className={styles.relatedImg}
+              />
+            ))}
+          </div>
+           <div className={styles.mainImageWrapper}>
+            <img
+              src={`${BASE_URL}${product.image}`}
+              alt={product.title}
+              className={styles.mainImage}
+            />
+          </div>
         </div>
 
-        <div className={styles.infoWrapper}>
+         {/* Правая часть */}
+        <div className={styles.rightColumn}>
           <h1 className={styles.title}>{product.title}</h1>
+
           <div className={styles.priceBox}>
             <span className={styles.price}>{product.price}$</span>
-            {product.discont_price && <span className={styles.discountPrice}>{product.discont_price}$</span>}
+            {product.discont_price && (
+              <DiscountCard
+                price={product.price}
+                discount_price={product.discont_price}
+              />
+            )}
           </div>
+
           <p className={styles.description}>{product.description}</p>
-        <div className={styles.additionalInfo}></div>
-        <Link to="/cart" className={styles.button}>Add to Cart</Link>
+
+        <div className={styles.buyBox}>
+            <div className={styles.counter}>
+              <button onClick={handleDecrease}>−</button>
+              <span>{count}</span>
+              <button onClick={handleIncrease}>+</button>
+            </div>
+            <Link to="/cart" className={styles.button}>Add to Cart</Link>
+          </div>
+
+          <div className={styles.categoryInfo}>
+             <p>{product.details ?? "No additional info"}</p>
+          </div>
+
         </div>
       </div>
     </div>
