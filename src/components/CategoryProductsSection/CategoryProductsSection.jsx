@@ -2,26 +2,30 @@
 import ProductCard from "../ProductCard/ProductCard";
 import FilterSet from "../Filter/FilterSet";
 import styles from "./CategoryProductsSection.module.css";
-import { BASE_URL } from "../../constants";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllProducts } from "../../redux/actions/products";
 
 const CategoryProductsSection = ({ categoryId, isDiscountPage = false }) => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+  const { items: products, loading, error } = useSelector((state) => state.products);
   const [filteredProducts, setFilteredProducts] = useState([]);
-
   
  useEffect(() => {
-    if (!categoryId) return;
+    if (products.length === 0) {
+      dispatch(fetchAllProducts());
+    }
+  }, [dispatch, products.length]);
 
-    fetch(`${BASE_URL}/categories/${categoryId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        const categoryProducts = data.products || data;
-        
-        setProducts(categoryProducts);
-        setFilteredProducts(categoryProducts);
-      })
-      .catch((error) => console.error("Ошибка при загрузке продуктов:", error));
-  }, [categoryId]);
+  useEffect(() => {
+    const categoryProducts = products.filter(
+      (product) => product.categoryId === Number(categoryId)
+    );
+    setFilteredProducts(categoryProducts);
+  }, [products, categoryId]);
+
+  if (loading) return <p>Loading products...</p>;
+  if (error) return <p>Error loading products: {error}</p>;
+
 
 
 
