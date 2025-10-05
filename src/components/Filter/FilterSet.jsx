@@ -33,17 +33,18 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
     }
 
     switch (sortOption) {
-      case "price: low to high":
-        filtered.sort((a, b) => a.price - b.price)
-        break
-      case "price: high to low":
-        filtered.sort((a, b) => b.price - a.price)
-        break
-      case "newest":
-        filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-        break
-      default:
-        break
+case 'price: low to high':
+filtered.sort((a, b) => (a.discont_price ?? a.price) - (b.discont_price ?? b.price));
+break;
+case 'price: high to low':
+filtered.sort((a, b) => (b.discont_price ?? b.price) - (a.discont_price ?? a.price));
+break;
+case 'newest':
+filtered.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+break;
+default:
+// do nothing
+
 
     }
     setFilteredProducts(filtered);
