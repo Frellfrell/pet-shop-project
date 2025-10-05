@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./ProductCard.module.css";
+import { colors, spacing, radii, borders } from "../../constants/styles";
 import DiscountCard from "../DiscountCard/DiscountCard";
 import { BASE_URL } from "../../constants";
 
@@ -8,7 +9,13 @@ import { BASE_URL } from "../../constants";
 const ProductCard = ({ id, title, price, discont_price, image }) => {
   return (
     <Link to={`/product/${id}`} className={styles.cardLink}>
-      <div className={styles.card}>
+      <div className={styles.card}
+      style={{
+          border: borders.grayDivider,
+          borderRadius: radii.small,
+          padding: spacing.sm,
+          backgroundColor: colors.background,
+        }}>
         {/* Изображение продукта */}
         <div className={styles.imageWrapper}>
           <img
