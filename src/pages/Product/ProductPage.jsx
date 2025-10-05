@@ -10,6 +10,7 @@ import styles from "./ProductPage.module.css";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../../constants";
 
+
 // Селектор для продукта по id
 const selectProductById = (state, id) => {
   return state.products.products.find((p) => String(p.id) === String(id));
@@ -24,10 +25,9 @@ const selectCategoryById = (state, id) => {
 const ProductPage = () => {
 
 const { id } = useParams();
+const dispatch = useDispatch();
 
 useScrollToTop();
-
-const dispatch = useDispatch();
 
   const [count, setCount] = useState(1);
 
@@ -50,7 +50,11 @@ const product = useSelector((state) => selectProductById(state, id));
     { name: product ? product.title : "Product", path: `/product/${id}` },
   ];
 
-  
+   const relatedImages = useSelector((state) =>
+    state.products.products
+      .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
+      .slice(0, 3)
+  );
 
   if (!product) {
     return (
@@ -64,11 +68,7 @@ const product = useSelector((state) => selectProductById(state, id));
   const handleIncrease = () => setCount((prev) => prev + 1);
   const handleDecrease = () => setCount((prev) => (prev > 1 ? prev - 1 : 1));
 
-  const relatedImages = useSelector((state) =>
-    state.products.products
-      .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
-      .slice(0, 3)
-  );
+ 
 
   return (
     <div className={styles.container}>
