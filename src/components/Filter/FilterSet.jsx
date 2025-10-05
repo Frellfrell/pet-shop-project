@@ -29,7 +29,7 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
     filtered = filtered.filter(product => product.price >= minPrice && product.price <= (maxPrice || Infinity))
 
     if (showDiscounted) {
-      filtered = filtered.filter(product => product.discount_price !== null);
+      filtered = filtered.filter(product => product.discont_price !== null);
     }
 
     switch (sortOption) {
