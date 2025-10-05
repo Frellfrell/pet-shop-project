@@ -42,3 +42,16 @@ export const button = {
 export const borders = {
   grayDivider: `1px solid ${colors.grayDivider}`,
 };
+
+export const shadows = {
+  card: "0 4px 12px rgba(0, 0, 0, 0.08)",       // стандартная карточка
+  cardHover: "0 8px 20px rgba(0, 0, 0, 0.15)",  // при наведении
+  soft: "0 2px 6px rgba(0, 0, 0, 0.05)",        // для кнопок, мелких блоков
+};
+
+export const transitions = {
+  fast: "all 0.2s ease",
+  normal: "all 0.3s ease",
+  slow: "all 0.4s ease",
+};
+
