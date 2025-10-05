@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
@@ -7,19 +7,18 @@ import DiscountCard from "../../components/DiscountCard/DiscountCard";
 import { fetchAllProducts } from "../../redux/actions/products";
 import { fetchAllCategories } from "../../redux/actions/categories.action";
 import styles from "./ProductPage.module.css";
-import { Link } from "react-router-dom";
 import { BASE_URL } from "../../constants";
 
 
 // Селектор для продукта по id
-const selectProductById = (state, id) => {
-  return state.products.products.find((p) => String(p.id) === String(id));
-};
+const selectProductById = (state, id) => 
+  state.products.items?.find((p) => String(p.id) === String(id));
+
 
 // Селектор для категории по id
-const selectCategoryById = (state, id) => {
-  return state.categories.categories.find((c) => String(c.id) === String(id));
-};
+const selectCategoryById = (state, id) => 
+ state.categories.categories?.find((c) => String(c.id) === String(id));
+
 
 
 const ProductPage = () => {
@@ -41,19 +40,10 @@ const product = useSelector((state) => selectProductById(state, id));
   const category = useSelector((state) =>
     product ? selectCategoryById(state, product.categoryId) : null
   );
-
-
-  const breadCrumbs = [
-    { name: "Main Page", path: "/" },
-    { name: "Categories", path: "/categories" },
-    { name: category ? category.title : "Category", path: `/categories/${category?.id ?? ""}` },
-    { name: product ? product.title : "Product", path: `/product/${id}` },
-  ];
-
    const relatedImages = useSelector((state) =>
     state.products.products
-      .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
-      .slice(0, 3)
+      .filter((p) => p.categoryId === product?.categoryId && p.id !== product?.id)
+      .slice(0, 3) || []
   );
 
   if (!product) {
@@ -64,6 +54,15 @@ const product = useSelector((state) => selectProductById(state, id));
       </div>
     );
   }
+
+  const breadCrumbs = [
+    { name: "Main Page", path: "/" },
+    { name: "Categories", path: "/categories" },
+    { name: category ? category.title : "Category", path: `/categories/${category?.id ?? ""}` },
+    { name: product ? product.title : "Product", path: `/product/${id}` },
+  ];
+
+  
 
   const handleIncrease = () => setCount((prev) => prev + 1);
   const handleDecrease = () => setCount((prev) => (prev > 1 ? prev - 1 : 1));
@@ -105,7 +104,7 @@ const product = useSelector((state) => selectProductById(state, id));
             {product.discont_price && (
               <DiscountCard
                 price={product.price}
-                discount_price={product.discont_price}
+                discont_price={product.discont_price}
               />
             )}
           </div>

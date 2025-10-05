@@ -6,6 +6,7 @@ import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
 import CategoryProductsSection from "../../components/CategoryProductsSection/CategoryProductsSection";
 import { fetchAllCategories } from "../../redux/actions/categories.action";
+import { fetchProductsByCategory } from "../../redux/actions/products";
 
 const selectCategories = createSelector(
   (state) => state.categories.categories,
@@ -17,6 +18,7 @@ const CategoryPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
+  const categoryProducts = useSelector((state) => state.products.categoryProducts);
   const [category, setCategory] = useState(null);
   const [loading, setLoading] = useState(true);
   
@@ -26,11 +28,15 @@ const CategoryPage = () => {
  useEffect(() => {
     dispatch(fetchAllCategories());
   }, [dispatch]);
+  // Загрузка продуктов категории
+  useEffect(() => {
+    dispatch(fetchProductsByCategory(id));
+  }, [dispatch, id]);
 
   // Находим текущую категорию по id
   useEffect(() => {
     if (categories.length === 0) return;
-    const foundCategory = categories.find(c => String(c.id) === String(id));
+    const foundCategory = categories.find((c) => String(c.id) === String(id));
     setCategory(foundCategory || null);
     setLoading(false);
   }, [categories, id]);
@@ -53,7 +59,7 @@ const CategoryPage = () => {
      <div style={{ padding: "40px" }}>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       {/* Раздел с фильтром */}
-      <CategoryProductsSection categoryId={id} />
+      <CategoryProductsSection products={categoryProducts} />
     </div>
   );
 };
