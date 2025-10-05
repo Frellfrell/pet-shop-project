@@ -1,13 +1,24 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
-import { BASE_URL, ENDPOINTS } from "../../constants";
-import styles from "./ProductPage.module.css";
-import { useEffect, useState } from "react";
-import { getProducts } from "../../services/api"; 
 import DiscountCard from "../../components/DiscountCard/DiscountCard";
+import { fetchAllProducts } from "../../redux/actions/products.action";
+import { fetchAllCategories } from "../../redux/actions/categories.action";
+import styles from "./ProductPage.module.css";
+import { Link } from "react-router-dom";
+import { BASE_URL } from "../../constants";
 
+// Селектор для продукта по id
+const selectProductById = (state, id) => {
+  return state.products.products.find((p) => String(p.id) === String(id));
+};
+
+// Селектор для категории по id
+const selectCategoryById = (state, id) => {
+  return state.categories.categories.find((c) => String(c.id) === String(id));
+};
 
 
 const ProductPage = () => {
@@ -16,59 +27,21 @@ const { id } = useParams();
 
 useScrollToTop();
 
-const [product, setProduct] = useState(null);
-const [category, setCategory] = useState(null);
-const [relatedImages, setRelatedImages] = useState([]);
- const [loading, setLoading] = useState(true);
- const [count, setCount] = useState(1);
+const dispatch = useDispatch();
 
+  const [count, setCount] = useState(1);
+
+// Загружаем продукты и категории при монтировании
   useEffect(() => {
-    if (!id) return;
+    dispatch(fetchAllProducts());
+    dispatch(fetchAllCategories());
+  }, [dispatch]);
 
-    const fetchProduct = async () => {
-      setLoading(true);
+const product = useSelector((state) => selectProductById(state, id));
+  const category = useSelector((state) =>
+    product ? selectCategoryById(state, product.categoryId) : null
+  );
 
-      try {
-        // Загружаем все продукты и ищем нужный
-        const allProducts = await getProducts();
-        const foundProduct = allProducts.find(
-          (p) => String(p.id) === String(id)
-        );
-
-        if (!foundProduct) {
-          setProduct(null);
-          setLoading(false);
-          return;
-        }
-
-        setProduct(foundProduct);
-
-        // Загружаем категорию продукта
-        const catId =
-          foundProduct.categoryId ??
-          foundProduct.category ??
-          foundProduct.category_id;
-
-        if (catId) {
-          const res = await fetch(`${BASE_URL}/categories/${catId}`);
-          if (res.ok) {
-            const catData = await res.json();
-            setCategory(catData);
-          }
-          const related = allProducts
-            .filter((p) => p.category_id === catId && p.id !== foundProduct.id)
-            .slice(0, 3);
-          setRelatedImages(related);
-        }
-      } catch (err) {
-        console.warn("Ошибка при загрузке продукта:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProduct();
-  }, [id]);
 
   const breadCrumbs = [
     { name: "Main Page", path: "/" },
@@ -77,9 +50,7 @@ const [relatedImages, setRelatedImages] = useState([]);
     { name: product ? product.title : "Product", path: `/product/${id}` },
   ];
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  
 
   if (!product) {
     return (
@@ -92,6 +63,12 @@ const [relatedImages, setRelatedImages] = useState([]);
 
   const handleIncrease = () => setCount((prev) => prev + 1);
   const handleDecrease = () => setCount((prev) => (prev > 1 ? prev - 1 : 1));
+
+  const relatedImages = useSelector((state) =>
+    state.products.products
+      .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
+      .slice(0, 3)
+  );
 
   return (
     <div className={styles.container}>
