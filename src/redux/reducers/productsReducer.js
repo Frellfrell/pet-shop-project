@@ -23,7 +23,7 @@ const productsSlice = createSlice({
       // Успешный ответ
       .addCase(fetchAllProducts.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload; // кладём в items список товаров
+        state.products = action.payload; // кладём в products список товаров
       })
       // Ошибка
       .addCase(fetchAllProducts.rejected, (state, action) => {
