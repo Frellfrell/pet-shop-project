@@ -9,12 +9,14 @@ import DiscountCard from "../DiscountCard/DiscountCard";
 
 const Sales = () => {
   const dispatch = useDispatch();
-  const { items: products, loading, error } = useSelector((state) => state.products);
+  const { products, loading, error } = useSelector((state) => state.products);
   useEffect(() => {
     dispatch(fetchAllProducts()); // при монтировании подгружаем товары
   }, [dispatch]);
 
-  const discountedProducts = products.slice(0, 4); // первые 4 товара
+   const discountedProducts = (products || [])
+    .filter((p) => p.discont_price) // берём только товары со скидкой
+    .slice(0, 4); // первые 4 товара
 
   return (
      <section className={styles.SalesSection} 
@@ -71,7 +73,7 @@ const Sales = () => {
           discountedProducts.map((product) => (
            <Link
              key={product.id}
-             to={`/category/${product.id}`}
+             to={`/product/${product.id}`}
              className={styles.cardLink}
              style={{ textDecoration: "none" }}
            >
