@@ -12,15 +12,19 @@ const ProductsPage = () => {
   const dispatch = useDispatch();
   useScrollToTop();
 
-  const { items: products = [], loading, error } = useSelector(
+  // Получаем данные из редюсера
+  const { products = [], loading, error } = useSelector(
     (state) => state.products
   );
 
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  useEffect(() => {
-    dispatch(fetchAllProducts());
-  }, [dispatch]);
+
+   useEffect(() => {
+    if (products.length === 0) {
+      dispatch(fetchAllProducts());
+    }
+  }, [dispatch, products.length]);
 
   useEffect(() => {
     setFilteredProducts(products);
