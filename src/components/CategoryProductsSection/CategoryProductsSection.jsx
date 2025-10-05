@@ -5,10 +5,10 @@ import styles from "./CategoryProductsSection.module.css";
 
 
 const CategoryProductsSection = ({ products, isDiscountPage = false }) => {
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [filteredProducts, setFilteredProducts] = useState(products || []);
 
    React.useEffect(() => {
-    setFilteredProducts(products);
+    setFilteredProducts(products || []);
   }, [products]);
 
 
@@ -16,10 +16,7 @@ const CategoryProductsSection = ({ products, isDiscountPage = false }) => {
     <section className={styles.productsSection}>
       <div className={styles.filters}>
         <FilterSet
-          products={products}
-          setFilteredProducts={setFilteredProducts}
-          isDiscountPage={isDiscountPage}
-        />
+          products={products || []} setFilteredProducts={setFilteredProducts} isDiscountPage={isDiscountPage} />
       </div>
       <div className={styles.cardsContainer}>
         {filteredProducts.length > 0 ? (
