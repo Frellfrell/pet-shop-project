@@ -4,72 +4,130 @@
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  border: 1px solid #dddddd;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 306px;
+  height: 422px;
+
+  background-color: var(--background, #fff);
   border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  background-color: #ffffff;
-  position: relative;
-  transition: transform 0.2s;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
+/* ✨ Ховер-анимация — карточка немного “приподнимается” и получает ярче тень */
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 70%;
   overflow: hidden;
+  border-bottom: 1px solid rgba(221, 221, 221, 1);
 }
 
 .cardImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* 📸 При наведении картинка чуть увеличивается */
+.card:hover .cardImage {
+  transform: scale(1.05);
 }
 
 .addToCartBtn {
   position: absolute;
-  bottom: 8px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
+  width: 80%;
+  height: 48px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(13, 80, 255, 1);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: all 0.3s ease;
 }
 
-.imageWrapper:hover .addToCartBtn {
+/* 👇 Кнопка появляется плавно при наведении */
+.card:hover .addToCartBtn {
   opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
 }
 
 .cardInfo {
-  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 12px 16px;
+  text-align: left;
+  width: 100%;
 }
 
 .cardTitle {
-  font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(40, 40, 40, 1);
+  margin-bottom: 4px;
 }
 
 .priceBox {
   display: flex;
-  gap: 8px;
   align-items: center;
+  gap: 12px;
 }
 
 .price {
-  font-weight: bold;
-  color: #333333;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(40, 40, 40, 1);
 }
 
 .discountPrice {
+  font-size: 16px;
+  color: rgba(139, 139, 139, 1);
   text-decoration: line-through;
-  color: #999999;
 }
 
+/* 📱 Адаптивность */
+@media (max-width: 1024px) {
+  .card {
+    width: 45%;
+    height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    height: 360px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .discountPrice {
+    font-size: 14px;
+  }
+}
