@@ -1,26 +1,15 @@
- import React, { useState, useEffect } from "react";
+ import React, { useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import FilterSet from "../Filter/FilterSet";
 import styles from "./CategoryProductsSection.module.css";
-import { getProducts } from "../../services/api";
 
 
-const CategoryProductsSection = ({ categoryId, isDiscountPage = false }) => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+const CategoryProductsSection = ({ products, isDiscountPage = false }) => {
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
-  useEffect(() => {
-    if (!categoryId) return;
-
-    // Получаем все продукты и фильтруем по categoryId
-    getProducts()
-      .then((data) => {
-        const categoryProducts = data.filter((p) => p.categoryId == categoryId);
-        setProducts(categoryProducts);
-        setFilteredProducts(categoryProducts);
-      })
-      .catch((error) => console.error("Ошибка при загрузке продуктов:", error));
-  }, [categoryId]);
+   React.useEffect(() => {
+    setFilteredProducts(products);
+  }, [products]);
 
 
   return (
