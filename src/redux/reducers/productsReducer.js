@@ -1,9 +1,10 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllProducts } from "../actions/products";
+import { fetchAllProducts, fetchProductsByCategory } from "../actions/products";
 
 const initialState = {
-  items: [],      // список товаров
+  products: [],// список товаров
+  categoryProducts: [],      // список товаров по категории
   loading: false, // индикатор загрузки
   error: null,    // ошибка запроса
 };
@@ -28,6 +29,19 @@ const productsSlice = createSlice({
       .addCase(fetchAllProducts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Ошибка загрузки";
+      })
+      // Загрузка товаров по категории
+      .addCase(fetchProductsByCategory.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchProductsByCategory.fulfilled, (state, action) => {
+        state.loading = false;
+        state.categoryProducts = action.payload.products; // предполагается, что API возвращает { products: [...] }
+      })
+      .addCase(fetchProductsByCategory.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Ошибка загрузки товаров по категории";
       });
   },
 });
