@@ -5,7 +5,7 @@ import useScrollToTop from "../../components/hooks/useScrollToTop";
 import { BASE_URL, ENDPOINTS } from "../../constants";
 import styles from "./ProductPage.module.css";
 import { useEffect, useState } from "react";
-import { getProducts } from "../../service/api"; 
+import { getProducts } from "../../services/api"; 
 import DiscountCard from "../../components/DiscountCard/DiscountCard";
 
 
