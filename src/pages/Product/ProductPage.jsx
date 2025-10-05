@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
 import DiscountCard from "../../components/DiscountCard/DiscountCard";
-import { fetchAllProducts } from "../../redux/actions/products.action";
+import { fetchAllProducts } from "../../redux/actions/products";
 import { fetchAllCategories } from "../../redux/actions/categories.action";
 import styles from "./ProductPage.module.css";
 import { Link } from "react-router-dom";
