@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { createSelector } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
@@ -8,19 +7,12 @@ import CategoryProductsSection from "../../components/CategoryProductsSection/Ca
 import { fetchAllCategories } from "../../redux/actions/categories.action";
 import { fetchProductsByCategory } from "../../redux/actions/products";
 
-const selectCategories = createSelector(
-  (state) => state.categories.categories,
-  (categories) => categories ?? []
-);
+const selectCategories = (state) => state.categories.categories || [];
 
 const CategoryPage = () => {
   useScrollToTop();
 
-   const breadCrumbs = [
-    { name: "Main Page", path: "/" },
-    { name: "Categories", path: "/categories" },
-     { name: category ? category.title : "Category", path: `/categories/${id}` },
-  ];
+   
 
   
   const { id } = useParams();
@@ -38,7 +30,9 @@ const CategoryPage = () => {
   }, [dispatch]);
   // Загрузка продуктов категории
   useEffect(() => {
-    dispatch(fetchProductsByCategory(id));
+    dispatch(fetchProductsByCategory(id)).then((res) => {
+       console.log("Fetched products:", res.payload);
+    });
   }, [dispatch, id]);
 
   // Находим текущую категорию по id
@@ -49,7 +43,11 @@ const CategoryPage = () => {
     setLoading(false);
   }, [categories, id]);
 
-
+const breadCrumbs = [
+    { name: "Main Page", path: "/" },
+    { name: "Categories", path: "/categories" },
+     { name: category ? category.title : "Category", path: `/categories/${id}` },
+  ];
  
 
   if (loading) {
