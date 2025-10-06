@@ -1,0 +1,64 @@
+.container {
+  width: 698px;
+  height: 530px;
+  justify-content: center;
+  position: relative;
+  left: 375px;
+  margin: 0 auto;
+}
+
+/* Бокс с цифрами "404" */
+.codeBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.digit {
+  font-size: 180px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.image {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+}
+
+/* Бокс с текстом */
+.textBox {
+  margin-top: 32px;
+  text-align: center;
+  width: 100%;
+  padding: 0 13.4px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 32px;
+}
+
+/* Кнопка Go Home */
+.homeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.homeButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(13, 80, 255, 0.4);
+}
