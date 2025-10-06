@@ -25,6 +25,7 @@
   width: 300px;
   height: 270px;
   object-fit: contain;
+  padding-bottom: 24px;
 }
 
 /* Бокс с текстом */
