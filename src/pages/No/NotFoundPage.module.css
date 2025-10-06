@@ -3,7 +3,8 @@
   height: 530px;
   justify-content: center;
   position: relative;
-  left: 375px;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
 }
 
@@ -15,14 +16,14 @@
 }
 
 .digit {
-  font-size: 180px;
   font-weight: 700;
+  font-size: 245px;
   line-height: 1;
 }
 
 .image {
-  width: 140px;
-  height: 140px;
+  width: 300px;
+  height: 270px;
   object-fit: contain;
 }
 
