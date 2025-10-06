@@ -20,15 +20,17 @@ const DiscountsPage = () => {
 
   // Загружаем товары при первом рендере
   useEffect(() => {
-    if (products.length === 0) {
+    if (!products || products.length === 0) {
       dispatch(fetchAllProducts());
     }
-  }, [dispatch, products.length]);
+  }, [dispatch]);
 
   // Берём только товары со скидками
   useEffect(() => {
+    if (Array.isArray(products)) {
     const discounted = products.filter((p) => p.discont_price);
     setFilteredProducts(discounted);
+    }
   }, [products]);
 
   // Ограничиваем вывод до 8 товаров (2 ряда × 4 карточки)

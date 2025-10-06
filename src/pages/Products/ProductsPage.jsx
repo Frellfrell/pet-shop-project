@@ -6,6 +6,7 @@ import FilterSet from "../../components/Filter/FilterSet";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { fetchAllProducts } from "../../redux/actions/products";
 import styles from "./ProductsPage.module.css";
+import DiscountCard from "../../components/DiscountCard/DiscountCard";
 
 
 const ProductsPage = () => {
