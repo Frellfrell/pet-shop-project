@@ -1,0 +1,79 @@
+.pageWrapper {
+  padding: 40px;
+  background-color: white;
+  height: 1062px;
+}
+
+.pageTitle {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: rgba(40, 40, 40, 1);
+}
+
+.filterContainer {
+  margin-bottom: 32px;
+}
+
+/* Контейнер карточек скидок */
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  justify-content: center;
+  height: 876px;
+}
+
+/* Hover эффект карточек */
+.cardsContainer > * {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardsContainer > *:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Состояния */
+.loading {
+  font-size: 20px;
+  color: rgba(139, 139, 139, 1);
+  text-align: center;
+  margin-top: 40px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+.noProducts {
+  color: rgba(139, 139, 139, 1);
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+  .cardsContainer {
+    grid-template-columns: repeat(3, 1fr);
+    height: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .cardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .cardsContainer {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
