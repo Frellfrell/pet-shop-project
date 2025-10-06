@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
 import FilterSet from "../../components/Filter/FilterSet";
-import ProductCard from "../../components/ProductCard/ProductCard";
+import DiscountCard from "../../components/DiscountCard/DiscountCard";
 import { fetchAllProducts } from "../../redux/actions/products";
 import styles from "./DiscountsPage.module.css";
 
@@ -61,7 +61,7 @@ const DiscountsPage = () => {
         <div className={styles.cardsContainer}>
           {productsToShow.length > 0 ? (
             productsToShow.map((product) => (
-              <ProductCard
+              <DiscountCard
                 key={product.id}
                 id={product.id}
                 title={product.title}

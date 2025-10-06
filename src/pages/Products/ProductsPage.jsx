@@ -63,19 +63,30 @@ const ProductsPage = () => {
         <div className={styles.cardsContainer}>
           {productsToShow.length > 0 ? (
             productsToShow.map((product) => (
+               product.discont_price ? (
+        <DiscountCard
+          key={product.id}
+          id={product.id}
+          title={product.title}
+          price={product.price}
+          discont_price={product.discont_price}
+          image={product.image}
+        />
+      ) : (
               <ProductCard
               key={product.id}
               id={product.id}
               title={product.title}
               price={product.price}
-              discont_price={product.discont_price}
               image={product.image}
             />
-          ))
+          )
+            ))
         ) : (
           <p>No products available.</p>
         )}
       </div>
+       
       )}
     </div>
   );
