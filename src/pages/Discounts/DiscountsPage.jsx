@@ -43,7 +43,7 @@ const DiscountsPage = () => {
     <div className={styles.pageWrapper}>
       {/* Хлебные крошки и фильтр всегда видны */}
       <BreadCrumbs breadCrumbs={breadCrumbs} />
-      <h1 className={styles.pageTitle}>All Sales</h1>
+      <h1 className={styles.pageTitle}>Discounted items</h1>
 
       <div className={styles.filterContainer}>
         <FilterSet
