@@ -9,8 +9,15 @@ import styles from "./ProductsPage.module.css";
 
 
 const ProductsPage = () => {
+
+   useScrollToTop();
+  
+   const breadCrumbs = [
+    { name: "Main Page", path: "/" },
+    { name: "All Products", path: "/products" },
+  ];
   const dispatch = useDispatch();
-  useScrollToTop();
+ 
 
   // Получаем данные из редюсера
   const { products = [], loading, error } = useSelector(
@@ -30,13 +37,11 @@ const ProductsPage = () => {
     setFilteredProducts(products);
   }, [products]);
 
-  const breadCrumbs = [
-    { name: "Main Page", path: "/" },
-    { name: "All Products", path: "/products" },
-  ];
+ 
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading products: {error}</p>;
+  
+
+  const productsToShow = filteredProducts.slice(0, 12);
 
   return (
     <div className={styles.pageWrapper}>
@@ -49,11 +54,16 @@ const ProductsPage = () => {
           setFilteredProducts={setFilteredProducts}
         />
       </div>
+       {/* Если идет загрузка или ошибка */}
+      {loading && <p className={styles.loading}>Loading products...</p>}
+      {error && <p className={styles.error}>Error: {error}</p>}
 
-      <div className={styles.cardsContainer}>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <ProductCard
+      {/* Карточки продуктов */}
+      {!loading && !error && (
+        <div className={styles.cardsContainer}>
+          {productsToShow.length > 0 ? (
+            productsToShow.map((product) => (
+              <ProductCard
               key={product.id}
               id={product.id}
               title={product.title}
@@ -66,6 +76,7 @@ const ProductsPage = () => {
           <p>No products available.</p>
         )}
       </div>
+      )}
     </div>
   );
 };
