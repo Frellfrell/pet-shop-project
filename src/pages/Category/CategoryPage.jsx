@@ -15,6 +15,14 @@ const selectCategories = createSelector(
 
 const CategoryPage = () => {
   useScrollToTop();
+
+   const breadCrumbs = [
+    { name: "Main Page", path: "/" },
+    { name: "Categories", path: "/categories" },
+     { name: category ? category.title : "Category", path: `/categories/${id}` },
+  ];
+
+  
   const { id } = useParams();
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
@@ -42,11 +50,7 @@ const CategoryPage = () => {
   }, [categories, id]);
 
 
-  const breadCrumbs = [
-    { name: "Main Page", path: "/" },
-    { name: "Categories", path: "/categories" },
-     { name: category ? category.title : "Category", path: `/categories/${id}` },
-  ];
+ 
 
   if (loading) {
     return <p>Loading...</p>;
