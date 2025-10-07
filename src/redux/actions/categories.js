@@ -15,3 +15,12 @@ export const fetchAllCategories = createAsyncThunk(
     }
   }
 );
+
+export const fetchProductsByCategory = createAsyncThunk(
+  "categories/fetchProductsByCategory",
+  async (categoryId) => {
+    const response = await axios.get(`${BASE_URL}/categories/${categoryId}`);
+    console.log(JSON.stringify(resp))
+    return response.data;
+  }
+);

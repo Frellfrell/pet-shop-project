@@ -33,60 +33,60 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
     }
 
     switch (sortOption) {
-case 'price: low to high':
-filtered.sort((a, b) => (a.discont_price ?? a.price) - (b.discont_price ?? b.price));
-break;
-case 'price: high to low':
-filtered.sort((a, b) => (b.discont_price ?? b.price) - (a.discont_price ?? a.price));
-break;
-case 'newest':
-filtered.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
-break;
-default:
-// do nothing
+      case 'price: low to high':
+        filtered.sort((a, b) => (a.discont_price ?? a.price) - (b.discont_price ?? b.price));
+        break;
+      case 'price: high to low':
+        filtered.sort((a, b) => (b.discont_price ?? b.price) - (a.discont_price ?? a.price));
+        break;
+      case 'newest':
+        filtered.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+        break;
+      default:
+      // do nothing
 
 
     }
     setFilteredProducts(filtered);
 
 
-  }, [ minPrice, maxPrice, showDiscounted, sortOption, products, setFilteredProducts ]);
+  }, [minPrice, maxPrice, showDiscounted, sortOption, products, setFilteredProducts]);
 
 
   return (
     <div style={{ display: "flex", maxHeight: "36px", alignItems: "center", gap: "16px", flexWrap: "wrap", marginBottom: "16px" }}>
-<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-      <Typography sx={{ fontSize: "20px", lineHeight: "130%", color: "rgba(40, 40, 40, 1)" }}>Price</Typography>
-      <TextField
-        label="from"
-        variant="outlined"
-        size="small"
-        placeholder="From"
-        value={minPrice}
-        onChange={handleMinPriceChange}
-      />
-      <TextField
-        label="to"
-        variant="outlined"
-        size="small"
-        placeholder="To"
-        value={maxPrice}
-        onChange={handleMaxPriceChange}
-      />
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <Typography sx={{ fontSize: "20px", lineHeight: "130%", color: "rgba(40, 40, 40, 1)" }}>Price</Typography>
+        <TextField
+          label="from"
+          variant="outlined"
+          size="small"
+          placeholder="From"
+          value={minPrice}
+          onChange={handleMinPriceChange}
+        />
+        <TextField
+          label="to"
+          variant="outlined"
+          size="small"
+          placeholder="To"
+          value={maxPrice}
+          onChange={handleMaxPriceChange}
+        />
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        {!isDiscountPage && <><Typography fontSize={"20px"}>Discounted Items</Typography>
+          <Checkbox checked={showDiscounted} onChange={handleDiscountedChange} /></>
+        }
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <Typography fontSize={"20px"}>Sorted</Typography>
+        <Select value={sortOption} onChange={handleSortChange}>
+          {selectOptions.map(option => (<MenuItem key={option} value={option}>{option}</MenuItem>))}
+        </Select>
+
+      </div>
     </div>
-    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-      {!isDiscountPage && <><Typography  fontSize={"20px"}>Discounted Items</Typography>
-        <Checkbox checked={showDiscounted} onChange={handleDiscountedChange} /></>
-      }
-    </div>
-    <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-      <Typography fontSize={"20px"}>Sorted</Typography>
-      <Select value={sortOption} onChange={handleSortChange}>
-        {selectOptions.map(option => (<MenuItem key={option}  value={option}>{option}</MenuItem>))}
-      </Select>
-     
-    </div>
-  </div>
   );
 }
 

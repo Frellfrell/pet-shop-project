@@ -33,3 +33,65 @@
   font-size: 20px;
   text-align: center;
 }
+
+
+/* --- до 1200px --- */
+@media (max-width: 1200px) {
+  .cardsContainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 52px;
+  }
+}
+
+/* --- до 992px --- */
+@media (max-width: 992px) {
+  .cardsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* --- до 768px --- */
+@media (max-width: 768px) {
+  .categoriesSection {
+    padding: 24px;
+  }
+
+  .cardsContainer {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+}
+
+/* --- до 480px --- */
+@media (max-width: 480px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .categoriesSection {
+    padding: 16px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+}

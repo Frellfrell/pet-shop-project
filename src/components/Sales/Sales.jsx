@@ -55,7 +55,7 @@ const Sales = () => {
              paddingBottom: spacing.xs,
            }}
            >
-             All Categories
+             All Sales
              </Link>
        </div>
          </div>

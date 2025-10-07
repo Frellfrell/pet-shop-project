@@ -1,10 +1,10 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllProducts, fetchProductsByCategory } from "../actions/products";
+import { fetchAllProducts, fetchProductById } from "../actions/products";
 
 const initialState = {
   products: [],// список товаров
-  categoryProducts: [],      // список товаров по категории
+  currentProduct: {},
   loading: false, // индикатор загрузки
   error: null,    // ошибка запроса
 };
@@ -30,19 +30,20 @@ const productsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message || "Ошибка загрузки";
       })
-      // Загрузка товаров по категории
-      .addCase(fetchProductsByCategory.pending, (state) => {
+      .addCase(fetchProductById.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchProductsByCategory.fulfilled, (state, action) => {
+      // Успешный ответ
+      .addCase(fetchProductById.fulfilled, (state, action) => {
         state.loading = false;
-        state.categoryProducts = action.payload.products; // предполагается, что API возвращает { products: [...] }
+        state.currentProduct = action.payload[0]; // кладём в products список товаров
       })
-      .addCase(fetchProductsByCategory.rejected, (state, action) => {
+      // Ошибка
+      .addCase(fetchProductById.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message || "Ошибка загрузки товаров по категории";
-      });
+        state.error = action.error.message || "Ошибка загрузки";
+      })
   },
 });
 

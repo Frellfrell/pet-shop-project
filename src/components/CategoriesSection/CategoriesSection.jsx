@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { createSelector } from "@reduxjs/toolkit";
-import { fetchAllCategories } from "../../redux/actions/categories.action";
+import { fetchAllCategories } from "../../redux/actions/categories";
 import { Link } from "react-router-dom";
 import styles from "./CategoriesSection.module.css";
 import { colors, spacing, radii, typography, borders } from "../../constants/styles";
@@ -28,77 +28,78 @@ const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
   const visibleCategories = limit ? categories.slice(0, limit) : categories;
 
   return (
-    <section className={styles.categoriesSection} 
-    style={{ padding: `${spacing.xl} ${spacing.xl}` }}>
+    <section className={styles.categoriesSection}
+      style={{ padding: `${spacing.xl} ${spacing.xl}` }}>
       {/* Заголовок и кнопка All Categories */}
-      <div className={styles.header} style={{ marginBottom: spacing.xl,  gap: spacing.md  }}>
+      <div className={styles.header} style={{ marginBottom: spacing.xl, gap: spacing.md }}>
         <h2 className={styles.title} style={{ ...typography.TBlack, fontSize: "64px" }}>Categories</h2>
         {!hideAllCategories && (
           <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
-             {/* Divider  />*/}
+            {/* Divider  />*/}
             <div
               style={{
-                width: "832px",
-              height: "1px",
-              backgroundColor: colors.grayDivider,
-            }}
-          />
+                width: "700px",
+                height: "1px",
+                backgroundColor: colors.grayDivider,
+              }}
+            />
 
-        
-        <Link to="/categories" className={styles.allBtn}
-        style={{
-            
-            color: colors.txtGrey,
-            textDecoration: "none",
-            fontWeight: 500,
-            padding: spacing.sm,
-            borderRadius: radii.small,
-            border: `1px solid ${colors.txtGrey}`,
-            paddingBottom: spacing.xs,
-          }}
-          >
-            All Categories
+
+            <Link to="/categories" className={styles.allBtn}
+              style={{
+
+                color: colors.txtGrey,
+                textDecoration: "none",
+                fontWeight: 500,
+                padding: spacing.sm,
+                borderRadius: radii.small,
+                border: `1px solid ${colors.txtGrey}`,
+                paddingBottom: spacing.xs,
+              }}
+            >
+              All Categories
             </Link>
-      </div>
+          </div>
         )}
-        </div>
+      </div>
       {/* Сетка карточек категорий */}
       <div className={styles.cardsContainer} style={{
-           justifyContent: "space-between",
-            alignItems: "center",
-            
-              height: "392px" }}>
-         {visibleCategories.length > 0 ? (
+        justifyContent: "space-between",
+        alignItems: "center",
+
+        height: "816px"
+      }}>
+        {visibleCategories.length > 0 ? (
           visibleCategories.map((category) => (
-          <Link
-            key={category.id}
-             to={`/categories/${category.id}`}
-            className={styles.cardLink}
-            style={{ textDecoration: "none" }}
-          >
-            <div className={styles.card}
-            style={{
-                 height: "316px",
-                border: borders.grayDivider,
-                borderRadius: radii.small,
-                 flexDirection: "column",
+            <Link
+              key={category.id}
+              to={`/categories/${category.id}`}
+              className={styles.cardLink}
+              style={{ textDecoration: "none" }}
+            >
+              <div className={styles.card}
+                style={{
+                  height: "316px",
+                  border: borders.grayDivider,
+                  borderRadius: radii.small,
+                  flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
                   gap: spacing.sm,
                   padding: spacing.sm,
                   backgroundColor: colors.background,
-              }}
+                }}
               >
-              <img src={`${BASE_URL}${category.image}`} 
-                alt={category.title} 
-                className={styles.cardImage}
+                <img src={`${BASE_URL}${category.image}`}
+                  alt={category.title}
+                  className={styles.cardImage}
                 />
-              {<p className={styles.cardTitle} style={typography.TBlack}>
-                 {category.title}
-              </p>}
-            </div>
-          </Link>
-        ))
+                {<p className={styles.cardTitle} style={typography.TBlack}>
+                  {category.title}
+                </p>}
+              </div>
+            </Link>
+          ))
         ) : (
           <p style={{ ...typography.TGrey, fontSize: "18px" }}>No categories available.</p>
         )}

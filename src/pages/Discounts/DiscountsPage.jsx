@@ -8,8 +8,10 @@ import { fetchAllProducts } from "../../redux/actions/products";
 import styles from "./DiscountsPage.module.css";
 
 const DiscountsPage = () => {
-  const dispatch = useDispatch();
+
   useScrollToTop();
+
+  const dispatch = useDispatch();
 
   // получаем товары из Redux
   const { products = [], loading, error } = useSelector(
@@ -28,8 +30,8 @@ const DiscountsPage = () => {
   // Берём только товары со скидками
   useEffect(() => {
     if (Array.isArray(products)) {
-    const discounted = products.filter((p) => p.discont_price);
-    setFilteredProducts(discounted);
+      const discounted = products.filter((p) => p.discont_price);
+      setFilteredProducts(discounted);
     }
   }, [products]);
 

@@ -24,7 +24,7 @@ function App() {
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/categories/:id" element={<CategoryPage />} />
           <Route path="/products" element={<ProductsPage />} />
-          <Route path="/discounts" element={<DiscountsPage />} />
+          <Route path="/discounts" element={<ProductsPage isDiscount={true} />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/success" element={<SuccessPage />} />

@@ -12,9 +12,9 @@ const CartForm = ({ cartItems }) => {
   };
 
   return (
-    <div style={{ width: 484, display: "flex", flexDirection: "column", gap: spacing.lg }}>
+    <div style={{ width: "484px", display: "flex", flexDirection: "column", gap: spacing.lg }}>
       {/* Summary */}
-      <div style={{ display: "flex", justifyContent: "space-between", height: 122 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", height: "122px" }}>
         <div>{cartItems.length} items</div>
         <div>Total: {total}$</div>
       </div>
