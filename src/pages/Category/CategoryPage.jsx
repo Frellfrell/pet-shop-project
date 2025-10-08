@@ -12,6 +12,7 @@ const CategoryPage = () => {
   useScrollToTop();
 
   const { id } = useParams();
+  console.log(id)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProductsByCategory(id))
@@ -20,8 +21,9 @@ const CategoryPage = () => {
 
   // const categories = useSelector(selectCategories);
   const category = useSelector((state) => state.categories.currentCategory);
-  const categoryProducts = useSelector((state) => state.categories.categoryProducts);
   console.log(category)
+  const categoryProducts = useSelector((state) => state.categories.categoryProducts);
+  console.log(categoryProducts)
   const loading = useSelector((state) => state.categories.isLoading);
   // const [category, setCategory] = useState(null);
   // const [loading, setLoading] = useState(true);

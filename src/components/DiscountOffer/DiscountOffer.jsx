@@ -27,7 +27,7 @@ const DiscountOffer = () => {
 
     try {
       setLoading(true);
-       const resp = await fetch(`${BASE_URL}/sale/send`, {
+      const resp = await fetch(`${BASE_URL}/sale/send`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -52,16 +52,16 @@ const DiscountOffer = () => {
     <section
       className={styles.discountSection}
       style={{
-        marginTop: "150px",
+        marginTop: "40px",
         marginLeft: spacing.xl,
         marginRight: spacing.xl,
-        marginBottom: "80px",
+        marginBottom: "10px",
         backgroundColor: colors.primary,
-        
+
         borderRadius: radii.large,
-        
+
         maxHeight: "486px",
-       
+
       }}
     >
       <h2
@@ -83,30 +83,29 @@ const DiscountOffer = () => {
       <div
         className={styles.content}
         style={{
-          
+
           gap: "32px",
-          
+
           height: "360px",
-         
+
         }}
       >
         {/* Левая картинка */}
         <div
           className={styles.imageBox}
           style={{
-           
+
             display: "flex",
             justifyContent: "center",
             alignItems: "flex-end",
-           
+
           }}
         >
           <img
             src={discountImg}
             alt="Discount"
             style={{
-              maxHeight: "360px",
-              width: "100%",
+              maxHeight: "100%",
               objectFit: "contain",
             }}
           />
@@ -137,9 +136,9 @@ const DiscountOffer = () => {
             onChange={onChange}
             placeholder="Name"
             style={{
-             
-                color: colors.background,
-               backgroundColor: colors.primary,
+
+              color: colors.background,
+              backgroundColor: colors.primary,
               border: `1px solid ${colors.background}`,
               borderRadius: radii.small,
               padding: spacing.sm,
@@ -153,7 +152,7 @@ const DiscountOffer = () => {
             onChange={onChange}
             placeholder="Phone number"
             style={{
-                 backgroundColor: colors.primary,
+              backgroundColor: colors.primary,
               color: colors.background,
               border: `1px solid ${colors.background}`,
               borderRadius: radii.small,
@@ -168,7 +167,7 @@ const DiscountOffer = () => {
             onChange={onChange}
             placeholder="Email"
             style={{
-                 backgroundColor: colors.primary,
+              backgroundColor: colors.primary,
               color: colors.background,
               border: `1px solid ${colors.background}`,
               borderRadius: radii.small,

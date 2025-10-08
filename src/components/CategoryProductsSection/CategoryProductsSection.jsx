@@ -1,4 +1,4 @@
- import React, { useState } from "react";
+import React, { useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import FilterSet from "../Filter/FilterSet";
 import styles from "./CategoryProductsSection.module.css";
@@ -7,7 +7,7 @@ import styles from "./CategoryProductsSection.module.css";
 const CategoryProductsSection = ({ products, isDiscountPage = false }) => {
   const [filteredProducts, setFilteredProducts] = useState(products || []);
 
-   React.useEffect(() => {
+  React.useEffect(() => {
     setFilteredProducts(products || []);
   }, [products]);
 
@@ -28,6 +28,7 @@ const CategoryProductsSection = ({ products, isDiscountPage = false }) => {
               price={product.price}
               discont_price={product.discont_price}
               image={product.image}
+              product={product}
             />
           ))
         ) : (

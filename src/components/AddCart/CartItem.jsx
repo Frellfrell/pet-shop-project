@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { spacing, colors, radii, borders } from "../../constants/styles";
 
-const CartItem = ({ product }) => {
-  const [count, setCount] = useState(1);
+const CartItem = ({ product, quantity }) => {
+  const [count, setCount] = useState(quantity);
 
   const handleIncrease = () => setCount(prev => prev + 1);
   const handleDecrease = () => setCount(prev => (prev > 1 ? prev - 1 : 1));
@@ -30,7 +30,7 @@ const CartItem = ({ product }) => {
         </div>
 
         <div style={{ display: "flex", gap: spacing.sm, alignItems: "center" }}>
-          <span style={{ fontWeight: "700" }}>{product.price * count}$</span>
+          <span style={{ fontWeight: "700" }}>{product.discont_price ?? product.price}$</span>
           {product.oldPrice && <span style={{ textDecoration: "line-through", color: colors.txtGrey }}>{product.oldPrice}$</span>}
         </div>
       </div>

@@ -38,6 +38,13 @@ export const button = {
   borderRadius: radii.small,
   backgroundColor: colors.primary,
   color: colors.background,
+  display: "flex",              
+  justifyContent: "center",    
+  alignItems: "center",        
+  textDecoration: "none",       
+  fontWeight: 600,             
+  cursor: "pointer",
+  transition: "all 0.3s ease", 
 };
 export const borders = {
   grayDivider: `1px solid ${colors.grayDivider}`,

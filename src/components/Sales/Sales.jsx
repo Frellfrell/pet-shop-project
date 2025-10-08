@@ -14,135 +14,124 @@ const Sales = () => {
     dispatch(fetchAllProducts()); // при монтировании подгружаем товары
   }, [dispatch]);
 
-   const discountedProducts = (products || [])
+  const discountedProducts = (products || [])
     .filter((p) => p.discont_price) // берём только товары со скидкой
     .slice(0, 4); // первые 4 товара
 
   return (
-     <section className={styles.SalesSection} 
-     style={{ padding: `${spacing.xl} ${spacing.xl}` }}>
-       {/* Заголовок и кнопка All Categories */}
-       <div className={styles.header} style={{ marginBottom: spacing.xl,  gap: spacing.md,  }}>
-         <h2 className={styles.title} style={{ ...typography.TBlack, fontSize: "64px" }}>Sale</h2>
- 
-         <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
-           <div
-             style={{
-               width: "832px",
-               height: "1px",
-               backgroundColor: colors.grayDivider,
-             }}
-           />
-         
-         {/* Divider */}
-         <div style={{  display: "flex", alignItems: "center" }}></div>
-           <div
-             style={{ 
-               position: "absolute",
-               width: "832px",
-               height: "1px",
-             }}
-         />
-         <Link to="/sales" className={styles.allBtn}
-         style={{
-             
-             color: colors.txtGrey,
-             textDecoration: "none",
-             fontWeight: 500,
-             padding: spacing.sm,
-             borderRadius: radii.small,
-             border: `1px solid ${colors.txtGrey}`,
-             paddingBottom: spacing.xs,
-           }}
-           >
-             All Sales
-             </Link>
-       </div>
-         </div>
-       {/* Сетка карточек категорий */}
-       <div className={styles.cardsContainer} style={{
-            justifyContent: "space-between",
-             alignItems: "center",
-             
-               height: "422px" }}>
-         {loading ? (
+    <section className={styles.SalesSection}
+      style={{ padding: `${spacing.xl} ${spacing.xl}` }}>
+      {/* Заголовок и кнопка All Categories */}
+      <div className={styles.header} style={{ marginBottom: spacing.xl, gap: spacing.md, }}>
+        <h2 className={styles.title} style={{ ...typography.TBlack, margin: 0 }}>Sale</h2>
+
+        <div className={styles.dividerWrapper} style={{ position: "relative", display: "flex", alignItems: "center" }}>
+
+          {/* Divider */}
+          <div style={{ position: "relative",display: "flex", alignItems: "center" }}></div>
+          <div className={styles.divider}
+            style={{
+              backgroundColor: colors.grayDivider,
+              
+            }}
+          />
+          <Link to="/discounts" className={styles.allBtn}
+            style={{
+
+              color: colors.txtGrey,
+              textDecoration: "none",
+              fontWeight: 500,
+              padding: spacing.sm,
+              borderRadius: radii.small,
+              border: `1px solid ${colors.txtGrey}`,
+              paddingBottom: spacing.xs,
+            }}
+          >
+            All Sales
+          </Link>
+        </div>
+      </div>
+      {/* Сетка карточек категорий */}
+      <div className={styles.cardsContainer} /*style={{
+        justifyContent: "space-between",
+        alignItems: "stretch",
+      }}*/>
+        {loading ? (
           <p style={{ ...typography.TGrey }}>Загрузка...</p>
         ) : error ? (
           <p style={{ ...typography.TGrey }}>Ошибка: {error}</p>
         ) : discountedProducts.length > 0 ? (
           discountedProducts.map((product) => (
-           <Link
-             key={product.id}
-             to={`/product/${product.id}`}
-             className={styles.cardLink}
-             style={{ textDecoration: "none" }}
-           >
-             <div className={styles.card}
-             style={{
-              display: "flex",
-              position: "relative",
-               width: "316px",
-                  height: "422px",
-                 border: borders.grayDivider,
-                 borderRadius: radii.small,
+            <Link
+              key={product.id}
+              to={`/product/${product.id}`}
+              className={styles.cardLink}
+              style={{ textDecoration: "none" }}
+            >
+              <div className={styles.card}
+                style={{
+                  display: "flex",
+                  /*position: "relative",
+                  width: "316px",
+                  height: "422px",*/
+                  border: borders.grayDivider,
+                  /*borderRadius: radii.small,*/
                   flexDirection: "column",
-                   alignItems: "center",
-                  
-                   gap: spacing.sm,
-                   padding: spacing.sm,
-                   backgroundColor: colors.background,
-               }}
-               >
-                
+                  alignItems: "center",
 
-               <img src={`${BASE_URL}${product.image}`} 
-                 alt={product.title} 
-                 className={styles.cardImage}
-                 />
+                  gap: spacing.sm,
+                  padding: spacing.sm,
+                  backgroundColor: colors.background,
+                }}
+              >
+
+
+                <img src={`${BASE_URL}${product.image}`}
+                  alt={product.title}
+                  className={styles.cardImage}
+                />
                 <DiscountCard
                   price={product.price}
                   discont_price={product.discont_price}
                 />
-                 <div className={styles.cardBox}>
+                <div className={styles.cardBox}>
 
-               {<p className={styles.cardTitle} style={typography.TBlack}>
-                  {product.title}
-               </p>}
-                {/* Блок с ценой */}
-    <div
-      className={styles.priceBox}
-      style={{
-        display: "flex",
-        gap: spacing.md,
-        justifyContent: "flex-start", // чтобы цена была слева
-        width: "100%",
-      }}
-    >
-      <span
-        className={styles.price}
-        style={{
-          ...typography.TBlack,
-          fontSize: "44px",
-          fontWeight: "bold",
-          color: colors.secondary,
-        }}
-      >
-        {product.price}$
-      </span>
-      <span style={{ textDecoration: "line-through",fontSize: "26px", marginTop: spacing.md, color: colors.txtGrey }}>
-    {product.discont_price}$
-  </span>
-    </div>
+                  {<p className={styles.cardTitle} style={typography.TBlack}>
+                    {product.title}
+                  </p>}
+                  {/* Блок с ценой */}
+                  <div
+                    className={styles.priceBox}
+                    style={{
+                      display: "flex",
+                      gap: spacing.md,
+                      justifyContent: "flex-start", // чтобы цена была слева
+                      width: "100%",
+                    }}
+                  >
+                    <span
+                      className={styles.price}
+                      style={{
+                        ...typography.TBlack,
+                        
+                        color: colors.secondary,
+                      }}
+                    >
+                      {product.price}$
+                    </span>
+                    <span style={{ textDecoration: "line-through", fontSize: "26px", marginTop: spacing.md, color: colors.txtGrey }}>
+                      {product.discont_price}$
+                    </span>
                   </div>
-             </div>
-           </Link>
-         ))
-         ) : (
-           <p style={{ ...typography.TGrey, fontSize: "18px" }}>No categories available.</p>
-         )}
-       </div>
-     </section>
-   );
- };
- export default Sales;
- 
+                </div>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <p style={{ ...typography.TGrey, fontSize: "18px" }}>No categories available.</p>
+        )}
+      </div>
+    </section>
+  );
+};
+export default Sales;

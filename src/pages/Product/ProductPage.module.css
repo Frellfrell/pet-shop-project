@@ -4,7 +4,7 @@
   padding: 40px;
   background-color: #fff;
   box-sizing: border-box;
-  
+
 }
 
 /* Обертка для левой и правой колонок */
@@ -12,21 +12,25 @@
   width: 1360px;
   display: flex;
   padding: 40px;
-  gap: 32px; /* гап между левым и правым блоком */
+  gap: 32px;
+  /* гап между левым и правым блоком */
   margin-top: 40px;
 }
 
 /* Левая колонка: картинки и основной продукт */
 .leftImageColumn {
   display: flex;
-  gap: 16px; /* гап между маленькими картинками и основной */
-   width: 548px;
+  gap: 16px;
+  /* гап между маленькими картинками и основной */
+  width: 548px;
   display: flex;
   flex-direction: row;
- 
+
 }
+
 .leftColumn {
-  width: 200px; /* ширина левой колонки */
+  width: 200px;
+  /* ширина левой колонки */
   display: flex;
   flex-direction: column;
 }
@@ -46,7 +50,7 @@
 .mainImageWrapper {
   margin-top: 32px;
   width: 548px;
- 
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,8 +66,10 @@
 /* Правая колонка: информация о продукте */
 
 .rightColumnDescription {
-  margin-left: 32px; /* отступ слева от основной картинки */
+  margin-left: 32px;
+  /* отступ слева от основной картинки */
 }
+
 .rightColumn {
   width: 548px;
   display: flex;
@@ -143,15 +149,7 @@
 .addBtn {
   position: relative;
   width: 316px;
-  height: 68px;
   border: none;
-  border-radius: 6px;
-  background-color: rgba(13, 80, 255, 1);
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-
   transition: all 0.3s ease;
 }
 

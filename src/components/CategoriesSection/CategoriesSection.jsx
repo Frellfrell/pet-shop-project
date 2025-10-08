@@ -4,7 +4,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { fetchAllCategories } from "../../redux/actions/categories";
 import { Link } from "react-router-dom";
 import styles from "./CategoriesSection.module.css";
-import { colors, spacing, radii, typography, borders } from "../../constants/styles";
+import { colors, spacing, radii, typography } from "../../constants/styles";
 import { BASE_URL } from "../../constants";
 
 
@@ -29,17 +29,16 @@ const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
 
   return (
     <section className={styles.categoriesSection}
-      style={{ padding: `${spacing.xl} ${spacing.xl}` }}>
+      style={{ padding: `${spacing.xl}` }}>
       {/* Заголовок и кнопка All Categories */}
       <div className={styles.header} style={{ marginBottom: spacing.xl, gap: spacing.md }}>
-        <h2 className={styles.title} style={{ ...typography.TBlack, fontSize: "64px" }}>Categories</h2>
+        <h2 className={styles.title} style={{ ...typography.TBlack,  margin: 0 }}>Categories</h2>
         {!hideAllCategories && (
-          <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+          <div className={styles.dividerWrapper} style={{ position: "relative", display: "flex", alignItems: "center" }}>
             {/* Divider  />*/}
-            <div
+            <div className={styles.divider}
               style={{
-                width: "700px",
-                height: "1px",
+               
                 backgroundColor: colors.grayDivider,
               }}
             />
@@ -67,7 +66,7 @@ const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
         justifyContent: "space-between",
         alignItems: "center",
 
-        height: "816px"
+        // height: "816px"
       }}>
         {visibleCategories.length > 0 ? (
           visibleCategories.map((category) => (
@@ -79,8 +78,8 @@ const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
             >
               <div className={styles.card}
                 style={{
-                  height: "316px",
-                  border: borders.grayDivider,
+                  /*height: "316px",
+                  border: borders.grayDivider,*/
                   borderRadius: radii.small,
                   flexDirection: "column",
                   alignItems: "center",

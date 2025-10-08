@@ -27,7 +27,7 @@ const CartPage = () => {
       <div style={{ display: "flex", gap: spacing.xl }}>
         {/* Left - Cart Items */}
         <div style={{ display: "flex", flexDirection: "column", gap: "32px", flex: "1" }}>
-          {cartItems.length > 0 ? cartItems.map(item => <CartItem key={item.item.id} product={item.item} />) : <p>Your cart is empty</p>}
+          {cartItems.length > 0 ? cartItems.map(item => <CartItem key={item.item.id} product={item.item} quantity={item.quantity} />) : <p>Your cart is empty</p>}
         </div>
 
         {/* Right - Cart Form */}

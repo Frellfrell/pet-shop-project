@@ -1,10 +1,38 @@
-.content {
+.discountSection {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
+/* Контейнер контента */
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 32px;
+  flex-wrap: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* Левая часть — изображение */
+.imageBox {
+  flex: 1;
+  height: 100%;
+}
+
+/* Правая часть — форма */
+.formBox {
+  flex: 1;
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 .input {       
   width: 100%;
   box-sizing: border-box;
@@ -18,5 +46,60 @@
   background: transparent;
   
 }
+
+/* Адаптация под 1024px */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .imageBox img {
+    max-height: 300px;
+    width: 80%;
+  }
+
+  .formBox {
+    max-width: 100%;
+    width: 80%;
+  }
+}
+
+/* Адаптация под мобильные (768px и меньше) */
+@media (max-width: 768px) {
+  .discountSection {
+    padding: 20px;
+  }
+
+  .content {
+    gap: 20px;
+  }
+
+  .imageBox img {
+    max-height: 220px;
+    width: 100%;
+  }
+
+  .formBox {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .formBox input,
+  .formBox button {
+    font-size: 18px !important;
+    padding: 10px 14px !important;
+  }
+
+  .discountSection h2 {
+    font-size: 36px !important;
+    line-height: 42px !important;
+  }
+}
+
+
+
 
 

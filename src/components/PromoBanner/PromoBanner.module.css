@@ -3,10 +3,16 @@
   height: 600px;
   background-size: cover;
   background-position: center;
+   background-repeat: no-repeat;
   display: flex;
-  justify-content: center; /* выравниваем бокс по центру */
-  align-items: flex-start; /* прижимаем к верхнему краю */
-  padding: 80px 40px 0 40px; /* сверху 80, по бокам 40 */
+  justify-content: flex-start;
+  /* выравниваем бокс по центру */
+  align-items: center;
+  position: relative;
+  /* прижимаем к верхнему краю */
+  padding: 80px 40px 0 40px;
+ overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .contentBox {
@@ -15,29 +21,78 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 40px;
   gap: 24px;
+   z-index: 1;
+  
 }
 
 .title {
   line-height: 1.2;
   font-size: 96px;
   font-weight: 700;
-  color: #fff; /* текст на картинке */
+  color: #fff;
+  margin: 0;
+  /* текст на картинке */
 }
 
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  transition: background 0.3s ease;
-  border-radius: 8px; /* можно заменить на радиус из button.default */
-}
 
 .button:hover {
-  background-color: rgba(0,0,0,0.8); /* чуть темнее при наведении */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* чуть темнее при наведении */
+}
+@media (max-width: 1024px) {
+  .banner {
+    min-height: 480px;
+  }
+
+  .contentBox {
+    padding: 60px;
+    max-width: 70%;
+  }
+
+  .title {
+    font-size: 52px;
+  }
 }
 
+/* 📱 768px — мобильный, центрируем текст */
+@media (max-width: 768px) {
+  .banner {
+    min-height: 400px;
+    justify-content: center;
+    text-align: center;
+  }
 
+  .contentBox {
+    align-items: center;
+    padding: 40px 20px;
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .button {
+    font-size: 18px !important;
+    padding: 12px 24px !important;
+  }
+}
+
+/* 📱 480px — маленькие смартфоны */
+@media (max-width: 480px) {
+  .banner {
+    min-height: 320px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .button {
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+  }
+}

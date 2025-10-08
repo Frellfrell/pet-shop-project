@@ -75,6 +75,7 @@ const ProductsPage = ({ isDiscount }) => {
               title={product.title}
               price={product.price}
               image={product.image}
+              product={product}
             />
 
           ))

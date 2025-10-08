@@ -1,6 +1,7 @@
 .categoriesSection {
   display: flex;
   flex-direction: column;
+  
 }
 
 .header {
@@ -8,90 +9,132 @@
   position: relative;
   align-items: center;
   justify-content: space-between;
+flex-wrap: wrap;
+  gap: 16px;
 }
-
+.dividerWrapper {
+  justify-content: flex-end;
+  flex: 1;
+  gap: 16px;
+}
 .cardsContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px; 
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px; 
+  
 }
 
 .card {
   text-align: center;
-  
+  aspect-ratio: 4 / 3; /* сохраняем пропорции при изменении ширины */
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
 .cardImage {
-  width: 100%;
+  width: 80%;
   height: auto;
-  display: block;
+ object-fit: contain;
+  max-height: 300px; 
 }
 
 .cardTitle {
   margin-top: 16px;
-  height: 26px;
+  /*height: 26px;*/
   font-size: 20px;
   text-align: center;
 }
-
-
-/* --- до 1200px --- */
-@media (max-width: 1200px) {
-  .cardsContainer {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-  }
-
-  .title {
-    font-size: 52px;
-  }
+.divider {
+   width: 700px;
+  height: 1px;
+  flex-grow: 1;
 }
-
-/* --- до 992px --- */
-@media (max-width: 992px) {
+.title {
+  font-size: 64px;
+ 
+  flex: 1 1 auto;
+}
+.allBtn {
+  white-space: nowrap;
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 140px;
+  text-align: center;
+}
+@media (max-width: 1024px) {
   .cardsContainer {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 24px;
+    }
+ .title {
+    font-size: 48px;
   }
 
-  .title {
-    font-size: 40px;
-    text-align: center;
+  .divider {
+    width: 320px;
   }
 
   .header {
-    flex-direction: column;
-    align-items: center;
+    gap: 12px;
+  }
+  .cardTitle {
+    font-size: 18px;
   }
 }
 
-/* --- до 768px --- */
 @media (max-width: 768px) {
-  .categoriesSection {
-    padding: 24px;
-  }
-
-  .cardsContainer {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    .header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+     gap: 8px;
   }
 
   .title {
     font-size: 32px;
   }
-}
 
-/* --- до 480px --- */
-@media (max-width: 480px) {
-  .title {
-    font-size: 28px;
+  .divider {
+    width: 100%;
   }
 
-  .categoriesSection {
-    padding: 16px;
+  .allBtn {
+    font-size: 16px;
+    align-self: flex-end;
+  }
+  .card {
+    padding: 20px;
   }
 
   .cardTitle {
     font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .categoriesSection {
+    padding: 24px 12px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .allBtn {
+    font-size: 15px;
+    padding: 6px 12px;
+  }
+  .card {
+    padding: 16px;
+  }
+
+  .cardTitle {
+    font-size: 15px;
   }
 }

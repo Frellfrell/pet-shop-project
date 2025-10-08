@@ -13,6 +13,7 @@
 .logoContainer {
   display: flex;
   align-items: center;
+  padding-left: 40px;
 }
 
 .logo {

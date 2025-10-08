@@ -4,13 +4,24 @@ import styles from "./ProductCard.module.css";
 import { colors, spacing, radii, borders } from "../../constants/styles";
 import DiscountCard from "../DiscountCard/DiscountCard";
 import { BASE_URL } from "../../constants";
+import { addToCart } from "../../services/cartHelper";
+import { useDispatch } from "react-redux";
 
 
-const ProductCard = ({ id, title, price, discont_price, image }) => {
+const ProductCard = ({ id, title, price, discont_price, image, product }) => {
+  const dispatch = useDispatch()
+   const validDiscount =
+    discont_price != null &&                   // не null и не undefined
+    discont_price !== "None" &&               // не строка "None"
+    !Number.isNaN(Number(discont_price)) &&   // не NaN
+    Number(discont_price) > 0 &&              // больше нуля
+    Number(price) > 0;                         // цена > 0
+
+  console.log('DiscountCard price:', price, 'discountPrice:', discont_price);
   return (
     <Link to={`/product/${id}`} className={styles.cardLink}>
       <div className={styles.card}
-      style={{
+        style={{
           border: borders.grayDivider,
           borderRadius: radii.small,
           padding: spacing.sm,
@@ -24,11 +35,15 @@ const ProductCard = ({ id, title, price, discont_price, image }) => {
             className={styles.cardImage}
           />
           {/* ДискаунтCard */}
-          {discont_price && (
-            <DiscountCard price={price} discount_price={discont_price} />
+          {validDiscount && ( 
+            <DiscountCard price={price} discont_price={discont_price} />
           )}
           {/* Hover кнопка Add to Cart */}
-          <button className={styles.addToCartBtn}
+          <button onClick={(e) => {
+            e.stopPropagation()
+            e.preventDefault()
+            addToCart(product, dispatch)
+          }} className={styles.addToCartBtn}
           >Add to Cart</button>
         </div>
 

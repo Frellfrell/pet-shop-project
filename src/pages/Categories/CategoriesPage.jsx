@@ -16,7 +16,7 @@ const CategoriesPage = () => {
   }, []);
 
   return (
-    <div style={ { display: 'flex', flexDirection: 'column', height: '926px', padding: '40px 0px 106px', } }>
+    <div style={ { display: 'flex', flexDirection: 'column', paddingTop: '40px', } }>
       <BreadCrumbs breadCrumbs={breadCrumbsData} />
 
        <CategoriesSection  hideAllCategories={true} limit={8} />

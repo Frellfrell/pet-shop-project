@@ -4,7 +4,26 @@ import { spacing, button } from "../../constants/styles";
 
 const CartForm = ({ cartItems }) => {
   const { register, handleSubmit } = useForm();
-  const total = cartItems.reduce((acc, item) => acc + (item.price * item.count || 1), 0);
+  // const total = cartItems.reduce((acc, item) => acc + (item.price * item.count || 1), 0);
+
+  const calculateTotals = (cartItems) => {
+    let totalItems = 0
+    let totalPrice = 0
+
+    cartItems.forEach(({ item, quantity }) => {
+      const price = item.discont_price ?? item.price;
+      console.log(price)
+      totalPrice += +price * +quantity
+      console.log(totalPrice)
+      totalItems += 1
+      console.log(totalItems)
+
+    })
+
+    return { totalItems, totalPrice }
+  }
+
+  const { totalItems, totalPrice } = calculateTotals(cartItems)
 
   const onSubmit = (data) => {
     console.log("Order submitted:", { data, cartItems });
@@ -15,8 +34,8 @@ const CartForm = ({ cartItems }) => {
     <div style={{ width: "484px", display: "flex", flexDirection: "column", gap: spacing.lg }}>
       {/* Summary */}
       <div style={{ display: "flex", justifyContent: "space-between", height: "122px" }}>
-        <div>{cartItems.length} items</div>
-        <div>Total: {total}$</div>
+        <div>{+totalItems} items</div>
+        <div>Total: {+totalPrice}$</div>
       </div>
 
       {/* Form */}

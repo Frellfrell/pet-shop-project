@@ -9,7 +9,7 @@ import styles from "./ProductPage.module.css";
 import { BASE_URL } from "../../constants";
 import { fetchProductsByCategory } from "../../redux/actions/categories";
 import { addToCart } from "../../services/cartHelper";
-
+import { button } from "../../constants/styles";
 
 // // Селектор для продукта по id
 // const selectProductById = (state, id) =>
@@ -80,9 +80,9 @@ const ProductPage = () => {
 
       <div className={styles.productWrapper}>
         <div className={styles.leftImageColumn}>
-        {/* Левая часть */}
-        <div className={styles.leftColumn}>
-          {/* <div className={styles.relatedImages}>
+          {/* Левая часть */}
+          <div className={styles.leftColumn}>
+            {/* <div className={styles.relatedImages}>
             {relatedImages.map((img) => (
               <img
                 key={img.id}
@@ -92,20 +92,20 @@ const ProductPage = () => {
               />
             ))}
           </div> */}
-          <div className={styles.leftImageWrapper}>
-            <img
-              src={`${BASE_URL}${product.image}`}
-              alt={product.title}
-              className={styles.leftImage}/>
-            <img
-              src={`${BASE_URL}${product.image}`}
-              alt={product.title}
-              className={styles.leftImage}/>
-               <img
-              src={`${BASE_URL}${product.image}`}
-              alt={product.title}
-              className={styles.leftImage}/>
-          </div>
+            <div className={styles.leftImageWrapper}>
+              <img
+                src={`${BASE_URL}${product.image}`}
+                alt={product.title}
+                className={styles.leftImage} />
+              <img
+                src={`${BASE_URL}${product.image}`}
+                alt={product.title}
+                className={styles.leftImage} />
+              <img
+                src={`${BASE_URL}${product.image}`}
+                alt={product.title}
+                className={styles.leftImage} />
+            </div>
           </div>
           <div className={styles.mainImageWrapper}>
             <img
@@ -114,39 +114,39 @@ const ProductPage = () => {
               className={styles.mainImage}
             />
           </div>
-         </div> 
-        
+        </div>
+
 
         {/* Правая часть */}
         <div className={styles.rightColumnDescription}>
-        <div className={styles.rightColumn}>
-          <h1 className={styles.title}>{product.title}</h1>
+          <div className={styles.rightColumn}>
+            <h1 className={styles.title}>{product.title}</h1>
 
-          <div className={styles.priceBox}>
-            <span className={styles.price}>{product.price}$</span>
-            {product.discont_price /* && (
+            <div className={styles.priceBox}>
+              <span className={styles.price}>{product.price}$</span>
+              {product.discont_price /* && (
               <DiscountCard
                 price={product.price}
                 discont_price={product.discont_price}
               />
             )*/}
-          </div>
-
-          
-          <div className={styles.buyBox}>
-            <div className={styles.counter}>
-              <button onClick={handleDecrease}>−</button>
-              <span>{count}</span>
-              <button onClick={handleIncrease}>+</button>
             </div>
-            <buton className={styles.addBtn} onClick={() => addToCart(product, dispatch, count)}>Add to Cart</buton>
-          </div>
-          <p className={styles.description}>{product.description}</p>
 
-          <div className={styles.categoryInfo}>
-            <p>{product.details ?? "Read more"}</p>
+
+            <div className={styles.buyBox}>
+              <div className={styles.counter}>
+                <button onClick={handleDecrease}>−</button>
+                <span>{count}</span>
+                <button onClick={handleIncrease}>+</button>
+              </div>
+              <button className={styles.addBtn} style={button} onClick={() => addToCart(product, dispatch, count)}>Add to Cart</button>
+            </div>
+            <p className={styles.description}>{product.description}</p>
+
+            <div className={styles.categoryInfo}>
+              <p>{product.details ?? "Read more"}</p>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </div>
