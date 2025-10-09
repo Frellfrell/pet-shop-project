@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
-/*import DiscountCard from "../../components/DiscountCard/DiscountCard";*/
+import DiscountCard from "../../components/DiscountCard/DiscountCard";
 import { fetchProductById } from "../../redux/actions/products";
 import styles from "./ProductPage.module.css";
 import { BASE_URL } from "../../constants";
