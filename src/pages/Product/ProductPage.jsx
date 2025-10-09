@@ -157,20 +157,19 @@ const [isExpanded, setIsExpanded] = useState(false);
               <button className={styles.addBtn} style={button} onClick={() => addToCart(product, dispatch, count)}>Add to Cart</button>
             </div>
             <div className={styles.descriptionWrapper}>
-              <p className={`${styles.description} ${
-                  isExpanded ? styles.expanded : styles.collapsed
-                  }`} > {product.description}
-                </p>
+      <p className={`${styles.description} ${isExpanded ? styles.expanded : styles.collapsed}`}>
+        {product.description}
+      </p>
 
-  {product.description && product.description.length > 200 && (
-   <button
-      className={styles.readMoreBtn}
-      onClick={() => setIsExpanded(!isExpanded)}
-    >
-      {isExpanded ? "Hide" : "Read more"}
-    </button>
-  )}
-            </div>
+      {product.description && product.description.length > 200 && (
+        <button
+          className={styles.readMoreBtn}
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          {isExpanded ? "Hide" : "Read more"}
+        </button>
+      )}
+    </div>
           </div>
         </div>
       </div>
