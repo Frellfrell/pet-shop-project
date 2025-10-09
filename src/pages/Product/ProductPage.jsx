@@ -139,9 +139,10 @@ const ProductPage = () => {
       <DiscountCard
         price={product.price}
         discont_price={product.discont_price}
+        style={{ position: "static", width: "auto", height: "auto" }}
       />
     )}
-  </div>
+              </div>
             </div>
 
 
