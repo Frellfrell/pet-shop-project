@@ -91,9 +91,6 @@
   align-items: center;
   gap: 16px;
 }
-.priceBox {
-  margin-top: 16px;
-}
 
 .priceRow {
   display: flex;
@@ -102,13 +99,13 @@
 }
 
 .currentPrice {
-  font-size: 24px;
+  font-size: 40px;
   font-weight: 700;
   color: rgba(40,40,40,1); 
 }
 
 .oldPrice {
-  font-size: 18px;
+  font-size: 24px;
   color: rgba(139,139,139,1);
   text-decoration: line-through;
 }
