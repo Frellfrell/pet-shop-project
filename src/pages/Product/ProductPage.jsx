@@ -72,7 +72,7 @@ const ProductPage = () => {
   const handleIncrease = () => setCount((prev) => prev + 1);
   const handleDecrease = () => setCount((prev) => (prev > 1 ? prev - 1 : 1));
 
-
+const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className={styles.container}>
@@ -155,10 +155,16 @@ const ProductPage = () => {
               </div>
               <button className={styles.addBtn} style={button} onClick={() => addToCart(product, dispatch, count)}>Add to Cart</button>
             </div>
-            <p className={styles.description}>{product.description}</p>
+            <div className={styles.descriptionWrapper}>
+              <p className={`${styles.description} ${
+                  isExpanded ? styles.expanded : styles.collapsed
+                  }`} > {product.description}
+                </p>
 
-            <div className={styles.categoryInfo}>
-              <p>{product.details ?? "Read more"}</p>
+  {product.description && product.description.length > 200 && (
+    <button className={styles.readMoreBtn} onClick={() => setIsExpanded(!isExpanded)}>
+      {isExpanded ? "Hide" : "Read more"}
+    </button>
             </div>
           </div>
         </div>

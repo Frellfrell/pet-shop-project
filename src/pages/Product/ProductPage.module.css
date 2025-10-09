@@ -125,6 +125,7 @@
   font-size: 16px;
   line-height: 1.5;
   color: #333;
+   transition: all 0.3s ease;
 }
 
 /* Блок добавления в корзину и счетчик */
@@ -172,25 +173,46 @@
 
 
 /* Детали продукта */
-.detailsBox {
-  margin-top: 32px;
-  width: 100%;
-  height: 306px;
-  background-color: #f9f9f9;
-  padding: 16px;
-  border-radius: 8px;
-  box-sizing: border-box;
-  overflow-y: auto;
+.descriptionWrapper {
+  margin-top: 16px;
+  position: relative;
 }
 
-.detailsBox h3 {
+.description h3 {
   margin-top: 0;
   margin-bottom: 8px;
   font-size: 20px;
   font-weight: 700;
 }
 
-.detailsBox p {
+.description p {
   font-size: 16px;
   color: #555;
+}
+.collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 10; /* показываем 4 строки */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* когда раскрыт */
+.expanded {
+  display: block;
+}
+
+/* кнопка */
+.readMoreBtn {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 0;
+}
+
+.readMoreBtn:hover {
+  text-decoration: underline;
 }
