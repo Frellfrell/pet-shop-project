@@ -11,6 +11,7 @@ import { fetchProductsByCategory } from "../../redux/actions/categories";
 import { addToCart } from "../../services/cartHelper";
 import { button } from "../../constants/styles";
 
+
 // // Селектор для продукта по id
 // const selectProductById = (state, id) =>
 //   state.products.items?.find((p) => String(p.id) === String(id));
@@ -162,9 +163,13 @@ const [isExpanded, setIsExpanded] = useState(false);
                 </p>
 
   {product.description && product.description.length > 200 && (
-    <button className={styles.readMoreBtn} onClick={() => setIsExpanded(!isExpanded)}>
+   <button
+      className={styles.readMoreBtn}
+      onClick={() => setIsExpanded(!isExpanded)}
+    >
       {isExpanded ? "Hide" : "Read more"}
     </button>
+  )}
             </div>
           </div>
         </div>
