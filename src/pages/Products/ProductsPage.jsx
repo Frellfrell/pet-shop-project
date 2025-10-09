@@ -12,12 +12,13 @@ import { Typography } from "@mui/material";
 const ProductsPage = ({ isDiscount }) => {
 
   useScrollToTop();
-
+ const dispatch = useDispatch();
+ 
   const breadCrumbs = [
     { name: "Main Page", path: "/" },
     { name: "All Products", path: "/products" },
   ];
-  const dispatch = useDispatch();
+ 
 
 
   useEffect(() => {
