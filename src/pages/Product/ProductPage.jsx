@@ -136,11 +136,12 @@ const ProductPage = () => {
 
     {/* дисконтная карта */}
     {product.discont_price && (
-      <DiscountCard
-        price={product.price}
-        discont_price={product.discont_price}
-        style={{ position: "static", width: "auto", height: "auto" }}
-      />
+     <div className={styles.discountBox}>
+        <DiscountCard
+          price={product.price}
+          discont_price={product.discont_price}
+        />
+      </div>
     )}
               </div>
             </div>
