@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
 import FilterSet from "../../components/Filter/FilterSet";
-import DiscountCard from "../../components/DiscountCard/DiscountCard";
 import { fetchAllProducts } from "../../redux/actions/products";
 import styles from "./DiscountsPage.module.css";
+
 
 const DiscountsPage = () => {
 
@@ -36,8 +36,8 @@ const DiscountsPage = () => {
   }, [products]);
 
   // Ограничиваем вывод до 8 товаров (2 ряда × 4 карточки)
-  const productsToShow = filteredProducts.slice(0, 8);
-
+ {/*const productsToShow = filteredProducts.slice(0, 8);*/}
+const limit = 8;
   const breadCrumbs = [
     { name: "Main Page", path: "/" },
     { name: "All Sales", path: "/discounts" },
@@ -63,8 +63,8 @@ const DiscountsPage = () => {
 
       {!loading && !error && (
         <div className={styles.cardsContainer}>
-          {productsToShow.length > 0 ? (
-            productsToShow.map((product) => (
+        {filteredProducts.length > 0 ? (
+      filteredProducts.slice(0, limit).map((product) => (
               <ProductCard
                 key={product.id}
                 id={product.id}
@@ -81,7 +81,7 @@ const DiscountsPage = () => {
         </div>
       )}
     </div>
-  );
+)
 };
 
 export default DiscountsPage;
