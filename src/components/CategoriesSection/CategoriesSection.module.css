@@ -12,11 +12,30 @@
 flex-wrap: wrap;
   gap: 16px;
 }
+
+.title {
+   font-size: 54px;
+  flex: 1 1 auto;
+ 
+}
 .dividerWrapper {
   justify-content: flex-end;
   flex: 1;
   gap: 16px;
 }
+.divider {
+   width: 700px;
+  height: 1px;
+ flex-grow: 1;
+}
+.allBtn {
+  white-space: nowrap;
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 140px;
+  text-align: center;
+}
+
 .cardsContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
