@@ -81,8 +81,8 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <Typography fontSize={"20px"}>Sorted</Typography>
-        <Select value={sortOption} onChange={handleSortChange}>
-          {selectOptions.map(option => (<MenuItem key={option} value={option}>{option}</MenuItem>))}
+        <Select  size="small" value={sortOption} onChange={handleSortChange}>
+          {selectOptions.map(option => (<MenuItem  key={option} value={option}>{option}</MenuItem>))}
         </Select>
 
       </div>

@@ -30,7 +30,7 @@ const DiscountsPage = () => {
   // Берём только товары со скидками
   useEffect(() => {
     if (Array.isArray(products)) {
-      const discounted = products.filter((p) => p.discont_price);
+      const discounted = products.filter((p) => p.discont_price && Number(p.discont_price) < Number(p.price));
       setFilteredProducts(discounted);
     }
   }, [products]);
@@ -65,13 +65,14 @@ const DiscountsPage = () => {
         <div className={styles.cardsContainer}>
           {productsToShow.length > 0 ? (
             productsToShow.map((product) => (
-              <DiscountCard
+              <ProductCard
                 key={product.id}
                 id={product.id}
                 title={product.title}
                 price={product.price}
                 discont_price={product.discont_price}
                 image={product.image}
+                product={product}
               />
             ))
           ) : (
