@@ -79,7 +79,7 @@
 
 /* Заголовок продукта */
 .title {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
   margin: 0;
   color: #000;
@@ -100,8 +100,9 @@
 }
 
 .discountBox {
-  position: relative; 
-  top: -6px;
+  /*position: relative;*/ 
+  margin-left: 10px;
+  /*top: -46px;*/
   width: 48px;
   height: 26px;
   flex-shrink: 0; /* чтобы не схлопывался */
@@ -143,7 +144,7 @@
   gap: 8px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 4px 8px;
+  
 }
 
 .counter button {
@@ -178,10 +179,10 @@
   position: relative;
 }
 
-.description h3 {
+.description h1 {
   margin-top: 0;
   margin-bottom: 8px;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 700;
 }
 
@@ -191,7 +192,7 @@
 }
 .collapsed {
   display: -webkit-box;
-  -webkit-line-clamp: 10; /* показываем 4 строки */
+  -webkit-line-clamp: 8; /* показываем 4 строки */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
