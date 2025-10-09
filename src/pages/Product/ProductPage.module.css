@@ -1,7 +1,7 @@
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px;
+  max-width: 1360px;
+  margin: 0 ;
+  padding-top: 40px;
   background-color: #fff;
   box-sizing: border-box;
 
@@ -12,7 +12,7 @@
   width: 1360px;
   display: flex;
   padding: 40px;
-  gap: 32px;
+  /*gap: 32px;
   /* гап между левым и правым блоком */
   margin-top: 40px;
 }
@@ -20,9 +20,9 @@
 /* Левая колонка: картинки и основной продукт */
 .leftImageColumn {
   display: flex;
-  gap: 16px;
+  gap: 24px;
   /* гап между маленькими картинками и основной */
-  width: 548px;
+  /*width: 548px;*/
   display: flex;
   flex-direction: row;
 
@@ -53,7 +53,7 @@
 
   display: flex;
   justify-content: center;
-  align-items: center;
+  /*align-items: center;*/
 }
 
 .mainImage {
