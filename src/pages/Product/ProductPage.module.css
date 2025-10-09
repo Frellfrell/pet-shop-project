@@ -94,21 +94,30 @@
 
 .priceRow {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 24px;
+ position: relative;
 }
 
+.discountBox {
+  position: relative; 
+  top: -6px;
+  width: 48px;
+  height: 34px;
+  flex-shrink: 0; /* чтобы не схлопывался */
+}
 .currentPrice {
   font-size: 40px;
   font-weight: 700;
   color: rgba(40,40,40,1); 
+  line-height: 1;
 }
 
 .oldPrice {
   font-size: 24px;
   color: rgba(139,139,139,1);
   text-decoration: line-through;
+  line-height: 1;
 }
 
 /* Описание продукта */
