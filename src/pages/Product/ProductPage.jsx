@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
@@ -31,7 +31,7 @@ const ProductPage = () => {
   useScrollToTop();
 
   const [count, setCount] = useState(1);
-
+ const [isExpanded, setIsExpanded] = useState(false);
   // Загружаем продукты и категории при монтировании
   useEffect(() => {
     dispatch(fetchProductById(id));
@@ -73,7 +73,7 @@ const ProductPage = () => {
   const handleIncrease = () => setCount((prev) => prev + 1);
   const handleDecrease = () => setCount((prev) => (prev > 1 ? prev - 1 : 1));
 
-const [isExpanded, setIsExpanded] = useState(false);
+
 
   return (
     <div className={styles.container}>
