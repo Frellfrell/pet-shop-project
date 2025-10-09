@@ -123,13 +123,25 @@ const ProductPage = () => {
             <h1 className={styles.title}>{product.title}</h1>
 
             <div className={styles.priceBox}>
-              <span className={styles.price}>{product.price}$</span>
-              {product.discont_price /* && (
-              <DiscountCard
-                price={product.price}
-                discont_price={product.discont_price}
-              />
-            )*/}
+             <div className={styles.priceRow}>
+    {/* новая цена (если есть скидка — показываем скидочную) */}
+    <span className={styles.currentPrice}>
+      {product.discont_price ? `${product.discont_price}$` : `${product.price}$`}
+    </span>
+
+    {/* старая цена (если есть скидка) */}
+    {product.discont_price && (
+      <span className={styles.oldPrice}>{product.price}$</span>
+    )}
+
+    {/* дисконтная карта */}
+    {product.discont_price && (
+      <DiscountCard
+        price={product.price}
+        discont_price={product.discont_price}
+      />
+    )}
+  </div>
             </div>
 
 

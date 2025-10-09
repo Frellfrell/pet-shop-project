@@ -91,15 +91,25 @@
   align-items: center;
   gap: 16px;
 }
-
-.price {
-  font-size: 24px;
-  font-weight: 700;
+.priceBox {
+  margin-top: 16px;
 }
 
-.discountPrice {
-  font-size: 20px;
-  color: red;
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.currentPrice {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(40,40,40,1); 
+}
+
+.oldPrice {
+  font-size: 18px;
+  color: rgba(139,139,139,1);
   text-decoration: line-through;
 }
 
