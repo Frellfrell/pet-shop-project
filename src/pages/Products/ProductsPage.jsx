@@ -13,7 +13,7 @@ const ProductsPage = ({ isDiscount }) => {
 
   useScrollToTop();
  const dispatch = useDispatch();
- 
+
   const breadCrumbs = [
     { name: "Main Page", path: "/" },
     { name: "All Products", path: "/products" },
@@ -75,6 +75,7 @@ const ProductsPage = ({ isDiscount }) => {
               id={product.id}
               title={product.title}
               price={product.price}
+              discont_price={product.discont_price}
               image={product.image}
               product={product}
             />

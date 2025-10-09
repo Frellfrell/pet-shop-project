@@ -89,13 +89,13 @@
 }
 
 .price {
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 700;
   color: rgba(40, 40, 40, 1);
 }
 
 .discountPrice {
-  font-size: 16px;
+  font-size: 20px;
   color: rgba(139, 139, 139, 1);
   text-decoration: line-through;
 }
