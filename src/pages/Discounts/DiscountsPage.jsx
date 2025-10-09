@@ -5,6 +5,7 @@ import useScrollToTop from "../../components/hooks/useScrollToTop";
 import FilterSet from "../../components/Filter/FilterSet";
 import { fetchAllProducts } from "../../redux/actions/products";
 import styles from "./DiscountsPage.module.css";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 
 const DiscountsPage = () => {
@@ -25,19 +26,19 @@ const DiscountsPage = () => {
     if (!products || products.length === 0) {
       dispatch(fetchAllProducts());
     }
-  }, [dispatch]);
+  }, [dispatch, products]);
 
   // Берём только товары со скидками
   useEffect(() => {
     if (Array.isArray(products)) {
-      const discounted = products.filter((p) => p.discont_price && Number(p.discont_price) < Number(p.price));
+      const discounted = products.filter((p) => p.discont_price);
       setFilteredProducts(discounted);
     }
   }, [products]);
 
   // Ограничиваем вывод до 8 товаров (2 ряда × 4 карточки)
- {/*const productsToShow = filteredProducts.slice(0, 8);*/}
-const limit = 8;
+ const productsToShow = filteredProducts.slice(0, 8);
+
   const breadCrumbs = [
     { name: "Main Page", path: "/" },
     { name: "All Sales", path: "/discounts" },
@@ -47,6 +48,7 @@ const limit = 8;
     <div className={styles.pageWrapper}>
       {/* Хлебные крошки и фильтр всегда видны */}
       <BreadCrumbs breadCrumbs={breadCrumbs} />
+     
       <h1 className={styles.pageTitle}>Discounted items</h1>
 
       <div className={styles.filterContainer}>
@@ -63,8 +65,8 @@ const limit = 8;
 
       {!loading && !error && (
         <div className={styles.cardsContainer}>
-        {filteredProducts.length > 0 ? (
-      filteredProducts.slice(0, limit).map((product) => (
+       {productsToShow.length > 0 ? (
+            productsToShow.map((product) => (
               <ProductCard
                 key={product.id}
                 id={product.id}
