@@ -15,7 +15,7 @@ const CartPage = () => {
     <div style={{ display: "flex", flexDirection: "column", padding: `${spacing.xl} ${spacing.xl}` }}>
       {/* Header */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: spacing.lg }}>
-       <PageTitle text="Cart" />
+       <PageTitle text="Shopping cart" />
         <div style={{ display: "flex", alignItems: "center", gap: spacing.sm }}>
           <div style={{ width: "832px", height: "1px", backgroundColor: colors.grayDivider }} />
           <Link to="/categories" style={{ color: colors.txtGrey, textDecoration: "none", fontWeight: "500", padding: spacing.sm, borderRadius: radii.small, border: `1px solid ${colors.txtGrey}` }}>
