@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { colors, spacing, radii, typography, borders } from "../../constants/styles";
 import { BASE_URL } from "../../constants/index";
 import DiscountCard from "../DiscountCard/DiscountCard";
+import PageTitle from "../PageTitle/PageTitle";
 
 const Sales = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const Sales = () => {
       style={{ padding: `${spacing.xl} ${spacing.xl}` }}>
       {/* Заголовок и кнопка All Categories */}
       <div className={styles.header} style={{ marginBottom: spacing.xl, gap: spacing.md, }}>
-        <h2 className={styles.title} style={{ ...typography.TBlack, margin: 0 }}>Sale</h2>
+        <PageTitle text="Sale" />
 
         <div className={styles.dividerWrapper} style={{ position: "relative", display: "flex", alignItems: "center" }}>
 
