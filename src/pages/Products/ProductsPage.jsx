@@ -6,7 +6,7 @@ import FilterSet from "../../components/Filter/FilterSet";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { fetchAllProducts } from "../../redux/actions/products";
 import styles from "./ProductsPage.module.css";
-import { Typography } from "@mui/material";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 
 const ProductsPage = ({ isDiscount }) => {
@@ -55,35 +55,9 @@ const ProductsPage = ({ isDiscount }) => {
   return (
     <div className={styles.pageWrapper}>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
-      {isDiscount ? 
-      <Typography 
-      sx={{ fontWeight: 700, margin: "40px 0px 40px 0", color: "secondary", 
-        fontSize: { 
-          xs: "28px",
-          sm: "36px",
-          md: "48px",
-          lg:"64px"  },
-           textAlign: { xs: "center", sm: "left" },
-           }}
-           >
-            Discounted items
-            </Typography> : 
-      <Typography 
-      sx={{ fontWeight: 700, margin: "40px 0px 40px 0", color: "secondary", 
-      fontSize: { 
-          xs: "28px",
-          sm: "36px",
-          md: "48px",
-          lg: "64px",
-           },
-           textAlign: { xs: "center", sm: "left" },
-      }}
-      >
-        All Products
-        </Typography>
-      }
 
-
+      <PageTitle text={isDiscount ? "Discounted items" : "All Products"} />
+        
       <div className={styles.filterContainer}>
         <FilterSet
           products={products}

@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-.pageTitle {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 32px;
-}
-
 .filterContainer {
   margin-bottom: 32px;
 }
@@ -40,11 +34,6 @@
     padding: 32px;
   }
 
-  .pageTitle {
-    font-size: 40px;
-    margin-bottom: 28px;
-  }
-
   .cardsContainer {
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
@@ -56,11 +45,6 @@
   .pageWrapper {
     padding: 24px;
   }
-
-  .pageTitle {
-    font-size: 36px;
-  }
-
   .filterContainer {
     margin-bottom: 24px;
   }
@@ -77,12 +61,6 @@
     padding: 16px;
   }
 
-  .pageTitle {
-    font-size: 28px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
   .filterContainer {
     margin-bottom: 16px;
   }
@@ -96,11 +74,6 @@
 @media (max-width: 480px) {
   .pageWrapper {
     padding: 12px;
-  }
-
-  .pageTitle {
-    font-size: 24px;
-    margin-bottom: 16px;
   }
 
   .filterContainer {

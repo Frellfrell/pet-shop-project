@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import styles from "./CategoriesSection.module.css";
 import { colors, spacing, radii, typography } from "../../constants/styles";
 import { BASE_URL } from "../../constants";
-
+import PageTitle from "../PageTitle/PageTitle";
 
 const selectCategories = createSelector(
   (state) => state.categories.categories,
@@ -32,7 +32,7 @@ const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
       style={{ padding: `${spacing.xl}` }}>
       {/* Заголовок и кнопка All Categories */}
       <div className={styles.header} style={{ marginBottom: spacing.xl, gap: spacing.md }}>
-        <h2 className={styles.title} style={{ ...typography.TBlack,  margin: 0 }}>Categories</h2>
+        <PageTitle text="Categories" />
         {!hideAllCategories && (
           <div className={styles.dividerWrapper} style={{ position: "relative", display: "flex", alignItems: "center" }}>
             {/* Divider  />*/}

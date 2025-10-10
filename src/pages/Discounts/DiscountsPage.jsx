@@ -6,7 +6,7 @@ import FilterSet from "../../components/Filter/FilterSet";
 import { fetchAllProducts } from "../../redux/actions/products";
 import styles from "./DiscountsPage.module.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
-
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 const DiscountsPage = () => {
 
@@ -65,7 +65,7 @@ const DiscountsPage = () => {
     <div className={styles.pageWrapper}>
       {/* Хлебные крошки и фильтр всегда видны */}
       <BreadCrumbs breadCrumbs={breadCrumbs} />
-     
+     <PageTitle text="Discounted items" />
       {/*<h1 className={styles.pageTitle}>Discounted items</h1>*/}
 
       <div className={styles.filterContainer}>

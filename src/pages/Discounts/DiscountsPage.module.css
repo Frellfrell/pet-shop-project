@@ -4,13 +4,6 @@
   min-height: 1062px;
 }
 
-.pageTitle {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 32px;
-  color: rgba(40, 40, 40, 1);
-}
-
 .filterContainer {
   margin-bottom: 32px;
 }
@@ -69,20 +62,13 @@
     grid-template-columns: repeat(3, 1fr);
 
   }
-  .pageTitle {
-    font-size: 40px;
-    
-  }
 }
-
 @media (max-width: 900px) {
   .cardsContainer {
     grid-template-columns: repeat(2, 1fr);
     gap: 28px;
   }
-  .pageTitle {
-    font-size: 36pxpx;  
-}
+
 }
 @media (max-width: 768px) {
   .cardsContainer {
@@ -90,8 +76,5 @@
     gap: 16px; 
   justify-content: center;
 }
-  
-  .pageTitle {
-    font-size: 28px;  
-}
+
 }
