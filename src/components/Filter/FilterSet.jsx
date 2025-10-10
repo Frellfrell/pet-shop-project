@@ -2,7 +2,7 @@ import { Button, Checkbox, Menu, MenuItem, Select, TextField, Typography, useMed
 import { useEffect, useState } from "react";
 
 
-function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
+function FilterSet({ products, setFilteredProducts, isCategoryPage, isDiscountPage }) {
   const isMobile = useMediaQuery("(max-width:768px)");
   const [minPrice, setMinPrice] = useState(0)
   const handleMinPriceChange = (e) => {
@@ -83,7 +83,7 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
         />
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-       {!isMobile && !isDiscountPage && <><Typography fontSize={"20px"}>Discounted Items</Typography>
+       {!isMobile && !isCategoryPage && !isDiscountPage && <><Typography fontSize={"20px"}>Discounted Items</Typography>
           <Checkbox checked={showDiscounted} onChange={handleDiscountedChange} /></>
         }
       </div>

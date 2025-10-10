@@ -10,6 +10,7 @@ import { BASE_URL } from "../../constants";
 import { fetchProductsByCategory } from "../../redux/actions/categories";
 import { addToCart } from "../../services/cartHelper";
 import { button } from "../../constants/styles";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 
 // // Селектор для продукта по id
@@ -121,7 +122,7 @@ const ProductPage = () => {
         {/* Правая часть */}
         <div className={styles.rightColumnDescription}>
           <div className={styles.rightColumn}>
-            <h1 className={styles.title}>{product.title}</h1>
+           <PageTitle text={product.title} />
 
             <div className={styles.priceBox}>
              <div className={styles.priceRow}>
