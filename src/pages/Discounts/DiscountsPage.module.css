@@ -1,7 +1,7 @@
 .pageWrapper {
   padding: 40px;
   background-color: white;
-  height: 1062px;
+  min-height: 1062px;
 }
 
 .pageTitle {
@@ -22,12 +22,18 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
   justify-content: center;
-  height: 876px;
+ 
 }
 
 /* Hover эффект карточек */
 .cardsContainer>* {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cardsContainer a {
+  display: block;      /* чтобы занимал ровно размер карточки */
+  width: 100%;          /* подстраивается под родительский grid column */
+  height: auto;         /* подстраивается под содержимое */
+  text-decoration: none; /* если нужно убрать подчеркивание */
 }
 
 /* .cardsContainer > *:hover {
@@ -61,20 +67,31 @@
 @media (max-width: 1200px) {
   .cardsContainer {
     grid-template-columns: repeat(3, 1fr);
-    height: auto;
+
+  }
+  .pageTitle {
+    font-size: 40px;
+    
   }
 }
 
 @media (max-width: 900px) {
   .cardsContainer {
     grid-template-columns: repeat(2, 1fr);
-    height: auto;
+    gap: 28px;
   }
+  .pageTitle {
+    font-size: 36pxpx;  
 }
-
-@media (max-width: 600px) {
+}
+@media (max-width: 768px) {
   .cardsContainer {
     grid-template-columns: 1fr;
-    height: auto;
-  }
+    gap: 16px; 
+  justify-content: center;
+}
+  
+  .pageTitle {
+    font-size: 28px;  
+}
 }

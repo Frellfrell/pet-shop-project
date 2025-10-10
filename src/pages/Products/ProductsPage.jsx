@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
@@ -14,30 +14,43 @@ const ProductsPage = ({ isDiscount }) => {
   useScrollToTop();
  const dispatch = useDispatch();
 
+  // Получаем данные из редюсера
+  const { products = [], loading, error } = useSelector(
+    (state) => state.products
+  );
+
+  const [filteredProducts, setFilteredProducts] = useState([]);
+ const hasFetched = useRef(false); // флаг, чтобы не загружать повторно
+
+
+  //useEffect(() => {
+    //dispatch(fetchAllProducts());
+  //}, [dispatch]);
+
+  //  Загружаем продукты только один раз (при первой загрузке)
+  useEffect(() => {
+    if (!hasFetched.current && (!products || products.length === 0)) {
+      dispatch(fetchAllProducts());
+      hasFetched.current = true;
+    }
+  }, [dispatch, products]);
+
+  //  Обновляем состояние фильтра только при изменении списка продуктов
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, [products]);
+
   const breadCrumbs = [
     { name: "Main Page", path: "/" },
     { name: "All Products", path: "/products" },
   ];
- 
-
-
-  useEffect(() => {
-    dispatch(fetchAllProducts());
-  }, [dispatch]);
-
-  // Получаем данные из редюсера
-  const { products, loading, error } = useSelector(
-    (state) => state.products
-  );
-
-  const [filteredProducts, setFilteredProducts] = useState([products]);
 
   // useEffect(() => {
   //   setFilteredProducts(products);
   // }, [products]);
 
 
-  // const productsToShow = filteredProducts.slice(0, 12);
+  const filteredShowProducts = filteredProducts.slice(0, 12);
 
   return (
     <div className={styles.pageWrapper}>
@@ -59,7 +72,7 @@ const ProductsPage = ({ isDiscount }) => {
       {/* Карточки продуктов */}
       {!loading && !error && (
         <div className={styles.cardsContainer}>
-          {filteredProducts.map((product) => (
+          {filteredShowProducts.length > 0 ? (filteredShowProducts.map((product) => (
             // product.discont_price ? (
             //   <DiscountCard
             //     key={product.id}
@@ -71,7 +84,7 @@ const ProductsPage = ({ isDiscount }) => {
             //   />
             // ) : (
             <ProductCard
-              key={product.id}
+              key={product.i || product.title}
               id={product.id}
               title={product.title}
               price={product.price}
@@ -81,7 +94,9 @@ const ProductsPage = ({ isDiscount }) => {
             />
 
           ))
-          }
+        ): (
+      <p>No products found.</p>
+    )}
         </div>
 
       )}

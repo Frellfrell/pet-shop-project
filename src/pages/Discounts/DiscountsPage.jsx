@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import useScrollToTop from "../../components/hooks/useScrollToTop";
@@ -20,21 +20,38 @@ const DiscountsPage = () => {
   );
 
   const [filteredProducts, setFilteredProducts] = useState([]);
+ const hasFetched = useRef(false); // флаг, чтобы не загружать повторно
 
   // Загружаем товары при первом рендере
+ // useEffect(() => {
+   // if (!products || products.length === 0) {
+ //     dispatch(fetchAllProducts());
+   // }
+  //}, [dispatch]);
+      // Загружаем продукты только один раз
   useEffect(() => {
-    if (!products || products.length === 0) {
+   
+    if (!hasFetched.current ) {
       dispatch(fetchAllProducts());
+      hasFetched.current = true;
     }
-  }, [dispatch, products]);
-
+  }, [dispatch]);
   // Берём только товары со скидками
-  useEffect(() => {
-    if (Array.isArray(products)) {
-      const discounted = products.filter((p) => p.discont_price);
+    useEffect(() => {
+     
+    if (Array.isArray(products) && products.length > 0) {
+     const discounted = products.filter((p) => p.discont_price);
+     console.log(discounted);
       setFilteredProducts(discounted);
     }
-  }, [products]);
+      }, [products]);
+  // Отбираем только товары со скидками, когда продукты обновились
+  //useEffect(() => {
+    //if (products.length > 0) {
+      //const discounted = products.filter((p) => p.discont_price && p.discont_price < p.price);
+      //setFilteredProducts(discounted);
+    //}
+  //}, [products]);
 
   // Ограничиваем вывод до 8 товаров (2 ряда × 4 карточки)
  const productsToShow = filteredProducts.slice(0, 8);
@@ -53,7 +70,7 @@ const DiscountsPage = () => {
 
       <div className={styles.filterContainer}>
         <FilterSet
-          products={products.filter((p) => p.discont_price)}
+        products={filteredProducts}
           setFilteredProducts={setFilteredProducts}
           isDiscountPage={true}
         />
@@ -66,9 +83,9 @@ const DiscountsPage = () => {
       {!loading && !error && (
         <div className={styles.cardsContainer}>
        {productsToShow.length > 0 ? (
-            productsToShow.map((product) => (
+            productsToShow.map((product, index) => (
               <ProductCard
-                key={product.id}
+                key={product.id || `discount-${index}`}
                 id={product.id}
                 title={product.title}
                 price={product.price}

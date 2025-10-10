@@ -109,6 +109,7 @@
   .cardsContainer {
     grid-template-columns: 1fr;
     gap: 14px;
+    height: auto;
   }
 
   .cardsContainer>* {

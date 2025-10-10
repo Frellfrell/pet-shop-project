@@ -47,7 +47,13 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
 
 
     }
-    setFilteredProducts(filtered);
+    setFilteredProducts(prev => {
+      const prevArray = Array.isArray(prev) ? prev : [];
+      const prevIds = prev.map(p => p.id).join(",");
+      const newIds = filtered.map(p => p.id).join(",");
+      if (prevIds === newIds) return prevArray; // если фильтр не изменился — не обновляем
+      return filtered;
+    });
 
 
   }, [minPrice, maxPrice, showDiscounted, sortOption, products, setFilteredProducts]);
