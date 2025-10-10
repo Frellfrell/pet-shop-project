@@ -42,26 +42,43 @@
 
 .cartContainer {
   position: relative; /* важно для overlay */
+  display: inline-block;
 }
 
 .cartLink {
-  display: flex;
+   display: inline-flex;
   align-items: center;
   position: relative;
+  justify-content: center;
 }
 
 .cartVector {
   width: 48px;
   height: 48px;
 }
-
-.cartItem {
+.cartBadge {
   position: absolute;
-  top: 0;  /* левый верхний угол корзины */
+  top: -6px;
+  left: 18px; /* сдвиг влево, чтобы заходил на корзину */
+  background-color: #007bff; /* синий */
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+/*.cartItem {
+  position: absolute;
+  top: 0;  /* левый верхний угол корзины 
   left: 0;
   width: 26px;  
   height: 26px;
-}
+}*/
 
 @media (max-width: 768px) {
   .header {

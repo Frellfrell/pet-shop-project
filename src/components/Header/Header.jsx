@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 import logo from "../../assets/logo.svg";
 import cartVector from "../../assets/Vector.svg"; // пустая корзина
-import { Typography } from "@mui/material";
+import { Badge, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 
@@ -30,12 +30,22 @@ const Header = () => {
 
       {/* Иконка корзины */}
       <div className={styles.cartContainer}>
-        <Typography variant="body2">{cartCount}</Typography>
+        {/*<Typography variant="body2">{cartCount}</Typography>*/}
         <NavLink to="/cart" className={styles.cartLink}>
+        <Badge
+      badgeContent={cartCount}
+      color="primary"
+      overlap="circular"
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "left",
+      }}
+    > 
           <img src={cartVector} alt="Vector" className={styles.cartVector} />
-          {cartCount > 0 && (
-            <span className={styles.cartBadge}>{cartCount}</span>
-          )}
+          {/*cartItemCount > 0 && (
+            <img src={cartItem} alt="Cart Item" className={styles.cartItem} />
+          )*/}
+          </Badge>
         </NavLink>
       </div>
     </header>
