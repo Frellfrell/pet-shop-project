@@ -159,6 +159,7 @@ const ProductPage = () => {
               <button className={styles.addBtn} style={button} onClick={() => addToCart(product, dispatch, count)}>Add to Cart</button>
             </div>
             <div className={styles.descriptionWrapper}>
+              <h3>Description</h3>
       <p className={`${styles.description} ${isExpanded ? styles.expanded : styles.collapsed}`}>
         {product.description}
       </p>

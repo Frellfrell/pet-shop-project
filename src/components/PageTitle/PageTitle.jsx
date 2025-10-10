@@ -1,6 +1,6 @@
-import { Typography, variant } from "@mui/material";
+import { Typography } from "@mui/material";
 
-function PageTitle({ text }) {
+function PageTitle({ text, variant }) {
 
   const fontSizes = {
   small: { xs: "24px", sm: "32px", md: "40px", lg: "40px" },
@@ -11,7 +11,7 @@ function PageTitle({ text }) {
       component="h1"
       sx={{
         fontWeight: 700,
-        margin: { xs: "24px 0", sm: "32px 0", md: "40px 0" },
+        margin: { xs: "24px 0", sm: "32px 0", md: "20px 0" },
         color: "secondary",
         fontSize: fontSizes[variant || "large"],
         textAlign: { xs: "center", sm: "left" },

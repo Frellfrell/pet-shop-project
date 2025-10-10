@@ -9,30 +9,31 @@
 
 /* Обертка для левой и правой колонок */
 .productWrapper {
-  width: 1360px;
   display: flex;
+  width: 100%;
+  box-sizing: border-box;
   padding: 40px;
   /*gap: 32px;
   /* гап между левым и правым блоком */
-  margin-top: 40px;
+ 
 }
 
 /* Левая колонка: картинки и основной продукт */
 .leftImageColumn {
   display: flex;
-  gap: 24px;
+  /*gap: 24px;
   /* гап между маленькими картинками и основной */
   /*width: 548px;*/
-  display: flex;
   flex-direction: row;
 
 }
 
 .leftColumn {
-  width: 200px;
+  max-width: 200px;
   /* ширина левой колонки */
   display: flex;
   flex-direction: column;
+  
 }
 
 /* Контейнер для 3-х маленьких картинок */
@@ -48,9 +49,8 @@
 
 /* Основное изображение продукта */
 .mainImageWrapper {
-  margin-top: 32px;
-  width: 548px;
-
+  /*margin-top: 32px;
+  width: 548px;*/
   display: flex;
   justify-content: center;
   /*align-items: center;*/
@@ -66,29 +66,22 @@
 /* Правая колонка: информация о продукте */
 
 .rightColumnDescription {
-  margin-left: 32px;
+   flex: 1;
+ /* margin-left: 32px;
   /* отступ слева от основной картинки */
 }
 
 .rightColumn {
-  width: 548px;
+  /*width: 548px;*/
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-/* Заголовок продукта */
-.title {
-  font-size: 40px;
-  font-weight: 700;
-  margin: 0;
-  color: #000;
+  gap: 4px;
 }
 
 /* Цена и скидка */
 .priceBox {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 16px;
 }
 
@@ -179,7 +172,7 @@
   position: relative;
 }
 
-.description h1 {
+.description h3 {
   margin-top: 0;
   margin-bottom: 8px;
   font-size: 40px;
@@ -192,7 +185,7 @@
 }
 .collapsed {
   display: -webkit-box;
-  -webkit-line-clamp: 8; /* показываем 4 строки */
+  -webkit-line-clamp: 6; /* показываем 6 строки */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -216,4 +209,111 @@
 
 .readMoreBtn:hover {
   text-decoration: underline;
+}
+@media (max-width: 1200px) {
+  .productWrapper {
+    flex-wrap: wrap;
+    padding: 32px;
+  }
+  .mainImageWrapper {
+    width: 100%;
+    margin-top: 16px;
+  }
+  .currentPrice {
+    font-size: 48px;
+  }
+  .oldPrice {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 992px) {
+  .productWrapper {
+    flex-direction: column;
+    padding: 24px;
+  }
+  .leftImageColumn {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .leftColumn {
+    width: auto;
+  }
+  .mainImage {
+    max-height: 400px;
+  }
+  .rightColumnDescription {
+    width: 100%;
+    margin-left: 0;
+  }
+  .currentPrice {
+    font-size: 36px;
+  }
+  .oldPrice {
+    font-size: 24px;
+  }
+  .description {
+    font-size: 14px;
+  }
+  .addBtn {
+    width: 100%;
+  }
+  .priceBox {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .leftImageColumn {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .leftColumn {
+    justify-content: center;
+  }
+  .mainImage {
+    max-height: 300px;
+  }
+  .currentPrice {
+    font-size: 28px;
+  }
+  .oldPrice {
+    font-size: 18px;
+  }
+  .description {
+    font-size: 13px;
+  }
+  .buyBox {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .counter {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .productWrapper {
+    padding: 16px;
+  }
+  .mainImage {
+    max-height: 250px;
+  }
+  .currentPrice {
+    font-size: 24px;
+  }
+  .oldPrice {
+    font-size: 16px;
+  }
+  .description {
+    font-size: 12px;
+  }
+  .addBtn {
+    width: 100%;
+  }
 }
