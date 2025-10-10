@@ -59,9 +59,6 @@ font-weight: 600;
   border-radius: 8px;
 }
 @media (max-width: 1024px) {
-  .leftColumn h2 {
-  font-size: 48px;
-}
 
   .cardsGrid {
     grid-template-columns: 1fr 1fr;
@@ -80,10 +77,6 @@ font-weight: 600;
   .container {
     gap: 24px;
   }
-
-  .leftColumn h2 {
-  font-size: 32px;
-}
 
   .cardsGrid {
     grid-template-columns: 1fr;
@@ -115,9 +108,6 @@ font-weight: 600;
   }
 }
 @media (max-width: 480px) {
-  .leftColumn h2 {
-  font-size: 28px;
-}
 
   .card p {
     font-size: 18px;

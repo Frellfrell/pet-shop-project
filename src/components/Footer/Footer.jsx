@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Footer.module.css";
 import phoneIcon from "../../assets/ic-whatsapp.svg"; 
 import instagramIcon from "../../assets/ic-instagram.svg"; 
+import PageTitle from "../PageTitle/PageTitle";
 
 const Footer = () => {
   return (
@@ -9,7 +10,7 @@ const Footer = () => {
       <div className={styles.container}>
         {/* Левая колонка */}
         <div className={styles.leftColumn}>
-          <h2>Contact</h2>
+          <PageTitle text="Contact" />
         </div>
 
         {/* Основной блок с карточками */}
