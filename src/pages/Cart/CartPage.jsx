@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import CartItem from "../../components/AddCart/CartItem";
 import CartForm from "../../components/AddCart/CartForm";
 import { getCartItems } from "../../services/cartHelper";
+import PageTitle from "../../components/PageTitle/PageTitle";
 
 
 const CartPage = () => {
@@ -14,7 +15,7 @@ const CartPage = () => {
     <div style={{ display: "flex", flexDirection: "column", padding: `${spacing.xl} ${spacing.xl}` }}>
       {/* Header */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: spacing.lg }}>
-        <h2 style={{ fontSize: "64px", fontWeight: "700", color: colors.secondary }}>Cart</h2>
+       <PageTitle text="Cart" />
         <div style={{ display: "flex", alignItems: "center", gap: spacing.sm }}>
           <div style={{ width: "832px", height: "1px", backgroundColor: colors.grayDivider }} />
           <Link to="/categories" style={{ color: colors.txtGrey, textDecoration: "none", fontWeight: "500", padding: spacing.sm, borderRadius: radii.small, border: `1px solid ${colors.txtGrey}` }}>
