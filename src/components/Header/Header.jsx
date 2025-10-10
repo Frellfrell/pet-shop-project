@@ -33,9 +33,9 @@ const Header = () => {
         <Typography variant="body2">{cartCount}</Typography>
         <NavLink to="/cart" className={styles.cartLink}>
           <img src={cartVector} alt="Vector" className={styles.cartVector} />
-          {/*cartItemCount > 0 && (
-            <img src={cartItem} alt="Cart Item" className={styles.cartItem} />
-          )*/}
+          {cartCount > 0 && (
+            <span className={styles.cartBadge}>{cartCount}</span>
+          )}
         </NavLink>
       </div>
     </header>
