@@ -55,7 +55,33 @@ const ProductsPage = ({ isDiscount }) => {
   return (
     <div className={styles.pageWrapper}>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
-      {isDiscount ? <Typography sx={{ fontWeight: 700, margin: "40px 0px 40px 0", color: "rgb(40, 40, 40)", fontSize: "64px" }}>Discounted items</Typography> : <Typography sx={{ fontWeight: 700, margin: "40px 0px 40px 0", color: "rgb(40, 40, 40)", fontSize: "64px" }}>All Products</Typography>}
+      {isDiscount ? 
+      <Typography 
+      sx={{ fontWeight: 700, margin: "40px 0px 40px 0", color: "secondary", 
+        fontSize: { 
+          xs: "28px",
+          sm: "36px",
+          md: "48px",
+          lg:"64px"  },
+           textAlign: { xs: "center", sm: "left" },
+           }}
+           >
+            Discounted items
+            </Typography> : 
+      <Typography 
+      sx={{ fontWeight: 700, margin: "40px 0px 40px 0", color: "secondary", 
+      fontSize: { 
+          xs: "28px",
+          sm: "36px",
+          md: "48px",
+          lg: "64px",
+           },
+           textAlign: { xs: "center", sm: "left" },
+      }}
+      >
+        All Products
+        </Typography>
+      }
 
 
       <div className={styles.filterContainer}>

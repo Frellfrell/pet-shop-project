@@ -8,13 +8,17 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 306px;
-  height: 422px;
+  width: 100;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  /*width: 306px;
+  height: 422px;*/
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
 }
+
 
 /* ✨ Ховер-анимация — карточка немного “приподнимается” и получает ярче тень */
 /* .card:hover {

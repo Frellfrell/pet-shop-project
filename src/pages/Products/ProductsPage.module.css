@@ -17,7 +17,7 @@
 /* Сетка карточек 3x4 */
 .cardsContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 
   gap: 32px;
   justify-content: center;
@@ -27,6 +27,7 @@
 .cardsContainer>* {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 /* .cardsContainer > *:hover {
   transform: translateY(-5px);

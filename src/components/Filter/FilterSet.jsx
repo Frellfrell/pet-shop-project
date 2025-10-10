@@ -1,7 +1,9 @@
-import { Button, Checkbox, Menu, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Button, Checkbox, Menu, MenuItem, Select, TextField, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
 
+
 function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
+  const isMobile = useMediaQuery("(max-width:768px)");
   const [minPrice, setMinPrice] = useState(0)
   const handleMinPriceChange = (e) => {
     setMinPrice(e.target.value)
@@ -81,16 +83,16 @@ function FilterSet({ products, setFilteredProducts, isDiscountPage }) {
         />
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        {!isDiscountPage && <><Typography fontSize={"20px"}>Discounted Items</Typography>
+       {!isMobile && !isDiscountPage && <><Typography fontSize={"20px"}>Discounted Items</Typography>
           <Checkbox checked={showDiscounted} onChange={handleDiscountedChange} /></>
         }
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        <Typography fontSize={"20px"}>Sorted</Typography>
+        {!isMobile && <><Typography fontSize={"20px"}>Sorted</Typography>
         <Select  size="small" value={sortOption} onChange={handleSortChange}>
           {selectOptions.map(option => (<MenuItem  key={option} value={option}>{option}</MenuItem>))}
-        </Select>
-
+        </Select> </>
+          }
       </div>
     </div>
   );
