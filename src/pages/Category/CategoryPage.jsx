@@ -62,7 +62,7 @@ const CategoryPage = () => {
     <div style={{ padding: "40px" }}>
       <BreadCrumbs breadCrumbs={breadCrumbs} />
       {/* Раздел с фильтром */}
-      <CategoryProductsSection products={categoryProducts} />
+      <CategoryProductsSection products={categoryProducts} category={category} />
     </div>
   );
 };

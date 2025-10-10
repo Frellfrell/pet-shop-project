@@ -2,18 +2,22 @@ import React, { useState } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import FilterSet from "../Filter/FilterSet";
 import styles from "./CategoryProductsSection.module.css";
+import PageTitle from "../PageTitle/PageTitle"; 
 
 
-const CategoryProductsSection = ({ products, isDiscountPage = false }) => {
+const CategoryProductsSection = ({ products, isDiscountPage = false, category }) => {
   const [filteredProducts, setFilteredProducts] = useState(products || []);
 
   React.useEffect(() => {
     setFilteredProducts(products || []);
   }, [products]);
 
-
+ 
   return (
     <section className={styles.productsSection}>
+
+     {category?.title && <PageTitle text={category.title} />}
+
       <div className={styles.filters}>
         <FilterSet
           products={products || []} setFilteredProducts={setFilteredProducts} isDiscountPage={isDiscountPage} />

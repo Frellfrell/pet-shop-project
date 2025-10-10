@@ -13,11 +13,6 @@ flex-wrap: wrap;
   gap: 16px;
 }
 
-.title {
-   font-size: 54px;
-  flex: 1 1 auto;
- 
-}
 .dividerWrapper {
   justify-content: flex-end;
   flex: 1;
