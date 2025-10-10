@@ -13,6 +13,7 @@ import { button } from "../../constants/styles";
 import PageTitle from "../../components/PageTitle/PageTitle";
 
 
+
 // // Селектор для продукта по id
 // const selectProductById = (state, id) =>
 //   state.products.items?.find((p) => String(p.id) === String(id));
@@ -122,7 +123,7 @@ const ProductPage = () => {
         {/* Правая часть */}
         <div className={styles.rightColumnDescription}>
           <div className={styles.rightColumn}>
-           <PageTitle text={product.title} />
+           <PageTitle text={product.title} variant="small" />
 
             <div className={styles.priceBox}>
              <div className={styles.priceRow}>

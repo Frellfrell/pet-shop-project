@@ -1,6 +1,11 @@
-import { Typography } from "@mui/material";
+import { Typography, variant } from "@mui/material";
 
 function PageTitle({ text }) {
+
+  const fontSizes = {
+  small: { xs: "24px", sm: "32px", md: "40px", lg: "40px" },
+  large: { xs: "28px", sm: "36px", md: "48px", lg: "64px" },
+};
   return (
     <Typography
       component="h1"
@@ -8,12 +13,7 @@ function PageTitle({ text }) {
         fontWeight: 700,
         margin: { xs: "24px 0", sm: "32px 0", md: "40px 0" },
         color: "secondary",
-        fontSize: {
-          xs: "28px", // до 600px
-          sm: "36px", // до 900px
-          md: "48px", // до 1200px
-          lg: "64px", // от 1200px и выше
-        },
+        fontSize: fontSizes[variant || "large"],
         textAlign: { xs: "center", sm: "left" },
       }}
     >
