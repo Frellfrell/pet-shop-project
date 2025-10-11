@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { spacing, colors, radii, } from "../../constants/styles";
 import { Link } from "react-router-dom";
 import CartItem from "../../components/AddCart/CartItem";
@@ -8,8 +9,13 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 
 
 const CartPage = () => {
-  const cartItems = getCartItems()
-  console.log(JSON.stringify(cartItems))
+ const cartCounter = useSelector(state => state.cart.cartCounter);
+  const [cartItems, setCartItems] = useState(getCartItems());
+
+  // Перерисовываем список товаров при изменении cartCounter
+  useEffect(() => {
+    setCartItems(getCartItems());
+  }, [cartCounter]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", padding: `${spacing.xl} ${spacing.xl}` }}>
