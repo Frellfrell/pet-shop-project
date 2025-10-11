@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import { spacing, colors, radii, borders } from "../../constants/styles";
 import { Box, Typography, IconButton, Paper } from "@mui/material";
 import styles from "./CartItem.module.css";
 import { removeFromCart } from "../../services/cartHelper";
