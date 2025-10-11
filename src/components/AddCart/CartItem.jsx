@@ -2,12 +2,20 @@ import React, { useState } from "react";
 //import { spacing, colors, radii, borders } from "../../constants/styles";
 import { Box, Typography, IconButton, Paper } from "@mui/material";
 import styles from "./CartItem.module.css";
+import { removeFromCart } from "../../services/cartHelper";
+import { useDispatch } from "react-redux";
 
 const CartItem = ({ product, quantity }) => {
   const [count, setCount] = useState(quantity);
 
   const handleIncrease = () => setCount(prev => prev + 1);
   const handleDecrease = () => setCount(prev => (prev > 1 ? prev - 1 : 1));
+
+  const dispatch = useDispatch();
+
+const handleRemove = () => {
+  removeFromCart(product.id, dispatch);
+};
 
   return (
     <Paper elevation={2} className={styles.item}>
