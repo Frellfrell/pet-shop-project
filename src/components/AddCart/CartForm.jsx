@@ -37,24 +37,7 @@ const CartForm = ({ cartItems }) => {
       <PageTitle text="Order details" variant="small" />
       <Typography sx={{fontSize: 40, color: "rgba(139,139,139,1)", gap: 2 }}>{totalItems} items</Typography>
       <Typography >Total {totalPrice}$</Typography>
-    {/*<div style={{ width: "484px", display: "flex", flexDirection: "column", gap: spacing.lg }}>
-      {/* Summary */
-      /*<div style={{ display: "flex", justifyContent: "space-between", height: "122px" }}>
-        <div>{+totalItems} items</div>
-        <div>Total: {+totalPrice}$</div>
-      </div>*/}
-      
-
-      {/* Form */}
-     {/*} <form onSubmit={handleSubmit(onSubmit)} style={{ display: "flex", flexDirection: "column", gap: spacing.md }}>
-        <input {...register("name", { required: true })} placeholder="Name" style={{ height: 58, padding: spacing.sm }} />
-        <input {...register("phone", { required: true })} placeholder="Phone" style={{ height: 58, padding: spacing.sm }} />
-        <input {...register("email", { required: true })} placeholder="Email" style={{ height: 58, padding: spacing.sm }} />
-        <button type="submit" style={{ ...button, marginTop: spacing.xl }}>Order</button>
-      </form>
-    </div>
-  );
-};*/}
+   
  <TextField label="Name" variant="outlined" {...register("name")} />
       <TextField label="Phone" variant="outlined" {...register("phone")} />
       <TextField label="Email" variant="outlined" {...register("email")} />
