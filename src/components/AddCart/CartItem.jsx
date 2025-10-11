@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 //import { spacing, colors, radii, borders } from "../../constants/styles";
 import { Box, Typography, IconButton, Paper } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
 import styles from "./CartItem.module.css";
 
 const CartItem = ({ product, quantity }) => {
@@ -40,9 +39,9 @@ const CartItem = ({ product, quantity }) => {
         </Box>
       </Box>
 
-      <IconButton className={styles.deleteBtn}>
-        <DeleteIcon />
-      </IconButton>
+      <button className={styles.closeBtn} onClick={handleRemove}>
+        ×
+      </button>
     </Paper>
   );
 };

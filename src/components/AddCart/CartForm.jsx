@@ -35,7 +35,7 @@ const CartForm = ({ cartItems }) => {
   return (
      <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ display: "flex", flexDirection: "column", gap: 2 }} >
       <PageTitle text="Order details" variant="small" />
-      <Typography >{totalItems} items</Typography>
+      <Typography sx={{fontSize: 40, color: "rgba(139,139,139,1)", gap: 2 }}>{totalItems} items</Typography>
       <Typography >Total {totalPrice}$</Typography>
     {/*<div style={{ width: "484px", display: "flex", flexDirection: "column", gap: spacing.lg }}>
       {/* Summary */
