@@ -27,10 +27,14 @@ export const countCartItems = () => {
 }
 export const removeFromCart = (productId, dispatch) => {
   const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
-
+  
+  console.log("Удаляем товар с id:", productId);
+  console.log("Корзина ДО:", existingCart);
   // Оставляем только те товары, у которых id не совпадает
-  const updatedCart = existingCart.filter(item => item.item.id !== productId);
+  const updatedCart = existingCart.filter( (it) => String(it.item.id) !== String(productId)
+  );
 
+console.log("Корзина ПОСЛЕ:", updatedCart);
   // Обновляем localStorage
   localStorage.setItem('cart', JSON.stringify(updatedCart));
 
@@ -38,4 +42,5 @@ export const removeFromCart = (productId, dispatch) => {
   if (dispatch) {
     dispatch(recalculateCart());
   }
+   return updatedCart;
 };
