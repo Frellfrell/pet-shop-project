@@ -40,8 +40,8 @@ const CartPage = () => {
         {/* Left - Cart Items */}
         <div style={{ 
           flex: isMobile ? "1" : "0 0 780px",
-          height: isMobile ? "auto" : "572px",
-          display: "flex", flexDirection: "column", gap: "32px", 
+          maxHeight: isMobile ? "auto" :  `calc(3 * 180px + 3*16px )`,
+          display: "flex", flexDirection: "column", gap: "16px", 
            overflowY: isMobile ? "visible" : "auto",
             paddingRight: "8px", 
             scrollbarWidth: "thin", }}>
@@ -53,8 +53,7 @@ const CartPage = () => {
         <div
           style={{
             flex: isMobile ? "1" : "0 0 548px",
-            height: isMobile ? "auto" : "582px",
-            padding: "32px",
+             maxHeight: isMobile ? "auto" :  `calc(3 * 180px + 3*16px )`,
             backgroundColor: "rgba(241,243,243,1)",
             borderRadius: radii.medium,
           }}

@@ -27,25 +27,25 @@ const handleRemove = () => {
         </Typography>
 
         <Box className={styles.priceRow}>
-          <Typography variant="h6">
-            {product.discont_price ?? product.price}$
-          </Typography>
-          {product.oldPrice && (
-            <Typography
-              variant="body2"
-              sx={{ textDecoration: "line-through", color: "#999" }}
-            >
-              {product.oldPrice}$
-            </Typography>
-          )}
-        </Box>
-
-        <Box className={styles.counter}>
+           <Box className={styles.counter}>
           <button onClick={handleDecrease}>−</button>
           <span>{count}</span>
           <button onClick={handleIncrease}>+</button>
         </Box>
-      </Box>
+      
+          <Typography sx={{ fontWeight: 700, fontSize: "40px",fontFamily: "Montserrat" }}>
+            ${product.discont_price ? `${product.discont_price}` : `${product.price}`}
+          </Typography>
+          {product.discont_price  && (
+            <Typography
+              sx={{ textDecoration: "line-through", color: "#999", fontSize: "20px",fontFamily: "Montserrat" }}
+            >
+              ${product.price}
+            </Typography>
+          )}
+        </Box>
+        </Box>
+       
 
       <button className={styles.closeBtn} onClick={handleRemove}>
         ×
