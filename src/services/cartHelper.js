@@ -25,3 +25,17 @@ export const countCartItems = () => {
   return existingCart.length
 
 }
+export const removeFromCart = (productId, dispatch) => {
+  const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Оставляем только те товары, у которых id не совпадает
+  const updatedCart = existingCart.filter(item => item.item.id !== productId);
+
+  // Обновляем localStorage
+  localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+  // Пересчитываем количество товаров в Redux
+  if (dispatch) {
+    dispatch(recalculateCart());
+  }
+};
