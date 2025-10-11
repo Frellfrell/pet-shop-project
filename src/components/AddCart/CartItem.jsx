@@ -8,7 +8,42 @@ const CartItem = ({ product, quantity }) => {
   const handleDecrease = () => setCount(prev => (prev > 1 ? prev - 1 : 1));
 
   return (
-    <div style={{
+    <Paper elevation={2} className={styles.item}>
+      <img src={product.image} alt={product.title} className={styles.image} />
+
+      <Box className={styles.info}>
+        <Typography variant="h6" className={styles.title}>
+          {product.title}
+        </Typography>
+
+        <Box className={styles.priceRow}>
+          <Typography variant="h6">
+            {product.discont_price ?? product.price}$
+          </Typography>
+          {product.oldPrice && (
+            <Typography
+              variant="body2"
+              sx={{ textDecoration: "line-through", color: "#999" }}
+            >
+              {product.oldPrice}$
+            </Typography>
+          )}
+        </Box>
+
+        <Box className={styles.counter}>
+          <button onClick={handleDecrease}>−</button>
+          <span>{count}</span>
+          <button onClick={handleIncrease}>+</button>
+        </Box>
+      </Box>
+
+      <IconButton className={styles.deleteBtn}>
+        <DeleteIcon />
+      </IconButton>
+    </Paper>
+  );
+};
+    {/*<div style={{
       display: "flex",
       gap: spacing.md,
       padding: spacing.sm,
@@ -36,6 +71,6 @@ const CartItem = ({ product, quantity }) => {
       </div>
     </div>
   );
-};
+};*/}
 
 export default CartItem;
