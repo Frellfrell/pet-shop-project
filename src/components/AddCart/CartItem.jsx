@@ -14,8 +14,8 @@ const CartItem = ({ product, quantity }) => {
   const dispatch = useDispatch();
 
 const handleRemove = () => {
-  console.log("Удаляем товар с id:", product?.id);
-  removeFromCart(product.item.id, dispatch);
+   console.log("Removing product id:", product.id);
+  removeFromCart(product.id, dispatch);
 };
 
   return (
