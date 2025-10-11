@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography, IconButton, Paper } from "@mui/material";
+import { Box, Typography, Paper } from "@mui/material";
 import styles from "./CartItem.module.css";
 import { removeFromCart } from "../../services/cartHelper";
 import { useDispatch } from "react-redux";
