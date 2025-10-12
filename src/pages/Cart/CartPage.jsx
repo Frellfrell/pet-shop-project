@@ -9,6 +9,7 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import axios from "axios";
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'; 
+import { BASE_URL } from "../../constants";
 
 
 const CartPage = () => {
@@ -31,7 +32,7 @@ const CartPage = () => {
       };
 
       // Отправляем запрос на сервер
-      const response = await axios.post("/order/send", orderData);
+      const response = await axios.post(`${BASE_URL}/order/send`, orderData);
 
       // Если заказ отправлен успешно, показываем модальное окно
       if (response.status === 200) {
@@ -120,17 +121,19 @@ const CartPage = () => {
             boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
             width: "548px",
             height: "236px",
+             zIndex: 9999, // Высокий индекс, чтобы окно было поверх страницы
           }}
         >
-          <Typography variant="h6" style={{ fontSize: "24px", marginBottom: "20px" }}>
+          <Typography variant="h6" style={{ fontSize: "24px", marginBottom: "20px", color:"rgba(255,255,255,1)" }}>
             Congratulations!
           </Typography>
-          <Typography variant="body1" style={{ marginBottom: "20px" }}>
-            Your order has been successfully placed on the website. A manager will contact you shortly to confirm your order.
+          <Typography variant="body1" style={{ marginBottom: "20px",color:"rgba(255,255,255,1)" }}>
+            Your order has been successfully placed on the website.
           </Typography>
+          <p style={{ color: "background"}}>A manager will contact you shortly to confirm your order.</p>
           <Button
-            variant="contained"
-            style={{ position: "absolute", top: "10px", right: "10px", width: "22px", height: "22px", padding: "0", backgroundColor: "rgba(13,80,255,1)"}}
+            
+            style={{ position: "absolute", top: "10px", right: "10px", width: "22px", height: "22px", padding: "0", color:"rgba(255,255,255,1)" }}
             onClick={() => setOrderSuccess(false)}
           >
             ×
