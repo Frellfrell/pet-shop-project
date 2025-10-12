@@ -7,6 +7,8 @@ import CartForm from "../../components/AddCart/CartForm";
 import { getCartItems } from "../../services/cartHelper";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import axios from "axios";
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button'; 
 
 
 const CartPage = () => {
@@ -70,11 +72,23 @@ const CartPage = () => {
           display: "flex", flexDirection: "column", gap: "16px", 
            overflowY: isMobile ? "visible" : "auto",
             paddingRight: "8px", 
-            scrollbarWidth: "thin", }}>
+            scrollbarWidth: "thin",
+             }}>
          {isEmpty ? (
-            <p>Your cart is empty</p>
-          ) : ( cartItems.map(item => <CartItem key={item.item.id} product={item.item} quantity={item.quantity} 
-          style={{ width: "780px", height: "180px", flexShrink: 0, }} />)
+            <div style={{ padding: "16px", textAlign: "center" }}>
+              <Typography variant="h6" sx={{ marginBottom: "16px" }}>
+                Looks like you have no items in your basket currently
+              </Typography>
+              <Link to="/categories">
+                <Button variant="outlined" size="large">
+                  Continue Shopping
+                </Button>
+              </Link>  
+            </div>
+        ) : (
+            cartItems.map(item => (
+              <CartItem key={item.item.id} product={item.item} quantity={item.quantity} style={{ width: "780px", height: "180px", flexShrink: 0 }} />
+            ))
           )}
         </div>
 
@@ -87,20 +101,9 @@ const CartPage = () => {
             borderRadius: radii.medium,
           }}
         >
-            {isEmpty ? (
-            <div style={{ padding: "16px", textAlign: "center" }}>
-              <Typography variant="h6" sx={{ marginBottom: "16px" }}>
-                Looks like you have no items in your basket currently
-              </Typography>
-              <Link to="/categories">
-                <Button variant="outlined" size="large">
-                  Continue Shopping
-                </Button>
-              </Link>
-            </div>
-          ) : (
+           
         <CartForm cartItems={cartItems} onSubmit={handleSubmitOrder} />
-        )}
+        
       </div>
       </div>
       {/* Success Modal */}
