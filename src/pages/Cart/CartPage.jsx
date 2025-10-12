@@ -10,13 +10,13 @@ import axios from "axios";
 import { Typography, Box, Button }  from '@mui/material';
 import { BASE_URL } from "../../constants";
 import { recalculateCart } from "../../redux/reducers/cart";
-import { useForm } from "react-hook-form";
+
+
 
 
 
 const CartPage = () => {
  const cartCounter = useSelector(state => state.cart.cartCounter);
-  const { reset } = useForm();
  const dispatch = useDispatch();
   const [cartItems, setCartItems] = useState(getCartItems());
   const [orderSuccess, setOrderSuccess] = useState(false);
@@ -47,7 +47,7 @@ const CartPage = () => {
 
       // Обновляем состояние корзины в Redux (если нужно)
       dispatch(recalculateCart());
-      reset();  // Сброс значений формы
+     
         setOrderSuccess(true); // Открываем окно подтверждения
     } 
   } catch (error) {
