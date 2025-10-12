@@ -92,11 +92,12 @@
 }
 
 /* адаптив */
-@media (max-width: 700px) {
+@media (max-width: 1024px) {
   .item {
     flex-direction: column;
     align-items: flex-start;
     height: auto;
+    gap: 16px;
   }
 
   .image {
@@ -106,5 +107,42 @@
 
   .info {
     width: 100%;
+    padding: 16px;
+  }
+
+  .counter {
+    flex-direction: row;
+  }
+
+  .priceRow {
+    font-size: 1.6rem;
+  }
+
+  .closeBtn {
+    top: 10px;
+    right: 10px;
+  }
+}
+@media (max-width: 700px) {
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
+  }
+
+  .priceRow {
+    font-size: 1.4rem;
+  }
+
+  .counter {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .closeBtn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 20px;
   }
 }
