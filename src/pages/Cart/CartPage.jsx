@@ -7,8 +7,9 @@ import CartForm from "../../components/AddCart/CartForm";
 import { getCartItems } from "../../services/cartHelper";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import axios from "axios";
-import { Typography, Box, Button, recalculateCart }  from '@mui/material';
+import { Typography, Box, Button }  from '@mui/material';
 import { BASE_URL } from "../../constants";
+import { recalculateCart } from "../../redux/reducers/cart";
 
 
 
@@ -39,6 +40,8 @@ const CartPage = () => {
       if (response.status === 200) {
          // Очищаем корзину
       localStorage.removeItem('cart'); // Очистим корзину в localStorage
+      // Обновляем cartItems
+      setCartItems([]); // Обновляем состояние корзины на пустое
 
       // Обновляем состояние корзины в Redux (если нужно)
       dispatch(recalculateCart());
