@@ -107,8 +107,25 @@ const CartPage = () => {
         
       </div>
       </div>
-      {/* Success Modal */}
-      {orderSuccess && (
+
+       {/* Success Modal */}
+{orderSuccess && (
+  <>
+    {/* Фон, который будет перекрывать всю страницу */}
+    <div
+      style={{
+        position: "fixed",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+        backgroundColor: "rgba(0, 0, 0, 0.5)", // Полупрозрачный черный фон
+        zIndex: 999, // Окно будет сверху
+      }}
+    ></div>
+
+     {/* Модальное окно */}
+    
         <div
           style={{
             position: "fixed",
@@ -139,8 +156,11 @@ const CartPage = () => {
             ×
           </Button>
         </div>
+          </> 
       )}
     </div>
+     
+    
   );
 };
 
