@@ -43,7 +43,7 @@ const CartForm = ({ cartItems, onSubmit }) => {
  <TextField label="Name" variant="outlined" {...register("name")} />
       <TextField label="Phone" variant="outlined" {...register("phone")} />
       <TextField label="Email" variant="outlined" {...register("email")} />
- <Button type="submit" variant="contained" size="large" sx={{ mt: 3, fontFamily: "Montserrat" }}>
+ <Button type="submit" variant="contained" size="large" sx={{ mt: 3, fontFamily: "Montserrat", backgroundColor: "rgba(13,80,255,1)" }}>
          Order
       </Button>
   

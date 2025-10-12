@@ -75,12 +75,12 @@ const CartPage = () => {
             scrollbarWidth: "thin",
              }}>
          {isEmpty ? (
-            <div style={{ padding: "16px", textAlign: "center" }}>
+            <div style={{  textAlign: "left" }}>
               <Typography variant="h6" sx={{ marginBottom: "16px" }}>
                 Looks like you have no items in your basket currently
               </Typography>
               <Link to="/categories">
-                <Button variant="outlined" size="large">
+                <Button variant="contained" size="large" sx={{ backgroundColor: "rgba(13,80,255,1)"}}>
                   Continue Shopping
                 </Button>
               </Link>  
@@ -130,7 +130,7 @@ const CartPage = () => {
           </Typography>
           <Button
             variant="contained"
-            style={{ position: "absolute", top: "10px", right: "10px", width: "22px", height: "22px", padding: "0" }}
+            style={{ position: "absolute", top: "10px", right: "10px", width: "22px", height: "22px", padding: "0", backgroundColor: "rgba(13,80,255,1)" }}
             onClick={() => setOrderSuccess(false)}
           >
             ×
