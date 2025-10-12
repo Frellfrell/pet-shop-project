@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'; 
 import { BASE_URL } from "../../constants";
 import { Box } from "@mui/material";
-import recalculateCart from "@mui/material";
+import { recalculateCart } from "@mui/material";
 
 
 const CartPage = () => {
