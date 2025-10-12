@@ -141,13 +141,13 @@ const CartPage = () => {
              zIndex: 9999, // Высокий индекс, чтобы окно было поверх страницы
           }}
         >
-          <Typography variant="h6" style={{ fontSize: "24px", marginBottom: "20px", color:"rgba(255,255,255,1)" }}>
+          <Typography variant="h6" style={{ fontSize: "40px", marginBottom: "20px", color:"rgba(255,255,255,1)" }}>
             Congratulations!
           </Typography>
-          <Typography variant="body1" style={{ marginBottom: "20px",color:"rgba(255,255,255,1)" }}>
+          <Typography variant="body1" style={{  fontSize: "20px", marginBottom: "20px",color:"rgba(255,255,255,1)" }}>
             Your order has been successfully placed on the website.
           </Typography>
-          <p style={{ color: "background"}}>A manager will contact you shortly to confirm your order.</p>
+          <p style={{ color: "background",  fontSize: "20px"}}>A manager will contact you shortly to confirm your order.</p>
           <Button
             
             style={{ position: "absolute", top: "10px", right: "10px", width: "22px", height: "22px", padding: "0", color:"rgba(255,255,255,1)" }}
