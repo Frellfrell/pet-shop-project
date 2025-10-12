@@ -24,7 +24,7 @@
 
 .info {
   flex: 1;
-  min-width: 300px;
+  min-width: 220px;
   display: flex;;
   flex-direction: column;
   justify-content: space-between;
@@ -97,17 +97,17 @@
     flex-direction: column;
     align-items: flex-start;
     height: auto;
-    gap: 16px;
+    gap: 8px;
   }
 
   .image {
-    width: 100%;
+   
     height: auto;
   }
 
   .info {
-    width: 100%;
-    padding: 16px;
+   
+    padding: 12px;
   }
 
   .counter {
@@ -131,11 +131,7 @@
   }
 
   .image {
-    width: 100%;
+  
     height: auto;
-  }
-
-  .info {
-    width: 100%;
   }
 }
