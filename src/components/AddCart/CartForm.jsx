@@ -1,12 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-//import { spacing, button } from "../../constants/styles";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import PageTitle from "../PageTitle/PageTitle";
 
-const CartForm = ({ cartItems }) => {
+const CartForm = ({ cartItems, onSubmit }) => {
   const { register, handleSubmit } = useForm();
-  // const total = cartItems.reduce((acc, item) => acc + (item.price * item.count || 1), 0);
+  
+  const handleOrderSubmit  = (data) => {
+     onSubmit(data); // Передаём данные на сервер через onSubmit
+  };
 
   const calculateTotals = (cartItems) => {
     let totalItems = 0
@@ -27,10 +29,7 @@ const CartForm = ({ cartItems }) => {
 
   const { totalItems, totalPrice } = calculateTotals(cartItems);
 
-  const onSubmit = (data) => {
-    console.log("Order submitted:", { data, cartItems });
-    // axios.post('/order/send', { customer: data, items: cartItems })...
-  };
+  
 
   return (
      <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ display: "flex", flexDirection: "column", padding: "0 32px 0 32px", gap: 2}} >
