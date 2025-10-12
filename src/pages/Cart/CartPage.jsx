@@ -144,7 +144,7 @@ const CartPage = () => {
           <Typography variant="h6" style={{ fontSize: "40px", marginBottom: "20px", color:"rgba(255,255,255,1)" }}>
             Congratulations!
           </Typography>
-          <Typography variant="body1" style={{  fontSize: "20px", marginBottom: "20px",color:"rgba(255,255,255,1)" }}>
+          <Typography variant="body1" style={{  fontSize: "20px", marginBottom: "20px",color:"rgba(255,255,255,1)" }} >
             Your order has been successfully placed on the website.
           </Typography>
           <p style={{ color: "background",  fontSize: "20px"}}>A manager will contact you shortly to confirm your order.</p>
