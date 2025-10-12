@@ -119,8 +119,8 @@ const CartPage = () => {
         left: "0",
         width: "100%",
         height: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.5)", // Полупрозрачный черный фон
-        zIndex: 999, // Окно будет сверху
+        backgroundColor:"rgba(139,139,139,0.5)",
+        zIndex: 999, // Окно  сверху
       }}
     ></div>
 
