@@ -10,6 +10,7 @@ import axios from "axios";
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'; 
 import { BASE_URL } from "../../constants";
+import { Box } from "@mui/material";
 
 
 const CartPage = () => {
@@ -136,25 +137,26 @@ const CartPage = () => {
             padding: "20px",
             borderRadius: "8px",
             boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
-            width: "548px",
-            height: "236px",
              zIndex: 9999, // Высокий индекс, чтобы окно было поверх страницы
           }}
         >
+          <Box sx={{paddingRight: "40px"}}> 
           <Typography variant="h6" style={{ fontSize: "40px", marginBottom: "20px", color:"rgba(255,255,255,1)" }}>
             Congratulations!
           </Typography>
           <Typography variant="body1" style={{  fontSize: "20px", marginBottom: "20px",color:"rgba(255,255,255,1)" }} >
-            Your order has been successfully placed on the website.
+            Your order has been successfully placed <br /> on the website.
           </Typography>
-          <p style={{ color: "background",  fontSize: "20px"}}>A manager will contact you shortly to confirm your order.</p>
+          <p style={{ color: "background",  fontSize: "20px"}}>A manager will contact you shortly <br /> to confirm your order.</p>
+        </Box>
           <Button
             
-            style={{ position: "absolute", fontSize: "40px", top: "10px", right: "10px", width: "22px", height: "22px", padding: "0", color:"rgba(255,255,255,1)" }}
+            style={{ position: "absolute", fontSize: "40px", top: "40px", right: "10px", width: "22px", height: "22px", padding: "0", color:"rgba(255,255,255,1)" }}
             onClick={() => setOrderSuccess(false)}
           >
             ×
           </Button>
+
         </div>
           </> 
       )}
