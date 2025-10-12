@@ -1,14 +1,18 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useEffect } from "react-hook-form";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import PageTitle from "../PageTitle/PageTitle";
 
-const CartForm = ({ cartItems, onSubmit }) => {
+const CartForm = ({ cartItems, onSubmit, reset }) => {
   const { register, handleSubmit } = useForm();
   
   const handleOrderSubmit  = (data) => {
      onSubmit(data); // Передаём данные на сервер через onSubmit
   };
+   
+useEffect(() => {
+    reset();  // Сброс формы при изменении пропсов
+  }, [reset]);
 
   const calculateTotals = (cartItems) => {
     let totalItems = 0
