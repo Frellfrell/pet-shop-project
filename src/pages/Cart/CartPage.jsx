@@ -150,7 +150,7 @@ const CartPage = () => {
           <p style={{ color: "background",  fontSize: "20px"}}>A manager will contact you shortly to confirm your order.</p>
           <Button
             
-            style={{ position: "absolute", top: "10px", right: "10px", width: "22px", height: "22px", padding: "0", color:"rgba(255,255,255,1)" }}
+            style={{ position: "absolute", fontSize: "40px", top: "10px", right: "10px", width: "22px", height: "22px", padding: "0", color:"rgba(255,255,255,1)" }}
             onClick={() => setOrderSuccess(false)}
           >
             ×
