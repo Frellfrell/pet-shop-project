@@ -7,10 +7,8 @@ import CartForm from "../../components/AddCart/CartForm";
 import { getCartItems } from "../../services/cartHelper";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import axios from "axios";
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button'; 
+import { Typography, Box, Button}  from '@mui/material';
 import { BASE_URL } from "../../constants";
-import { Box } from "@mui/material";
 import { recalculateCart } from "@mui/material";
 
 
