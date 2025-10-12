@@ -94,7 +94,7 @@
 /* адаптив */
 @media (max-width: 1024px) {
   .item {
-    flex: auto;
+    width: auto;
     flex-direction: column;
     align-items: flex-start;
     height: auto;
@@ -107,7 +107,7 @@
   }
 
   .info {
-   
+   width: auto;
     padding: 12px;
   }
 
