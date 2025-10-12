@@ -80,7 +80,7 @@ const CartPage = () => {
                 Looks like you have no items in your basket currently
               </Typography>
               <Link to="/categories">
-                <Button variant="contained" size="large" sx={{ backgroundColor: "rgba(13,80,255,1)"}}>
+                <Button variant="contained" size="large" sx={{ backgroundColor: "rgba(13,80,255,1)",fontFamily: "Montserrat"}}>
                   Continue Shopping
                 </Button>
               </Link>  
@@ -130,7 +130,7 @@ const CartPage = () => {
           </Typography>
           <Button
             variant="contained"
-            style={{ position: "absolute", top: "10px", right: "10px", width: "22px", height: "22px", padding: "0", backgroundColor: "rgba(13,80,255,1)" }}
+            style={{ position: "absolute", top: "10px", right: "10px", width: "22px", height: "22px", padding: "0", backgroundColor: "rgba(13,80,255,1)"}}
             onClick={() => setOrderSuccess(false)}
           >
             ×
