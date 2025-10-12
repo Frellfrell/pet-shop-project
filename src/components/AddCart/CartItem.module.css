@@ -94,6 +94,7 @@
 /* адаптив */
 @media (max-width: 1024px) {
   .item {
+    flex: auto;
     flex-direction: column;
     align-items: flex-start;
     height: auto;
