@@ -77,6 +77,7 @@ const CartPage = () => {
           maxWidth: "1360px",
           minHeight: "582px",
           justifyContent: "space-between",
+          flexWrap: "wrap",
            }}>
         {/* Left - Cart Items */}
         <div style={{ 
