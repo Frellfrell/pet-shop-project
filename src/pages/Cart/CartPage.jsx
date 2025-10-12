@@ -74,8 +74,9 @@ const CartPage = () => {
       {/* Main content */}
       <div style={{ display: "flex", flexDirection: isMobile ? "column" : "row", gap: spacing.xl, width: "100%",
           maxWidth: "1360px",
-          minHeight: "582px",
+          minHeight: "auto",
           justifyContent: "space-between",
+          flexWrap: "wrap",
            }}>
         {/* Left - Cart Items */}
         <div style={{ 
