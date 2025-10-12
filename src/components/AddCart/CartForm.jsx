@@ -32,7 +32,7 @@ const CartForm = ({ cartItems, onSubmit }) => {
   
 
   return (
-     <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ display: "flex", flexDirection: "column", padding: "0 32px 0 32px", gap: 2}} >
+     <Box component="form" onSubmit={handleSubmit((handleOrderSubmit))} sx={{ display: "flex", flexDirection: "column", padding: "0 32px 0 32px", gap: 2}} >
       <PageTitle text="Order details" variant="small" />
       <Typography sx={{fontSize: 40, color: "rgba(139,139,139,1)" }}>{totalItems} items</Typography>
       <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between",maxHeight: "70px" }}>
