@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import PageTitle from "../PageTitle/PageTitle";
 
-const CartForm = ({ cartItems, onSubmit, reset }) => {
-  const { register, handleSubmit } = useForm();
+const CartForm = ({ cartItems, onSubmit }) => {
+  const { register, handleSubmit, reset } = useForm();
   
   const handleOrderSubmit  = (data) => {
      onSubmit(data); // Передаём данные на сервер через onSubmit
@@ -12,7 +12,7 @@ const CartForm = ({ cartItems, onSubmit, reset }) => {
    
 useEffect(() => {
     reset();  // Сброс формы при изменении пропсов
-  }, [reset]);
+  }, [cartItems, reset]);
 
   const calculateTotals = (cartItems) => {
     let totalItems = 0
