@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { spacing, colors, radii, } from "../../constants/styles";
 import { Link } from "react-router-dom";
 import CartItem from "../../components/AddCart/CartItem";
@@ -11,10 +11,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button'; 
 import { BASE_URL } from "../../constants";
 import { Box } from "@mui/material";
+import recalculateCart from "@mui/material";
 
 
 const CartPage = () => {
  const cartCounter = useSelector(state => state.cart.cartCounter);
+ const dispatch = useDispatch();
   const [cartItems, setCartItems] = useState(getCartItems());
   const [orderSuccess, setOrderSuccess] = useState(false);
 
@@ -37,10 +39,14 @@ const CartPage = () => {
 
       // Если заказ отправлен успешно, показываем модальное окно
       if (response.status === 200) {
+         // Очищаем корзину
+      localStorage.removeItem('cart'); // Очистим корзину в localStorage
+
+      // Обновляем состояние корзины в Redux (если нужно)
+      dispatch(recalculateCart());
         setOrderSuccess(true); // Открываем окно подтверждения
-        // Здесь можно очистить корзину или выполнить другие действия после успешного заказа
-      }
-    } catch (error) {
+    } 
+  } catch (error) {
       console.error("Error submitting order:", error);
     }
   };
