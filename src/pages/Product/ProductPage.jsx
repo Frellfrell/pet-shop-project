@@ -129,12 +129,12 @@ const ProductPage = () => {
              <div className={styles.priceRow}>
     {/* новая цена (если есть скидка — показываем скидочную) */}
     <span className={styles.currentPrice}>
-      {product.discont_price ? `${product.discont_price}$` : `${product.price}$`}
+      ${product.discont_price ? `${product.discont_price}` : `${product.price}$`}
     </span>
 
     {/* старая цена (если есть скидка) */}
     {product.discont_price && (
-      <span className={styles.oldPrice}>{product.price}$</span>
+      <span className={styles.oldPrice}>${product.price}</span>
     )}
 
     {/* дисконтная карта */}

@@ -136,3 +136,15 @@
     height: auto;
   }
 }
+@media (max-width: 468px) {
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .image {
+  
+    height: auto;
+  }
+}

@@ -73,16 +73,7 @@ const ProductsPage = ({ isDiscount }) => {
       {!loading && !error && (
         <div className={styles.cardsContainer}>
           {filteredShowProducts.length > 0 ? (filteredShowProducts.map((product) => (
-            // product.discont_price ? (
-            //   <DiscountCard
-            //     key={product.id}
-            //     id={product.id}
-            //     title={product.title}
-            //     price={product.price}
-            //     discont_price={product.discont_price}
-            //     image={product.image}
-            //   />
-            // ) : (
+            
             <ProductCard
               key={product.i || product.title}
               id={product.id}

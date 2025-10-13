@@ -53,10 +53,8 @@ const Sales = () => {
         </div>
       </div>
       {/* Сетка карточек категорий */}
-      <div className={styles.cardsContainer} /*style={{
-        justifyContent: "space-between",
-        alignItems: "stretch",
-      }}*/>
+      <div className={styles.cardsContainer} 
+      >
         {loading ? (
           <p style={{ ...typography.TGrey }}>Загрузка...</p>
         ) : error ? (
@@ -72,11 +70,7 @@ const Sales = () => {
               <div className={styles.card}
                 style={{
                   display: "flex",
-                  /*position: "relative",
-                  width: "316px",
-                  height: "422px",*/
                   border: borders.grayDivider,
-                  /*borderRadius: radii.small,*/
                   flexDirection: "column",
                   alignItems: "center",
 
@@ -118,10 +112,10 @@ const Sales = () => {
                         color: colors.secondary,
                       }}
                     >
-                      {product.price}$
+                      ${product.price}
                     </span>
                     <span style={{ textDecoration: "line-through", fontSize: "26px", marginTop: spacing.md, color: colors.txtGrey }}>
-                      {product.discont_price}$
+                      ${product.discont_price}
                     </span>
                   </div>
                 </div>

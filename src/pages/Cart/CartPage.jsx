@@ -68,13 +68,13 @@ const CartPage = () => {
   flex: "1", }}>
           <div style={{ maxWidth: "700px", flexGrow: "1", height: "1px", backgroundColor: colors.grayDivider }} />
           <Link to="/categories" style={{ color: colors.txtGrey, textDecoration: "none", fontWeight: "500", padding: spacing.sm, borderRadius: radii.small, border: `1px solid ${colors.txtGrey}` }}>
-            All Categories
+           Back to the store
           </Link>
         </div>
       </div>
 
       {/* Main content */}
-      <div style={{ display: "flex", gap: spacing.xl, width: "100%",
+      <div style={{ display: "flex",  width: "100%",
           justifyContent: "space-between",
           flexWrap: isMobile ?  "nowrap" :  "wrap" ,
            }}>

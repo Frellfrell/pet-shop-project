@@ -21,6 +21,19 @@
 .cardsContainer>* {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+/* Состояния */
+.loading {
+  font-size: 20px;
+  color: rgba(139, 139, 139, 1);
+  margin-top: 40px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+}
 
 
 /* .cardsContainer > *:hover {

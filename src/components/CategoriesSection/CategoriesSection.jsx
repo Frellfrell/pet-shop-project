@@ -78,8 +78,6 @@ const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
             >
               <div className={styles.card}
                 style={{
-                  /*height: "316px",
-                  border: borders.grayDivider,*/
                   borderRadius: radii.small,
                   flexDirection: "column",
                   alignItems: "center",
