@@ -112,11 +112,13 @@ const Sales = () => {
                         color: colors.secondary,
                       }}
                     >
+                       ${product.discont_price ? `${product.discont_price}` : `${product.price}`}
+                    </span>
+                    {product.discont_price && (
+                    <span style={{ textDecoration: "line-through", fontSize: "26px", marginTop: spacing.md, color: colors.txtGrey }}>
                       ${product.price}
                     </span>
-                    <span style={{ textDecoration: "line-through", fontSize: "26px", marginTop: spacing.md, color: colors.txtGrey }}>
-                      ${product.discont_price}
-                    </span>
+                    )}
                   </div>
                 </div>
               </div>
