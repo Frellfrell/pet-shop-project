@@ -1,6 +1,6 @@
 .container {
-  width: 698px;
-  height: 530px;
+  max-width: 698px;
+  max-height: 530px;
   justify-content: center;
   position: relative;
   display: flex;
