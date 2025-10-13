@@ -43,14 +43,7 @@ const ProductPage = () => {
   const product = useSelector((state) => state.products.currentProduct);
   const category = useSelector((state) => state.categories.currentCategory);
 
-  // const category = useSelector((state) =>
-  //   product ? selectCategoryById(state, product.categoryId) : null
-  // );
-  // const relatedImages = useSelector((state) =>
-  //   state.products.products
-  //     .filter((p) => p.categoryId === product?.categoryId && p.id !== product?.id)
-  //     .slice(0, 3) || []
-  // );
+  
 
   if (!product) {
     return (
@@ -85,16 +78,7 @@ const ProductPage = () => {
         <div className={styles.leftImageColumn}>
           {/* Левая часть */}
           <div className={styles.leftColumn}>
-            {/* <div className={styles.relatedImages}>
-            {relatedImages.map((img) => (
-              <img
-                key={img.id}
-                src={`${BASE_URL}${img.image}`}
-                alt={img.title}
-                className={styles.relatedImg}
-              />
-            ))}
-          </div> */}
+           
             <div className={styles.leftImageWrapper}>
               <img
                 src={`${BASE_URL}${product.image}`}
