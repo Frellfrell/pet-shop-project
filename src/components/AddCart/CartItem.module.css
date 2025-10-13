@@ -87,7 +87,7 @@
 }
 
 .closeBtn:hover {
-  color: rgba(40,40,40,1); /* мягкий красный при наведении */
+  color: rgba(40,40,40,1); 
   transform: scale(1.1);
 }
 
