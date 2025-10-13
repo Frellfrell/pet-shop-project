@@ -65,8 +65,6 @@ const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
       <div className={styles.cardsContainer} style={{
         justifyContent: "space-between",
         alignItems: "center",
-
-        // height: "816px"
       }}>
         {visibleCategories.length > 0 ? (
           visibleCategories.map((category) => (
@@ -83,7 +81,6 @@ const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
                   alignItems: "center",
                   justifyContent: "center",
                   gap: spacing.sm,
-                  padding: spacing.sm,
                   backgroundColor: colors.background,
                 }}
               >
