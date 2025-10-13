@@ -22,11 +22,6 @@ const ProductsPage = ({ isDiscount }) => {
   const [filteredProducts, setFilteredProducts] = useState([]);
  const hasFetched = useRef(false); // флаг, чтобы не загружать повторно
 
-
-  //useEffect(() => {
-    //dispatch(fetchAllProducts());
-  //}, [dispatch]);
-
   //  Загружаем продукты только один раз (при первой загрузке)
   useEffect(() => {
     if (!hasFetched.current && (!products || products.length === 0)) {
@@ -44,10 +39,6 @@ const ProductsPage = ({ isDiscount }) => {
     { name: "Main Page", path: "/" },
     { name: "All Products", path: "/products" },
   ];
-
-  // useEffect(() => {
-  //   setFilteredProducts(products);
-  // }, [products]);
 
 
   const filteredShowProducts = filteredProducts.slice(0, 12);
