@@ -38,7 +38,7 @@ export const button = {
   borderRadius: radii.small,
   backgroundColor: colors.primary,
   color: colors.background,
-  //display: "flex",              
+  display: "flex",              
   justifyContent: "center",    
   alignItems: "center",        
   textDecoration: "none",       
