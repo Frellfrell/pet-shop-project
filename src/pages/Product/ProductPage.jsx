@@ -14,17 +14,6 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 
 
 
-// // Селектор для продукта по id
-// const selectProductById = (state, id) =>
-//   state.products.items?.find((p) => String(p.id) === String(id));
-
-
-// // Селектор для категории по id
-// const selectCategoryById = (state, id) =>
-//   state.categories.categories?.find((c) => String(c.id) === String(id));
-
-
-
 const ProductPage = () => {
 
   const { id } = useParams();
