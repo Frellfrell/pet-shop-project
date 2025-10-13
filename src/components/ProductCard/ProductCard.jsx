@@ -51,7 +51,7 @@ const ProductCard = ({ id, title, price, discont_price, image, product }) => {
         <div className={styles.cardInfo}>
           <p className={styles.cardTitle}>{title}</p>
           <div className={styles.priceBox}>
-            <span className={styles.price}>${product.discont_price ? `${product.discont_price}` : `${product.price}$`}</span>
+            <span className={styles.price}>${product.discont_price ? `${product.discont_price}` : `${product.price}`}</span>
             {product.discont_price && (
               <span className={styles.discountPrice}>${product.price}</span>
             )}
