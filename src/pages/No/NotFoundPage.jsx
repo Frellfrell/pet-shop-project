@@ -12,7 +12,7 @@ const NotFoundPage = () => {
         display: "flex",
         flexDirection: "column",
         padding: spacing.xl,
-        minHeight: "100vh",
+        
       }}
     >
       <div className={styles.codeBox} style={{ marginBottom: spacing.xl }}>
