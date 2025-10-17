@@ -74,12 +74,22 @@ const CartPage = () => {
       </div>
 
       {/* Main content */}
-      <div style={{ display: "flex",  width: "100%",
+      {/*<div style={{ display: "flex",  width: "100%",
           justifyContent: "space-between",
           flexWrap: isMobile ?  "nowrap" :  "wrap" ,
-           }}>
+           }}>*/}
+           <div
+      className="cart-layout"
+      style={{
+        display: "grid",
+        gridTemplateColumns: "minmax(0, 1fr) 400px",
+        gap: "32px",
+        alignItems: "flex-start",
+        width: "100%",
+      }}
+    >
         {/* Left - Cart Items */}
-        <div style={{ 
+        {/*<div style={{ 
           flex: isMobile ? "1" : "0 0 780px",
           maxHeight: isMobile ? "auto" :  `calc(3 * 180px + 3*16px )`,
           display: "flex", flexDirection: "column", gap: "16px", 
@@ -88,7 +98,19 @@ const CartPage = () => {
             scrollbarWidth: "thin",
              }}>
          {isEmpty ? (
-            <div style={{  textAlign: "left" }}>
+            <div style={{  textAlign: "left" }}>*/}
+             <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+          overflowY: "auto",
+          paddingRight: "8px",
+          scrollbarWidth: "thin",
+        }}
+      >
+        {isEmpty ? (
+          <div style={{ textAlign: "left" }}>
               <Typography variant="h6" sx={{ marginBottom: "16px" }}>
                 Looks like you have no items in your basket currently
               </Typography>
@@ -99,22 +121,35 @@ const CartPage = () => {
               </Link>  
             </div>
         ) : (
-            cartItems.map(item => (
-              <CartItem key={item.item.id} product={item.item} quantity={item.quantity} style={{ width: "780px", height: "180px", flexShrink: 0, }} />
+            cartItems.map((item)=> (
+              <CartItem 
+              key={item.item.id} 
+              product={item.item} 
+              quantity={item.quantity} 
+              //style={{ width: "780px", height: "180px", flexShrink: 0, }} 
+              />
             ))
           )}
         </div>
 
         {/* Right - Cart Form */}
-        <div
+        {/*<div
           style={{
             flex: isMobile ? "1" : "0 0 548px",
              maxHeight: isMobile ? "auto" :  `calc(3 * 180px + 3*16px )`,
             backgroundColor: "rgba(241,243,243,1)",
             borderRadius: radii.medium,
           }}
-        >
-           
+        >*/}
+      <div
+        style={{
+          backgroundColor: "rgba(241,243,243,1)",
+          borderRadius: radii.medium,
+          padding: "24px",
+          height: "fit-content",
+        }}
+      >
+      
         <CartForm cartItems={cartItems} onSubmit={handleSubmitOrder} reset={reset} />
         
       </div>
