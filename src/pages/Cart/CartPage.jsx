@@ -11,6 +11,7 @@ import { Typography, Box, Button }  from '@mui/material';
 import { BASE_URL } from "../../constants";
 import { recalculateCart } from "../../redux/reducers/cart";
 import { useForm } from "react-hook-form";
+import styles from "./CartPage.module.css"
 
 
 
@@ -79,7 +80,7 @@ const CartPage = () => {
           flexWrap: isMobile ?  "nowrap" :  "wrap" ,
            }}>*/}
            <div
-      className="cart-layout"
+      className={styles.cartLayout}
       style={{
         display: "grid",
         gridTemplateColumns: "minmax(0, 1fr) 400px",
