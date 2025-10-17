@@ -104,7 +104,7 @@ const CartPage = () => {
           display: "flex",
           flexDirection: "column",
           gap: "16px",
-          overflowY: "auto",
+          //overflowY: "auto",
           paddingRight: "8px",
           scrollbarWidth: "thin",
         }}
