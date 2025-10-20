@@ -15,7 +15,7 @@
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 ;
   gap: 32px;
   flex-wrap: wrap;
   transition: all 0.3s ease;
@@ -66,12 +66,11 @@
 
   .imageBox img {
     max-height: 300px;
-    width: 80%;
+    
   }
 
   .formBox {
-    max-width: 100%;
-    width: 80%;
+    max-width: 90%;
   }
 }
 
@@ -87,19 +86,7 @@
 
   .imageBox img {
     max-height: 220px;
-    width: 100%;
-  }
-
-  .formBox {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-  }
-
-  .formBox input,
-  .formBox button {
-    font-size: 18px !important;
-    padding: 10px 14px !important;
+   
   }
 
   .discountSection h2 {
