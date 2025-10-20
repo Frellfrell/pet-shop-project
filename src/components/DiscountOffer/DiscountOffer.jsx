@@ -52,16 +52,8 @@ const DiscountOffer = () => {
     <section
       className={styles.discountSection}
       style={{
-        marginTop: "40px",
-        marginLeft: spacing.xl,
-        marginRight: spacing.xl,
-        marginBottom: "10px",
         backgroundColor: colors.primary,
-
         borderRadius: radii.large,
-
-        maxHeight: "486px",
-
       }}
     >
       <h2
@@ -80,34 +72,12 @@ const DiscountOffer = () => {
       </h2>
 
       {/* Контейнер с картинкой и формой */}
-      <div
-        className={styles.content}
-        style={{
-
-          gap: "32px",
-
-          height: "360px",
-
-        }}
-      >
+      <div className={styles.content}>
         {/* Левая картинка */}
-        <div
-          className={styles.imageBox}
-          style={{
-
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "flex-end",
-
-          }}
-        >
+        <div className={styles.imageBox}>
           <img
             src={discountImg}
             alt="Discount"
-            style={{
-              maxHeight: "100%",
-              objectFit: "contain",
-            }}
           />
         </div>
 
