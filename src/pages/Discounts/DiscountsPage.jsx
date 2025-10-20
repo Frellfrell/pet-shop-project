@@ -22,12 +22,7 @@ const DiscountsPage = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
  const hasFetched = useRef(false); // флаг, чтобы не загружать повторно
 
-  // Загружаем товары при первом рендере
- // useEffect(() => {
-   // if (!products || products.length === 0) {
- //     dispatch(fetchAllProducts());
-   // }
-  //}, [dispatch]);
+  
       // Загружаем продукты только один раз
   useEffect(() => {
    
@@ -45,13 +40,7 @@ const DiscountsPage = () => {
       setFilteredProducts(discounted);
     }
       }, [products]);
-  // Отбираем только товары со скидками, когда продукты обновились
-  //useEffect(() => {
-    //if (products.length > 0) {
-      //const discounted = products.filter((p) => p.discont_price && p.discont_price < p.price);
-      //setFilteredProducts(discounted);
-    //}
-  //}, [products]);
+  
 
   // Ограничиваем вывод до 8 товаров (2 ряда × 4 карточки)
  const productsToShow = filteredProducts.slice(0, 8);
@@ -66,7 +55,7 @@ const DiscountsPage = () => {
       {/* Хлебные крошки и фильтр всегда видны */}
       <BreadCrumbs breadCrumbs={breadCrumbs} />
      <PageTitle text="Discounted items" />
-      {/*<h1 className={styles.pageTitle}>Discounted items</h1>*/}
+     
 
       <div className={styles.filterContainer}>
         <FilterSet
