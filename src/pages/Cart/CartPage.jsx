@@ -75,28 +75,14 @@ const CartPage = () => {
       </div>
 
       {/* Main content */}
-      {/*<div style={{ display: "flex",  width: "100%",
-          justifyContent: "space-between",
-          flexWrap: isMobile ?  "nowrap" :  "wrap" ,
-           }}>*/}
            <div className={styles.cartLayout}>
-        {/* Left - Cart Items */}
-        {/*<div style={{ 
-          flex: isMobile ? "1" : "0 0 780px",
-          maxHeight: isMobile ? "auto" :  `calc(3 * 180px + 3*16px )`,
-          display: "flex", flexDirection: "column", gap: "16px", 
-           overflowY: isMobile ? "visible" : "auto",
-            paddingRight: "8px", 
-            scrollbarWidth: "thin",
-             }}>
-         {isEmpty ? (
-            <div style={{  textAlign: "left" }}>*/}
+
+        {/* Left - Cart Items */}    
              <div
         style={{
           display: "flex",
           flexDirection: "column",
           gap: "16px",
-          //overflowY: "auto",
           paddingRight: "8px",
           scrollbarWidth: "thin",
         }}
@@ -118,27 +104,17 @@ const CartPage = () => {
               key={item.item.id} 
               product={item.item} 
               quantity={item.quantity} 
-              //style={{ width: "780px", height: "180px", flexShrink: 0, }} 
               />
             ))
           )}
         </div>
 
         {/* Right - Cart Form */}
-        {/*<div
-          style={{
-            flex: isMobile ? "1" : "0 0 548px",
-             maxHeight: isMobile ? "auto" :  `calc(3 * 180px + 3*16px )`,
-            backgroundColor: "rgba(241,243,243,1)",
-            borderRadius: radii.medium,
-          }}
-        >*/}
       <div
         style={{
           backgroundColor: "rgba(241,243,243,1)",
           borderRadius: radii.medium,
           padding: "24px",
-          //height: "fit-content",
            width: "100%",
           boxSizing: "border-box",
         }}
