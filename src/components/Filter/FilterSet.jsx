@@ -83,6 +83,7 @@ function FilterSet({ products, setFilteredProducts,  isDiscountPage }) {
           onChange={handleMaxPriceChange}
         />
       </div>
+       {!isDiscountPage && (
       <div className={styles.filterItem}>
         <>
         <Typography fontSize={"20px"}>Discounted Items</Typography>
@@ -90,6 +91,7 @@ function FilterSet({ products, setFilteredProducts,  isDiscountPage }) {
           </>
         
       </div>
+       )}
       <div className={styles.filterItem}>
        <>
        <Typography fontSize={"20px"}>Sorted</Typography>
