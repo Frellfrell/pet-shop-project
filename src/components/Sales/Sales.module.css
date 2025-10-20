@@ -57,7 +57,7 @@
 
 .cardTitle {
   margin-top: 16px;
- /*height: 26px;*/
+ min-height: 26px;
   font-size: 20px;
   text-align: center;
   overflow: hidden;
@@ -67,6 +67,11 @@
 .price {
   font-size: 44px;
   font-weight: bold;
+}
+ .priceOld {
+  text-decoration: line-through;
+  font-size: 26px;
+  color: #999; 
 }
 .divider {
    width: 832px;
