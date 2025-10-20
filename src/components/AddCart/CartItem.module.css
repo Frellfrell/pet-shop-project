@@ -46,6 +46,21 @@
   flex-wrap: wrap;
   width: 100%;
 }
+.priceCurrent {
+  font-weight: 700;
+  font-size: clamp(20px, 3.2vw, 40px); /* адаптивный размер */
+  line-height: 1;
+  flex-shrink: 1;
+  min-width: 0; /* чтобы дробиться при сжатии */
+}
+
+.priceOld {
+  text-decoration: line-through;
+  color: #999;
+  font-size: clamp(12px, 2.2vw, 20px);
+  flex-shrink: 1;
+  min-width: 0;
+}
 
 .counter {
    display: flex;
