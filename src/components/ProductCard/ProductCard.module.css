@@ -8,23 +8,13 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 100;
-  height: auto;
+  width: 100%;
   aspect-ratio: 3 / 4;
-  /*width: 306px;
-  height: 422px;*/
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
 }
-
-
-/* ✨ Ховер-анимация — карточка немного “приподнимается” и получает ярче тень */
-/* .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-} */
 
 .imageWrapper {
   position: relative;
@@ -108,14 +98,14 @@
 /* 📱 Адаптивность */
 @media (max-width: 1024px) {
   .card {
-    width: 45%;
+    /*width: 45%;*/
     height: 380px;
   }
 }
 
 @media (max-width: 768px) {
   .card {
-    width: 100%;
+    /*width: 100%;*/
     height: 360px;
   }
 
