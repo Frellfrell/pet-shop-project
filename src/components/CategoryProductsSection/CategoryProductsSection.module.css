@@ -18,7 +18,7 @@
   /*grid-template-columns: repeat(4, 1fr); /* 4 карточки в ряду */
    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   width: 100%;
-  gap: 16px;
+  gap: 32px;
 }
 
 .noProducts {
