@@ -4,7 +4,7 @@ import { Box, TextField, Button, Typography } from "@mui/material";
 import PageTitle from "../PageTitle/PageTitle";
 
 const CartForm = ({ cartItems, onSubmit }) => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, formState: { errors, isSubmitting }, } = useForm();
   
   const handleOrderSubmit  = (data) => {
      onSubmit(data); // Передаём данные на сервер через onSubmit
@@ -44,15 +44,43 @@ useEffect(() => {
       <Typography sx={{fontSize: 64,fontWeight:700, color: "rgba(40,40,40,1)",fontFamily: "Montserrat" }}>${totalPrice}</Typography>
    </Box>
 
- <TextField label="Name" variant="outlined" {...register("name")} />
-      <TextField label="Phone" variant="outlined" {...register("phone")} />
-      <TextField label="Email" variant="outlined" {...register("email")} />
- <Button type="submit" variant="contained" size="large" sx={{ mt: 3, fontFamily: "Montserrat", backgroundColor: "rgba(13,80,255,1)" }}>
+      <TextField 
+      label="Name"
+        variant="outlined" {...register("name", { required: "Please enter your name" })}
+        error={!!errors.name}
+        helperText={errors.name?.message}
+         />
+      <TextField 
+      label="Phone" 
+      variant="outlined" {...register("phone",{
+          required: "Please enter your phone number",
+          pattern: {
+            value: /^[0-9+\-\s()]*$/,
+            message: "Enter a valid phone number",
+          },
+        })}
+        error={!!errors.phone}
+        helperText={errors.phone?.message}
+         />
+      <TextField 
+      label="Email" 
+      variant="outlined" {...register("email", {
+          required: "Please enter your email",
+          pattern: {
+            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: "Enter a valid email address",
+          },
+        })}
+         error={!!errors.email}
+        helperText={errors.email?.message}
+         />
+        <Button type="submit" variant="contained" size="large" disabled={isSubmitting} sx={{ mt: 3, fontFamily: "Montserrat", backgroundColor: "rgba(13,80,255,1)" }}>
          Order
-      </Button>
+        </Button>
   
     </Box>
-)};
+);
+};
 
 
 export default CartForm;
