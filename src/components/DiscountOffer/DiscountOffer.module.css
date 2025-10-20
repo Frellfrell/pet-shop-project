@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 40px 20px;
+  padding: 40px 32px 0 32px;
   box-sizing: border-box;
 }
 
@@ -12,21 +12,20 @@
 .content {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+   align-items: flex-start;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 ;
   gap: 32px;
   flex-wrap: wrap;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 /* Левая часть — изображение */
 .imageBox {
   flex: 1;
   display: flex;
-  justify-content: center;
-   object-fit: contain;
+   justify-content: flex-start; /* картинка прижата к левому краю */
+  align-items: flex-end;
 }
 .imageBox img {
   max-width: 100%;
@@ -41,6 +40,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+   
 }
 .input {       
   width: 100%;
@@ -65,7 +65,7 @@
   }
 
   .imageBox img {
-    max-height: 300px;
+     position: relative;
     
   }
 
@@ -82,11 +82,6 @@
 
   .content {
     gap: 20px;
-  }
-
-  .imageBox img {
-    max-height: 220px;
-   
   }
 
   .discountSection h2 {
