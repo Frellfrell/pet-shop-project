@@ -41,7 +41,7 @@
 .priceRow {
   display: flex;
  padding-bottom: 18px;
-  align-items: center;
+  align-items: baseline;
   gap: 18px;
   
   flex-wrap: wrap;
