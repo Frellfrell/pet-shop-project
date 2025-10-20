@@ -40,7 +40,7 @@ const handleRemove = () => {
           </Typography>
           {product.discont_price  && (
             <Typography className={styles.priceOld}
-              sx={{ fontSize: "clamp(12px, 1.3vw, 20px)", fontFamily: "Montserrat" }}
+              sx={{ fontSize: "clamp(12px, 1.5vw, 20px)", fontFamily: "Montserrat" }}
             >
               ${product.price}
             </Typography>
