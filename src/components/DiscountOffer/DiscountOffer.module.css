@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 /* Контейнер контента */
@@ -15,14 +17,21 @@
   max-width: 1200px;
   margin: 0 auto;
   gap: 32px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   transition: all 0.3s ease;
 }
 
 /* Левая часть — изображение */
 .imageBox {
   flex: 1;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+   object-fit: contain;
+}
+.imageBox img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Правая часть — форма */
