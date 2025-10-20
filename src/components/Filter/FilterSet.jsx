@@ -1,5 +1,6 @@
 import { Button, Checkbox, Menu, MenuItem, Select, TextField, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
+import styles from "./FilterSet.module.css";
 
 
 function FilterSet({ products, setFilteredProducts, isCategoryPage, isDiscountPage }) {
@@ -62,10 +63,7 @@ function FilterSet({ products, setFilteredProducts, isCategoryPage, isDiscountPa
 
 
   return (
-    <div 
-    style={{ display: "flex",  alignItems: "center", gap: isMobile ? "12px" : "16px", flexWrap: "wrap", marginBottom: "16px", width: "100%",
-    maxWidth: "100%", }}
-    >
+    <div className={styles.filterContainer}>
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <Typography sx={{ fontSize: "20px", lineHeight: "130%", color: "rgba(40, 40, 40, 1)" }}>Price</Typography>
         <TextField
