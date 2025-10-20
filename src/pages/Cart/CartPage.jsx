@@ -138,7 +138,9 @@ const CartPage = () => {
           backgroundColor: "rgba(241,243,243,1)",
           borderRadius: radii.medium,
           padding: "24px",
-          height: "fit-content",
+          //height: "fit-content",
+           width: "100%",
+          boxSizing: "border-box",
         }}
       >
       
