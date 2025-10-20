@@ -33,7 +33,9 @@ const handleRemove = () => {
           <button onClick={handleIncrease}>+</button>
         </Box>
       
-          <Typography className={styles.priceCurrent} sx={{ fontFamily: "Montserrat" }}>
+          <Typography className={styles.priceCurrent} sx={{ fontWeight: 700,
+              fontSize: "clamp(20px, 2.5vw, 40px)", 
+              lineHeight: 1, fontFamily: "Montserrat" }}>
             ${product.discont_price ? `${product.discont_price}` : `${product.price}`}
           </Typography>
           {product.discont_price  && (
