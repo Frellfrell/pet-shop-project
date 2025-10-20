@@ -62,7 +62,10 @@ function FilterSet({ products, setFilteredProducts, isCategoryPage, isDiscountPa
 
 
   return (
-    <div style={{ display: "flex", maxHeight: "36px", alignItems: "center", gap: "16px", flexWrap: "wrap", marginBottom: "16px" }}>
+    <div 
+    style={{ display: "flex",  alignItems: "center", gap: isMobile ? "12px" : "16px", flexWrap: "wrap", marginBottom: "16px", width: "100%",
+    maxWidth: "100%", }}
+    >
       <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
         <Typography sx={{ fontSize: "20px", lineHeight: "130%", color: "rgba(40, 40, 40, 1)" }}>Price</Typography>
         <TextField
