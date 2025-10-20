@@ -1,10 +1,10 @@
-import { Button, Checkbox, Menu, MenuItem, Select, TextField, Typography, useMediaQuery } from "@mui/material";
+import { Button, Checkbox, Menu, MenuItem, Select, TextField, Typography, } from "@mui/material";
 import { useEffect, useState } from "react";
 import styles from "./FilterSet.module.css";
 
 
-function FilterSet({ products, setFilteredProducts, isCategoryPage, isDiscountPage }) {
-  const isMobile = useMediaQuery("(max-width:768px)");
+function FilterSet({ products, setFilteredProducts,  isDiscountPage }) {
+  
   const [minPrice, setMinPrice] = useState(0)
   const handleMinPriceChange = (e) => {
     setMinPrice(e.target.value)
@@ -83,17 +83,21 @@ function FilterSet({ products, setFilteredProducts, isCategoryPage, isDiscountPa
           onChange={handleMaxPriceChange}
         />
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-       {!isMobile && !isCategoryPage && !isDiscountPage && <><Typography fontSize={"20px"}>Discounted Items</Typography>
-          <Checkbox checked={showDiscounted} onChange={handleDiscountedChange} /></>
-        }
+      <div className={styles.filterItem}>
+        <>
+        <Typography fontSize={"20px"}>Discounted Items</Typography>
+          <Checkbox checked={showDiscounted} onChange={handleDiscountedChange} />
+          </>
+        
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        {!isMobile && <><Typography fontSize={"20px"}>Sorted</Typography>
+      <div className={styles.filterItem}>
+       <>
+       <Typography fontSize={"20px"}>Sorted</Typography>
         <Select  size="small" value={sortOption} onChange={handleSortChange}>
           {selectOptions.map(option => (<MenuItem  key={option} value={option}>{option}</MenuItem>))}
-        </Select> </>
-          }
+        </Select> 
+        </>
+          
       </div>
     </div>
   );
