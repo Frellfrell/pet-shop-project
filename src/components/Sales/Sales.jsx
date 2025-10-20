@@ -97,6 +97,7 @@ const Sales = () => {
                       display: "flex",
                       gap: spacing.md,
                       justifyContent: "flex-start", // чтобы цена была слева
+                      alignItems: "flex-end",
                       width: "100%",
                     }}
                   >
@@ -111,7 +112,7 @@ const Sales = () => {
                        ${product.discont_price ? `${product.discont_price}` : `${product.price}`}
                     </span>
                     {product.discont_price && (
-                    <span style={{ textDecoration: "line-through", fontSize: "26px", marginTop: spacing.md, color: colors.txtGrey }}>
+                    <span className={styles.priceOld}>
                       ${product.price}
                     </span>
                     )}
