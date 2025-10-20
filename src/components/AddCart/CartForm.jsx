@@ -39,9 +39,9 @@ useEffect(() => {
      <Box component="form" onSubmit={handleSubmit((handleOrderSubmit))} sx={{ display: "flex", flexDirection: "column", padding: "0 32px 0 32px", gap: 2}} >
       <PageTitle text="Order details" variant="small" />
       <Typography sx={{fontSize: 40, color: "rgba(139,139,139,1)" }}>{totalItems} items</Typography>
-      <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between",maxHeight: "70px" }}>
-        <Typography sx={{fontSize: 40, color: "rgba(139,139,139,1)" }}>Total</Typography>
-      <Typography sx={{fontSize: 64,fontWeight:700, color: "rgba(40,40,40,1)",fontFamily: "Montserrat" }}>${totalPrice}</Typography>
+      <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between",alignItems: "baseline", lineHeight: 1, maxHeight: "70px" }}>
+        <Typography sx={{fontSize: 40, color: "rgba(139,139,139,1)", lineHeight: 1 }}>Total</Typography>
+      <Typography sx={{fontSize: 64,fontWeight:700, color: "rgba(40,40,40,1)", lineHeight: 1, fontFamily: "Montserrat" }}>${totalPrice}</Typography>
    </Box>
 
       <TextField 
