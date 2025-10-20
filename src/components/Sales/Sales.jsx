@@ -69,11 +69,7 @@ const Sales = () => {
             >
               <div className={styles.card}
                 style={{
-                  display: "flex",
                   border: borders.grayDivider,
-                  flexDirection: "column",
-                  alignItems: "center",
-
                   gap: spacing.sm,
                   padding: spacing.sm,
                   backgroundColor: colors.background,
