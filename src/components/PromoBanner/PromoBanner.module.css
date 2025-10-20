@@ -9,14 +9,15 @@
   /* выравниваем бокс по центру */
   align-items: center;
   position: relative;
-  /* прижимаем к верхнему краю */
-  padding: 80px 40px 0 40px;
+  /* прижимаем к верхнему краю 
+  padding: 80px 40px 0 40px;*/
  overflow: hidden;
   transition: all 0.3s ease;
 }
 
 .contentBox {
-  width: 1360px;
+  width: 100%;
+  max-width: 1360px;
   min-height: 310px;
   display: flex;
   flex-direction: column;
@@ -24,7 +25,7 @@
   padding: 40px;
   gap: 24px;
    z-index: 1;
-  
+  box-sizing: border-box;
 }
 
 .title {
@@ -48,7 +49,7 @@
 
   .contentBox {
     padding: 60px;
-    max-width: 70%;
+    max-width: 90%;
   }
 
   .title {
