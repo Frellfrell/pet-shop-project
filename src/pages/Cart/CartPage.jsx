@@ -79,16 +79,7 @@ const CartPage = () => {
           justifyContent: "space-between",
           flexWrap: isMobile ?  "nowrap" :  "wrap" ,
            }}>*/}
-           <div
-      className={styles.cartLayout}
-      style={{
-        display: "grid",
-        gridTemplateColumns: "minmax(0, 1fr) 400px",
-        gap: "32px",
-        alignItems: "flex-start",
-        width: "100%",
-      }}
-    >
+           <div className={styles.cartLayout}>
         {/* Left - Cart Items */}
         {/*<div style={{ 
           flex: isMobile ? "1" : "0 0 780px",
