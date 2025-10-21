@@ -78,17 +78,8 @@ const CartPage = () => {
            <div className={styles.cartLayout}>
 
         {/* Left - Cart Items */}    
-             <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "16px",
-          paddingRight: "8px",
-          scrollbarWidth: "thin",
-           maxHeight: "calc(3 * 180px + 2 * 16px)", // показываем  3 карточки
-            overflowY: "auto",
-        }}
-      >
+             <div className={styles.leftColumn}>
+              
         {isEmpty ? (
           <div style={{ textAlign: "left" }}>
               <Typography variant="h6" sx={{ marginBottom: "16px" }}>
