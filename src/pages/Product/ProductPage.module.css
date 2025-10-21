@@ -14,16 +14,12 @@
   box-sizing: border-box;
   padding: 40px;
   gap: 32px;
-  /* гап между левым и правым блоком */
  
 }
 
 /* Левая колонка: картинки и основной продукт */
 .leftImageColumn {
   display: flex;
-  /*gap: 24px;
-  /* гап между маленькими картинками и основной */
-  /*width: 548px;*/
   flex-direction: row;
 
 }
@@ -36,8 +32,6 @@
   
 }
 
-/* Контейнер для 3-х маленьких картинок */
-
 
 /* Маленькие картинки товаров из категории */
 .leftImage {
@@ -49,11 +43,8 @@
 
 /* Основное изображение продукта */
 .mainImageWrapper {
-  /*margin-top: 32px;
-  width: 548px;*/
   display: flex;
   justify-content: center;
-  /*align-items: center;*/
 }
 
 .mainImage {
@@ -67,12 +58,9 @@
 
 .rightColumnDescription {
    flex: 1;
- /* margin-left: 32px;
-  /* отступ слева от основной картинки */
 }
 
 .rightColumn {
-  /*width: 548px;*/
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -93,9 +81,7 @@
 }
 
 .discountBox {
-  /*position: relative;*/ 
   margin-left: 10px;
-  /*top: -46px;*/
   width: 48px;
   height: 26px;
   flex-shrink: 0; /* чтобы не схлопывался */
