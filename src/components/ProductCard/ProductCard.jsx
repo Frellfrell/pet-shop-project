@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import styles from "./ProductCard.module.css";
 import { colors, spacing, radii, borders } from "../../constants/styles";
@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 
 const ProductCard = ({ id, title, price, discont_price, image, product }) => {
   const dispatch = useDispatch()
+const [added, setAdded] = useState(false);
+
    const validDiscount =
     discont_price != null &&                   // не null и не undefined
     discont_price !== "None" &&               // не строка "None"
@@ -43,8 +45,12 @@ const ProductCard = ({ id, title, price, discont_price, image, product }) => {
             e.stopPropagation()
             e.preventDefault()
             addToCart(product, dispatch)
-          }} className={styles.addToCartBtn}
-          >Add to Cart</button>
+            setAdded(true); 
+          }} className={`${styles.addToCartBtn}
+          ${added ? styles.added : ""}`}
+            disabled={added}
+          >
+            {added ? "Added" : "Add to Cart"}</button>
         </div>
 
         {/* Информация о продукте */}
