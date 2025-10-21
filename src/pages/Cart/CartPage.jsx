@@ -85,6 +85,8 @@ const CartPage = () => {
           gap: "16px",
           paddingRight: "8px",
           scrollbarWidth: "thin",
+           maxHeight: "calc(3 * 180px + 2 * 16px)", // показываем  3 карточки
+            overflowY: "auto",
         }}
       >
         {isEmpty ? (
