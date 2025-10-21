@@ -31,7 +31,7 @@
   transition: transform 0.4s ease;
 }
 
-/* 📸 При наведении картинка чуть увеличивается */
+/* При наведении картинка чуть увеличивается */
 .card:hover .cardImage {
   transform: scale(1.05);
 }
@@ -66,7 +66,7 @@
   cursor: not-allowed;
 }
 
-/* 👇 Кнопка появляется плавно при наведении */
+/* Кнопка появляется плавно при наведении */
 .card:hover .addToCartBtn {
   opacity: 1;
   transform: translateX(-50%) translateY(-4px);
@@ -106,18 +106,14 @@
   color: rgba(139, 139, 139, 1);
   text-decoration: line-through;
 }
-
-/* 📱 Адаптивность */
 @media (max-width: 1024px) {
   .card {
-    /*width: 45%;*/
     height: 380px;
   }
 }
 
 @media (max-width: 768px) {
   .card {
-    /*width: 100%;*/
     height: 360px;
   }
 
