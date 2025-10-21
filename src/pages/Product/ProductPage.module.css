@@ -164,6 +164,19 @@
   border: none;
   transition: all 0.3s ease;
 }
+/* hover — черная */
+.addBtn:hover:not(:disabled) {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* после добавления — белая с надписью ADDED */
+.added {
+  background-color: #ffffff !important;
+  color: #0d50ff !important;
+  border: 1px solid #0d50ff !important;
+  cursor: default;
+}
 
 
 /* Детали продукта */
