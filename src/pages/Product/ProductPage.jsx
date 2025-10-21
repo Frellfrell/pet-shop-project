@@ -133,7 +133,7 @@ const ProductPage = () => {
                 <button onClick={handleIncrease}>+</button>
               </div>
               <button className={styles.addBtn} style={{
-        ...button, // базовые размеры и шрифт из Style.js
+        ...button,
         backgroundColor: added
           ? "#ffffff"
           : hover
