@@ -11,8 +11,6 @@ const discontPriceNum = Number(discont_price);
 const discont = Math.round(((priceNum - discontPriceNum) / priceNum) * 100);
   
 
- 
-
   if (discont <= 0) return null;
 
   return (
