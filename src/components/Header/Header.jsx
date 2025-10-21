@@ -10,7 +10,6 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const cartCount = useSelector((state) => state.cart.cartCounter)
-  {/*const cartItemCount = 3; */ } // к Redux
 
   return (
     <header className={styles.header}>
@@ -30,7 +29,6 @@ const Header = () => {
 
       {/* Иконка корзины */}
       <div className={styles.cartContainer}>
-        {/*<Typography variant="body2">{cartCount}</Typography>*/}
         <NavLink to="/cart" className={styles.cartLink}>
         <Badge
       badgeContent={cartCount}
@@ -42,9 +40,6 @@ const Header = () => {
       }}
     > 
           <img src={cartVector} alt="Vector" className={styles.cartVector} />
-          {/*cartItemCount > 0 && (
-            <img src={cartItem} alt="Cart Item" className={styles.cartItem} />
-          )*/}
           </Badge>
         </NavLink>
       </div>
