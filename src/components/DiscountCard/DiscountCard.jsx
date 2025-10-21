@@ -4,7 +4,7 @@ import { colors } from "../../constants/styles";
 
 
 const DiscountCard = ({ price, discont_price }) => {
-  {/*if (!discont_price) return null;*/}
+  
 console.log('DiscountCard props:', { price, discont_price });
  const priceNum = Number(price);
 const discontPriceNum = Number(discont_price);
@@ -20,7 +20,7 @@ const discont = Math.round(((priceNum - discontPriceNum) / priceNum) * 100);
           className={styles.discountCard}
           style={{
 
-            backgroundColor: colors.primary, // берём из constants
+            backgroundColor: colors.primary, 
             color: colors.background,
             fontWeight: "600",
             fontSize: "16px",
