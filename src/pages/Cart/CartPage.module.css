@@ -7,7 +7,10 @@
   box-sizing: border-box;
 }
 /* Скролл для товаров на десктопе */
-.cart-layout > div:first-child {
+.leftColumnt  {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   max-height: calc(3 * 180px + 2 * 16px); /* 3 карточки + gap */
   overflow-y: auto;
   padding-right: 8px;
@@ -15,10 +18,10 @@
 }
 
 /* Скролл для Chrome, Safari, Edge */
-.cart-layout > div:first-child::-webkit-scrollbar {
+.leftColumn ::-webkit-scrollbar {
   width: 6px;
 }
-.cart-layout > div:first-child::-webkit-scrollbar-thumb {
+.leftColumn ::-webkit-scrollbar-thumb {
   background-color: rgba(0,0,0,0.2);
   border-radius: 3px;
 }
@@ -35,6 +38,11 @@
    .cartLayout {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+   .leftColumn {
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
   }
 }
 
