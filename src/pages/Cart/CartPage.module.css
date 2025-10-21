@@ -18,10 +18,10 @@
 }
 
 /* Скролл для Chrome, Safari, Edge */
-.leftColumn ::-webkit-scrollbar {
+.leftColumn::-webkit-scrollbar {
   width: 6px;
 }
-.leftColumn ::-webkit-scrollbar-thumb {
+.leftColumn::-webkit-scrollbar-thumb {
   background-color: rgba(0,0,0,0.2);
   border-radius: 3px;
 }
@@ -42,6 +42,7 @@
    .leftColumn{
     max-height: none;
     overflow-y: visible;
+     padding-right: 0;
   }
 }
 
