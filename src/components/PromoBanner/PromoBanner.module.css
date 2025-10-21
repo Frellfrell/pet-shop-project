@@ -6,11 +6,8 @@
    background-repeat: no-repeat;
   display: flex;
   justify-content: flex-start;
-  /* выравниваем бокс по центру */
   align-items: center;
   position: relative;
-  /* прижимаем к верхнему краю 
-  padding: 80px 40px 0 40px;*/
  overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -34,13 +31,11 @@
   font-weight: 700;
   color: #fff;
   margin: 0;
-  /* текст на картинке */
 }
 
 
 .button:hover {
   background-color: rgba(0, 0, 0, 0.8);
-  /* чуть темнее при наведении */
 }
 @media (max-width: 1024px) {
   .banner {
@@ -82,7 +77,7 @@
   }
 }
 
-/* 📱 480px — маленькие смартфоны */
+/*  480px  */
 @media (max-width: 480px) {
   .banner {
     min-height: 320px;
