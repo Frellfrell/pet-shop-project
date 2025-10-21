@@ -48,6 +48,7 @@
   flex-grow: 1; 
   justify-content: space-between;
   width: 100%;
+   padding-bottom: 32px;
 }
 .cardImage {
   width: 100%;
