@@ -1,10 +1,26 @@
 .cartLayout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 400px; /* desktop: список + форма 400px */
+  grid-template-columns: minmax(0, 1fr) 400px; /* список + форма 400px */
   gap: 32px;
   align-items: flex-start;
   width: 100%;
   box-sizing: border-box;
+}
+/* Скролл для товаров на десктопе */
+.cart-layout > div:first-child {
+  max-height: calc(3 * 180px + 2 * 16px); /* 3 карточки + gap */
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin; /* Firefox */
+}
+
+/* Скролл для Chrome, Safari, Edge */
+.cart-layout > div:first-child::-webkit-scrollbar {
+  width: 6px;
+}
+.cart-layout > div:first-child::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 3px;
 }
 
 
@@ -29,5 +45,10 @@
     padding: 0 16px;
   }
   
+}
+@media (max-width: 468px) {
+  .cart-layout {
+    padding: 0 8px;
+  }
 }
 
