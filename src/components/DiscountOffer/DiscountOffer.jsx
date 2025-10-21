@@ -7,6 +7,7 @@ import { BASE_URL } from "../../constants";
 const DiscountOffer = () => {
   const [form, setForm] = useState({ name: "", phone: "", email: "" });
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const onChange = (e) => setForm((s) => ({ ...s, [e.target.name]: e.target.value }));
 
@@ -39,7 +40,7 @@ const DiscountOffer = () => {
         throw new Error(`Error ${resp.status}: ${text}`);
       }
 
-      alert("Заявка отправлена! Спасибо 🎉");
+      setSubmitted(true);
       setForm({ name: "", phone: "", email: "" });
     } catch (error) {
       setLoading(false);
@@ -147,19 +148,11 @@ const DiscountOffer = () => {
           />
           <button
             type="submit"
-            disabled={loading}
-            style={{
-              fontSize: "26px",
-              backgroundColor: colors.background,
-              color: colors.secondary,
-              border: `1px solid ${colors.background}`,
-              padding: `${spacing.sm} ${spacing.lg}`,
-              borderRadius: radii.small,
-              cursor: "pointer",
-              fontWeight: "600",
-            }}
+            disabled={loading || submitted}
+            className={`${styles.discountBtn} ${submitted ? styles.submitted : ""}`}
           >
-            {loading ? "Отправка..." : "Get a discount"}
+              {submitted ? "Request Submitted" : loading
+              ? "Sending..." : "Get a discount"}
           </button>
         </form>
       </div>
