@@ -53,6 +53,18 @@
   opacity: 0;
   transition: all 0.3s ease;
 }
+/* при наведении */
+.addToCartBtn:hover {
+  background-color: #000;
+}
+
+/* при добавлении */
+.added {
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #000;
+  cursor: not-allowed;
+}
 
 /* 👇 Кнопка появляется плавно при наведении */
 .card:hover .addToCartBtn {
