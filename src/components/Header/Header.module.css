@@ -72,13 +72,6 @@
   justify-content: center;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
-/*.cartItem {
-  position: absolute;
-  top: 0;  /* левый верхний угол корзины 
-  left: 0;
-  width: 26px;  
-  height: 26px;
-}*/
 
 @media (max-width: 768px) {
   .header {
@@ -115,7 +108,7 @@
   }
 }
 
-/* ----------- Очень узкие экраны (до 480px) ----------- */
+/* ----------- (до 480px) ----------- */
 @media (max-width: 480px) {
   .header {
     padding: 8px 12px;
