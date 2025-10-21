@@ -23,6 +23,8 @@ const ProductPage = () => {
 
   const [count, setCount] = useState(1);
  const [isExpanded, setIsExpanded] = useState(false);
+ const [added, setAdded] = useState(false);
+
   // Загружаем продукты и категории при монтировании
   useEffect(() => {
     dispatch(fetchProductById(id));
@@ -129,7 +131,13 @@ const ProductPage = () => {
                 <span>{count}</span>
                 <button onClick={handleIncrease}>+</button>
               </div>
-              <button className={styles.addBtn} style={button} onClick={() => addToCart(product, dispatch, count)}>Add to Cart</button>
+              <button className={`${styles.addBtn} ${added ? styles.added : ""}`} style={button} onClick={() => {
+        addToCart(product, dispatch, count);
+        setAdded(true);
+      }}
+      disabled={added}
+    >
+      {added ? "Added" : "Add to Cart"}</button>
             </div>
             <div className={styles.descriptionWrapper}>
               <h3>Description</h3>
