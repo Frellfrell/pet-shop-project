@@ -67,11 +67,13 @@
 .price {
   font-size: 44px;
   font-weight: bold;
+   line-height: 1;
 }
  .priceOld {
   text-decoration: line-through;
   font-size: 26px;
   color: #999; 
+  line-height: 1;
 }
 .divider {
    width: 832px;
