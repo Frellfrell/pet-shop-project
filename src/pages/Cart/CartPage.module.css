@@ -39,10 +39,9 @@
     grid-template-columns: 1fr;
     gap: 20px;
   }
-   .leftColumn {
+   .leftColumn{
     max-height: none;
     overflow-y: visible;
-    padding-right: 0;
   }
 }
 
