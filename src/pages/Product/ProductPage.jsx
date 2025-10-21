@@ -24,6 +24,7 @@ const ProductPage = () => {
   const [count, setCount] = useState(1);
  const [isExpanded, setIsExpanded] = useState(false);
  const [added, setAdded] = useState(false);
+ const [hover, setHover] = useState(false);
 
   // Загружаем продукты и категории при монтировании
   useEffect(() => {
@@ -131,11 +132,22 @@ const ProductPage = () => {
                 <span>{count}</span>
                 <button onClick={handleIncrease}>+</button>
               </div>
-              <button className={`${styles.addBtn} ${added ? styles.added : ""}`} style={button} onClick={() => {
+              <button className={styles.addBtn} style={{
+        ...button, // базовые размеры и шрифт из Style.js
+        backgroundColor: added
+          ? "#ffffff"
+          : hover
+          ? "#000000"
+          : button.backgroundColor,
+        color: added ? "rgba(13,80,255,1)" : "rgba(255,255,255,1)",
+        border: added ? `1px solid #0d50ff` : "none",
+      }} onClick={() => {
         addToCart(product, dispatch, count);
         setAdded(true);
       }}
       disabled={added}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
       {added ? "Added" : "Add to Cart"}</button>
             </div>
