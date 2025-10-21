@@ -28,8 +28,6 @@ const CartPage = () => {
     setCartItems(getCartItems());
   }, [cartCounter]);
 
-  //const isMobile = window.innerWidth < 1024;
-
   const handleSubmitOrder = async (customerData) => {
     try {
       const orderData = {
