@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 /* Скролл для товаров на десктопе */
-.leftColumnt  {
+.leftColumn {
   display: flex;
   flex-direction: column;
   gap: 16px;
