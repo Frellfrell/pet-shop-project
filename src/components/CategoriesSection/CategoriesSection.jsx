@@ -53,7 +53,7 @@ const CategoriesSection = ({ hideAllCategories = false, limit = 4 }) => {
                 padding: spacing.sm,
                 borderRadius: radii.small,
                 border: `1px solid ${colors.txtGrey}`,
-                paddingBottom: spacing.xs,
+                paddingBottom: spacing.sm,
               }}
             >
               All Categories

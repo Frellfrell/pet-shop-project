@@ -45,7 +45,7 @@ const Sales = () => {
               padding: spacing.sm,
               borderRadius: radii.small,
               border: `1px solid ${colors.txtGrey}`,
-              paddingBottom: spacing.xs,
+              paddingBottom: spacing.sm,
             }}
           >
             All Sales
