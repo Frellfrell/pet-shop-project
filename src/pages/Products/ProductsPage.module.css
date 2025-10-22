@@ -12,11 +12,14 @@
 /* Сетка карточек 3x4 */
 .cardsContainer {
   display: grid;
- grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  max-width: 100%;
-  box-sizing: border-box;
+ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 32px;
   justify-content: center;
+  
+}
+.cardsContainer > * {
+  max-width: 100%; 
+  box-sizing: border-box; /* padding + border внутри ширины */
 }
 
 /* Hover эффект карточек */
