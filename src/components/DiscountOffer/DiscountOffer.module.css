@@ -22,7 +22,7 @@
 
 /* Левая часть — изображение */
 .imageBox {
-  flex: 1;
+  /*flex: 1;*/
   display: flex;
    justify-content: flex-start; /* картинка прижата к левому краю */
   align-items: flex-end;
