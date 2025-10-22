@@ -2,6 +2,7 @@
   padding: 40px;
   margin: 0 auto;
   box-sizing: border-box;
+  max-width: 1440px;
 }
 
 .filterContainer {
@@ -11,8 +12,9 @@
 /* Сетка карточек 3x4 */
 .cardsContainer {
   display: grid;
- grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-
+ grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  max-width: 100%;
+  box-sizing: border-box;
   gap: 32px;
   justify-content: center;
 }
@@ -21,12 +23,7 @@
 .cardsContainer>* {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.cardsContainer a {
-  display: block;      /* чтобы занимал ровно размер карточки */
-  width: 100%;          /* подстраивается под родительский grid column */
-  height: auto;         /* подстраивается под содержимое */
-  text-decoration: none; /* убрать подчеркивание */
-}
+
 /* Состояния */
 .loading {
   font-size: 20px;
