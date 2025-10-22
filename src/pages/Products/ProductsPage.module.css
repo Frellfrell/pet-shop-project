@@ -21,6 +21,12 @@
 .cardsContainer>* {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+.cardsContainer a {
+  display: block;      /* чтобы занимал ровно размер карточки */
+  width: 100%;          /* подстраивается под родительский grid column */
+  height: auto;         /* подстраивается под содержимое */
+  text-decoration: none; /* убрать подчеркивание */
+}
 /* Состояния */
 .loading {
   font-size: 20px;
