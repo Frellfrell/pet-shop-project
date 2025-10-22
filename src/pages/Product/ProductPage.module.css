@@ -158,9 +158,6 @@
 
 /* после добавления — белая с надписью ADDED */
 .added {
-  background-color: #ffffff !important;
-  color: rgba(40,40,40,1) !important;
-  border: 1px solid rgba(40,40,40,1) !important;
   cursor: default;
 }
 
