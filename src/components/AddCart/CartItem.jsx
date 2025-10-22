@@ -1,20 +1,32 @@
 import React, { useState } from "react";
 import { Box, Typography, Paper } from "@mui/material";
 import styles from "./CartItem.module.css";
-import { removeFromCart } from "../../services/cartHelper";
+import { removeFromCart, updateCartQuantity } from "../../services/cartHelper";
 import { useDispatch } from "react-redux";
 
-const CartItem = ({ product, quantity }) => {
+const CartItem = ({ product, quantity, onChange }) => {
   const [count, setCount] = useState(quantity);
 
-  const handleIncrease = () => setCount(prev => prev + 1);
-  const handleDecrease = () => setCount(prev => (prev > 1 ? prev - 1 : 1));
+  const handleIncrease = () => {const newCount = count + 1;
+    setCount(newCount);
+    updateCartQuantity(product.id, newCount, dispatch);
+    if (onChange) onChange();
+  };
+  const handleDecrease = () => {
+    if (count > 1) {
+      const newCount = count - 1;
+      setCount(newCount);
+      updateCartQuantity(product.id, newCount, dispatch);
+      if (onChange) onChange();
+    }
+  };
 
   const dispatch = useDispatch();
 
 const handleRemove = () => {
    console.log("Removing product id:", product.id);
   removeFromCart(product.id, dispatch);
+   if (onChange) onChange();
 };
 
   return (
