@@ -68,7 +68,7 @@
   .cardsContainer {
     grid-template-columns: 1fr;
     gap: 16px; 
-  justify-content: center;
+  
 }
 
 }
