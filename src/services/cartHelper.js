@@ -25,16 +25,13 @@ export const countCartItems = () => {
   return existingCart.length
 
 }
-export const removeFromCart = (productId, newQuantity, dispatch) => {
+export const removeFromCart = (productId, dispatch) => {
   const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
 
   console.log("Удаляем товар с id:", productId);
   console.log("Корзина ДО:", existingCart);
   // Оставляем только те товары, у которых id не совпадает
-  const updatedCart = existingCart.map(entry =>
-    String(entry.item.id) === String(productId)
-      ? { ...entry, quantity: newQuantity }
-      : entry
+  const updatedCart = existingCart.filter( (entry) => String(entry.item.id) !== String(productId)
   );
 
 console.log("Корзина ПОСЛЕ:", updatedCart);
@@ -46,4 +43,21 @@ console.log("Корзина ПОСЛЕ:", updatedCart);
     dispatch(recalculateCart());
   }
    return updatedCart;
+};
+export const updateCartQuantity = (productId, newQuantity, dispatch) => {
+  const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const updatedCart = existingCart.map(entry =>
+    String(entry.item.id) === String(productId)
+      ? { ...entry, quantity: newQuantity }
+      : entry
+  );
+
+  localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+  if (dispatch) {
+    dispatch(recalculateCart());
+  }
+
+  return updatedCart;
 };
