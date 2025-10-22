@@ -12,7 +12,6 @@ import ProductsPage from "./pages/Products/ProductsPage";
 import DiscountsPage from "./pages/Discounts/DiscountsPage";
 import ProductPage from "./pages/Product/ProductPage";
 import CartPage from "./pages/Cart/CartPage";
-import SuccessPage from "./pages/CheckoutSuccess/SuccessPage";
 import NotFoundPage from "./pages/No/NotFoundPage";
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
           <Route path="/discounts" element={<DiscountsPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/success" element={<SuccessPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
