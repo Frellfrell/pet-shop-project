@@ -95,6 +95,7 @@ const CartPage = () => {
               key={item.item.id} 
               product={item.item} 
               quantity={item.quantity} 
+              onChange={() => setCartItems(getCartItems())}
               />
             ))
           )}
