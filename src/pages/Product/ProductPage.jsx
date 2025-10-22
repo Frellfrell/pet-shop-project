@@ -139,8 +139,8 @@ const ProductPage = () => {
           : hover
           ? "#000000"
           : button.backgroundColor,
-        color: added ? "rgba(13,80,255,1)" : "rgba(255,255,255,1)",
-        border: added ? `1px solid #0d50ff` : "none",
+        color: added ? "rgba(40,40,40,1)" : "rgba(255,255,255,1)",
+        border: added ? `1px solid rgba(40,40,40,1)` : "none",
       }} onClick={() => {
         addToCart(product, dispatch, count);
         setAdded(true);
