@@ -25,13 +25,16 @@ export const countCartItems = () => {
   return existingCart.length
 
 }
-export const removeFromCart = (productId, dispatch) => {
+export const removeFromCart = (productId, newQuantity, dispatch) => {
   const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
 
   console.log("Удаляем товар с id:", productId);
   console.log("Корзина ДО:", existingCart);
   // Оставляем только те товары, у которых id не совпадает
-  const updatedCart = existingCart.filter( (entry) => String(entry.item.id) !== String(productId)
+  const updatedCart = existingCart.map(entry =>
+    String(entry.item.id) === String(productId)
+      ? { ...entry, quantity: newQuantity }
+      : entry
   );
 
 console.log("Корзина ПОСЛЕ:", updatedCart);
